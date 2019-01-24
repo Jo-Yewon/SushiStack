@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.015877808, y: 0.042672507}
   m_AnchorMax: {x: 0.45000002, y: 0.933}
-  m_AnchoredPosition: {x: 0.31777954, y: 0.22254944}
+  m_AnchoredPosition: {x: 0.31778336, y: 0.22254944}
   m_SizeDelta: {x: -320.34, y: -131.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &83879591
@@ -840,6 +840,7 @@ MonoBehaviour:
   QLuckyCatNum: {fileID: 2043558441}
   QResultPop: {fileID: 1229287646}
   QtempPanel: {fileID: 188527535}
+  Timer: {fileID: 0}
 --- !u!114 &300836004
 MonoBehaviour:
   m_ObjectHideFlags: 0
