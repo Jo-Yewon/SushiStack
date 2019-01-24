@@ -34,7 +34,7 @@ public class DishFalling : MonoBehaviour
     {
         timerFall = 0f;
         GameObject dishInstance = Instantiate(dish, transform.position, transform.rotation) as GameObject;
-        dishInstance.transform.parent = parent;
+        dishInstance.transform.SetParent(parent,false);
         dishInstance.transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550/2, 0);
 
         Destroy(dishInstance, fallingSpeed);
