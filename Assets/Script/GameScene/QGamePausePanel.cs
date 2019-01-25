@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QGamePausePanel : MonoBehaviour
 {
@@ -17,8 +18,7 @@ public class QGamePausePanel : MonoBehaviour
 
     public void GoMainButtonClicked()
     {
-        //메인으로 scene 전환 코드
-        Debug.Log("GoMainButton 클릭");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void SettingClicked()
