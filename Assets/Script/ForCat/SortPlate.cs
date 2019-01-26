@@ -25,18 +25,31 @@ public class SortPlate : MonoBehaviour
     {
         GameObject Cat = GameObject.Find("MiddleCat");
         DragCat catmove = Cat.GetComponent<DragCat>();
+
+        GameObject Plate = this.gameObject;
+        DishFalling dishFalling = Plate.GetComponent<DishFalling>();
+
         if (catmove.firstPlate == 0&&collision.gameObject.CompareTag("CatCollider"))
         {
+            Debug.Log("TriggerEnter");
+
+            //this.gameObject.SetActive(false);
+            
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
+            
+            dishFalling.speed = 0;
             YPosition = transform.position.y;
             catmove.firstPlate = 1;
             count++;
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
+            
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
+            
+            dishFalling.speed = 0;
             YPosition = transform.position.y;
             count++;
         }

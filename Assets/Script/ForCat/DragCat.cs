@@ -60,10 +60,11 @@ public class DragCat : MonoBehaviour
                         rb.MovePosition(new Vector2(touchPos.x - CatPositionX, touchPos.y));
 
                         for (int i = 0; i < obj.Length; i++) {
-                            SortPlate plate = obj[i].GetComponent<SortPlate>();
+                            DishFalling plate = obj[i].GetComponent<DishFalling>();
+                            SortPlate plate2 = obj[i].GetComponent<SortPlate>();
 
-                            if (plate.rb.isKinematic == true) 
-                                plate.rb.MovePosition(new Vector2(touchPos.x - CatPositionX, plate.YPosition));
+                            if (plate.speed == 0)
+                                plate2.transform.localPosition=new Vector2(touchPos.x - CatPositionX, plate2.YPosition);
                             
                         }
                     }
