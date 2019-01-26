@@ -18,8 +18,15 @@ public class ItemFalling : MonoBehaviour
     
     public GameObject turtle;
     public GameObject gook;
-    
 
+    // 접시 떨어지는 코드 관련 변수
+    public static float timerFall = 0f;
+    float dishTimeBetweenFall = 2f;
+    public float speed = 0f;
+    public GameObject dish;
+    public static bool whichFall = true;
+    public static int sushi;
+    public int tmp;
     // Update is called once per frame
     void Update()
     {
@@ -59,6 +66,29 @@ public class ItemFalling : MonoBehaviour
             gook.transform.position = new Vector3(gook.transform.position.x, gook.transform.position.y - (500 * Time.deltaTime), 0);
 
         }
+
+        // 접시 또는 초밥 떨어뜨리기
+        timerFall += Time.deltaTime;    // 시간 재기
+        if(timerFall > dishTimeBetweenFall) // 일정한 간격마다 접시 또는 초밥을 떨어뜨림
+        {
+            float choose = Random.Range(-1f, 1f);   // 접시와 초밥 중 선택
+            if(choose < 0)
+            {
+                whichFall = false;
+                sushi = (int)Random.Range(1f, 3f);
+                tmp = sushi;
+                DishFalling.speed = 0;
+            }
+            else
+            {
+                DishFalling.speed = 2550 / DishFalling.fallingSpeed;
+                whichFall = true;
+                DishFalling.falling = false;
+            }
+            timerFall = 0f;
+        }
+        
+
 
     }
 

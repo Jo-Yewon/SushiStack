@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class SushiFalling : MonoBehaviour
 {
-    public float timeBetweenFall = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
-        //timeBetweenFall = Random.Range(6f, 15f);
-    }
 
-    public float timerFall = 0f;
+    }
+    float timerFall = 0f;
+    public int sushinum;
     public float speed = 0f;
+    public bool falling = false;
     
 
     // Update is called once per frame
     void Update()
     {
-        timerFall += Time.deltaTime;
-        if (timerFall > timeBetweenFall)
-        {
-            Fall();
-        }
         speed = 2550 / DishFalling.fallingSpeed;
-        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
+        if (!ItemFalling.whichFall&&!falling)
+        {
+            if (ItemFalling.sushi == sushinum)
+            {
+                Fall();
+                falling = true;
+            }
+        }
+        if (falling)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
+            timerFall += Time.deltaTime;
+            if (timerFall > 7f)
+                falling = false;
+        }
     }
 
-    void Fall()
+    public void Fall()
     {
         timerFall = 0f;
-        //timeBetweenFall = Random.Range(6f, 15f);
         transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550 / 2, 0);
     }
 }

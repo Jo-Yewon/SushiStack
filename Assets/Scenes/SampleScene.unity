@@ -2003,9 +2003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenFall: 2
-  timerFall: 0
+  sushinum: 1
   speed: 0
+  falling: 0
 --- !u!114 &721787050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,9 +2862,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenFall: 2
-  timerFall: 0
+  sushinum: 2
   speed: 0
+  falling: 0
 --- !u!114 &936786711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3790,6 +3790,9 @@ MonoBehaviour:
   temp: 0
   turtle: {fileID: 953907152}
   gook: {fileID: 2034424122}
+  speed: 0
+  dish: {fileID: 0}
+  tmp: 0
   parent: {fileID: 0}
   fallingSpeed: 7
 --- !u!114 &1183229819
@@ -4862,7 +4865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add63a11aa781d94f8d4a8b3449400f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenFall: 2
   speed: 0
   dish: {fileID: 6608647158747189726, guid: 4e23c77818562d44f8076b93279141c7, type: 3}
   parent: {fileID: 1183229817}
@@ -5777,9 +5779,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenFall: 2
-  timerFall: 0
+  sushinum: 3
   speed: 0
+  falling: 0
 --- !u!114 &2016001631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6409,6 +6411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294337311530161706, guid: fda6b70275b52c24fbbcdcbe06fa778a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7294337311530161709, guid: fda6b70275b52c24fbbcdcbe06fa778a,
         type: 3}
