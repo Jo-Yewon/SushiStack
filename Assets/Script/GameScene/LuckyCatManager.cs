@@ -11,18 +11,20 @@ public class LuckyCatManager : MonoBehaviour
     public GameObject Timer;
 
     private int GameOverTime; //게임오버 회수가 늘면 행운의 고양이도 많이 사용
+    private int NeedLuckyCat;
 
     void Awake()
     {
         GameOverTime = 0;
+        NeedLuckyCat = 1;
     }
     // Start is called before the first frame update
 
     void OnEnable()
     {
         Time.timeScale = 0;
-        GameOverTime++;
-        QLuckyCatNum.GetComponent<Text>().text = GameOverTime.ToString();
+        NeedLuckyCat += GameOverTime++;
+        QLuckyCatNum.GetComponent<Text>().text = NeedLuckyCat.ToString();
         //이 팝업이 뜰때는 게임을 일시중지
     }
 

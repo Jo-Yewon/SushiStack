@@ -7,18 +7,17 @@ public class QMainScene : MonoBehaviour
 {
     public void GameStartButtonClicked()
     {
-        Debug.Log("GameStartButtonClick");
         SceneManager.LoadScene("SampleScene");
     }
 
     public void StoreButtonClicked()
     {
-
+        SceneManager.LoadScene("StoreScene");
     }
 
     public void CollectionButtonClicked()
     {
-
+        SceneManager.LoadScene("CollectionScene");
     }
 
     public void SettingButtonClicked()

@@ -21,11 +21,17 @@ public class PlayerDataLoad : MonoBehaviour
         public static int[] AchievementScore =
             {0,1000,2000,3000}; //칭호 언락 기준 점수
 
+        public int coin;
+
+        public int item_luckycat_num;
+
         //초기 데이터 생성, 사용자가 첫 게임 시작 한번만.
         public PlayerData()
         {
             MaxScore = 0;
             AchievementIndex = 0;
+            coin = 0;
+            item_luckycat_num = 0;
         }
 
         public bool IsMaxScore(int newscore)
