@@ -1627,7 +1627,7 @@ PrefabInstance:
     - target: {fileID: 4136956521957279596, guid: 4e23c77818562d44f8076b93279141c7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 4136956521957279596, guid: 4e23c77818562d44f8076b93279141c7,
         type: 3}
@@ -2004,7 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 0
+  sushinum: 1
   speed: 0
   falling: 0
 --- !u!114 &721787050
@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 0
+  sushinum: 2
   speed: 0
   falling: 0
 --- !u!114 &936786711
@@ -3867,9 +3867,7 @@ MonoBehaviour:
   turtle: {fileID: 953907152}
   gook: {fileID: 2034424122}
   speed: 0
-  dish: {fileID: 0}
   tmp: 0
-  parent: {fileID: 0}
   fallingSpeed: 7
 --- !u!114 &1183229819
 MonoBehaviour:
@@ -4941,6 +4939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add63a11aa781d94f8d4a8b3449400f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   dish: {fileID: 6608647158747189726, guid: 4e23c77818562d44f8076b93279141c7, type: 3}
   parent: {fileID: 1183229817}
 --- !u!61 &1454733303
@@ -5854,7 +5853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 0
+  sushinum: 3
   speed: 0
   falling: 0
 --- !u!114 &2016001631

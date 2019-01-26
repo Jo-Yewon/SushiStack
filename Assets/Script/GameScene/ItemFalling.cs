@@ -23,7 +23,6 @@ public class ItemFalling : MonoBehaviour
     public static float timerFall = 0f;
     float dishTimeBetweenFall = 2f;
     public float speed = 0f;
-    public GameObject dish;
     public static bool whichFall = true;
     public static int sushi;
     public int tmp;
@@ -71,17 +70,19 @@ public class ItemFalling : MonoBehaviour
         timerFall += Time.deltaTime;    // 시간 재기
         if(timerFall > dishTimeBetweenFall) // 일정한 간격마다 접시 또는 초밥을 떨어뜨림
         {
+            //GameObject Plate = this.gameObject;
+            //DishFalling dishFalling = Plate.GetComponent<DishFalling>();
             float choose = Random.Range(-1f, 1f);   // 접시와 초밥 중 선택
             if(choose < 0)
             {
                 whichFall = false;
                 sushi = (int)Random.Range(1f, 3f);
                 tmp = sushi;
-                DishFalling.speed = 0;
+                //dishFalling.speed = 0;
             }
             else
             {
-                DishFalling.speed = 2550 / DishFalling.fallingSpeed;
+                //dishFalling.speed = 2550 / DishFalling.fallingSpeed;
                 whichFall = true;
                 DishFalling.falling = false;
             }
@@ -92,7 +93,6 @@ public class ItemFalling : MonoBehaviour
 
     }
 
-    public Transform parent;
     public float fallingSpeed = 7f;
 
     void turtlePower()

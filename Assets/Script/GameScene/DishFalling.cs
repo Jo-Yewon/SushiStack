@@ -12,7 +12,7 @@ public class DishFalling : MonoBehaviour
 
     public static float timerFall = 0f;
     public static float fallingSpeed = 7f;
-    public static float speed = 0f;
+    public float speed = 0f;
     public GameObject dish;
     public static bool falling = true;
 
@@ -39,6 +39,6 @@ public class DishFalling : MonoBehaviour
         dishInstance.transform.SetParent(parent,false);
         dishInstance.transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550/2, 0);
 
-        Destroy(dishInstance, fallingSpeed);
+        //Destroy(dishInstance, fallingSpeed);
     }
 }
