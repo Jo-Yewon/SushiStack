@@ -19,7 +19,6 @@ public class QMainScene : MonoBehaviour
 
     public void StoreButtonClicked()
     {
-
     }
 
     public void CollectionButtonClicked()
