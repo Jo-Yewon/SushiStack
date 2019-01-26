@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7653433341628975915}
   m_Layer: 0
   m_Name: greenDish
-  m_TagString: Untagged
+  m_TagString: Plate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

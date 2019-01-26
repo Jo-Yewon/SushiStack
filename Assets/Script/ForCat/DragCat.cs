@@ -27,7 +27,6 @@ public class DragCat : MonoBehaviour
     void Update()
     {
         GameObject catcollider = GameObject.Find("CatCollider");
-        GameObject Plates = GameObject.FindGameObjectWithTag("Plate");
         GameObject[] obj = GameObject.FindGameObjectsWithTag("Plate");
 
         
@@ -60,12 +59,11 @@ public class DragCat : MonoBehaviour
                         rb.MovePosition(new Vector2(touchPos.x - CatPositionX, touchPos.y));
 
                         for (int i = 0; i < obj.Length; i++) {
-                            DishFalling plate = obj[i].GetComponent<DishFalling>();
-                            SortPlate plate2 = obj[i].GetComponent<SortPlate>();
+                            SortPlate plate = obj[i].GetComponent<SortPlate>();
 
-                            if (plate.speed == 0)
-                                plate2.transform.localPosition=new Vector2(touchPos.x - CatPositionX, plate2.YPosition);
-                            
+                            if (plate.rb.isKinematic==true)
+                                plate.rb.MovePosition(new Vector2(touchPos.x - CatPositionX, plate.YPosition));
+
                         }
                     }
                     break;
