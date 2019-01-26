@@ -6,19 +6,16 @@ public class TimeContainer : MonoBehaviour
 {
     public GameObject stageCutton;
 
-    private Animation timeContainerAnim;
     private Animation stageCuttonAnim;
 
     void Awake()
     {
-        timeContainerAnim = gameObject.GetComponent<Animation>();
         stageCuttonAnim = stageCutton.GetComponent<Animation>();
     }
 
     void Start()
     {
-        Debug.Log("Start");
-        timeContainerAnim.Play("TimeContainerAnim"); //애니메이션 다시 재생이 안돼여,,
+        Time.timeScale = 1;
     }
 
     void StageCuttonDownUP()
