@@ -1,25 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerDataLoad
+public class PlayerDataLoad : MonoBehaviour
 {
-    public static PlayerData playerdata;
+    public static PlayerData playerdata; //게임 전체에서 PlayerData가 담기는 곳.
 
+    [Serializable]
     public class PlayerData
     {
-        private int MaxScore; //최고점수
-        private int AchievementIndex; //칭호(?) 열리는거
-        private int SushiIndex; //스시 언락하는거
+        public int MaxScore; //최고점수
 
-        private int coin; //사용자코인보유
-        private int itemTurtle;
-        private int itemLuckyCat;
-        private int itemSoup;
-
-        private static string []AchievementString =
+        public int AchievementIndex; //칭호(?) 열리는거
+        public static string []AchievementString =
             {"칭호1", "칭호2", "칭호3", "칭호4"}; //칭호 문자열
-        private static int[] AchievementScore =
+        public static int[] AchievementScore =
             {0,1000,2000,3000}; //칭호 언락 기준 점수
 
         //초기 데이터 생성, 사용자가 첫 게임 시작 한번만.
@@ -27,15 +26,11 @@ public class PlayerDataLoad
         {
             MaxScore = 0;
             AchievementIndex = 0;
-            SushiIndex = -1;
-            coin = 0;
-            itemTurtle = 0;
-            itemLuckyCat = 0;
-            itemSoup = 0;
         }
 
         public bool IsMaxScore(int newscore)
         {
+            //기존 최고기록 경신된다면, true 반환
             if (newscore > MaxScore)
             {
                 MaxScore = newscore;
@@ -43,12 +38,52 @@ public class PlayerDataLoad
             }
             else return false;
         }
+
+        public bool IsUnlockAchievement(int newscore)
+        {
+            //다음 칭호 unlock 조건에 부합하면 unlock 후 true 반환
+            if (newscore> AchievementScore[AchievementIndex + 1])
+            {
+                AchievementIndex++;
+                return true;
+            }
+            return false;
+        }
     }
 
+    public static void SaveData()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+
+        bf.Serialize(file, playerdata);
+        file.Close();
+    }
+
+    public void LoadData()
+    {
+        try { 
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat",FileMode.Open);
+
+        if (file != null && file.Length > 0) //기존 데이터가 존재할 경우
+                playerdata = (PlayerData)bf.Deserialize(file);
+        }catch(Exception e) //첫 접속일 경우
+        {
+            playerdata = new PlayerData();
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        playerdata = new PlayerData();
+        LoadData();
+        StartCoroutine("GoMainScene");
     }
 
+    IEnumerator GoMainScene() //2초 후에 mainScene으로 자동 전환
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("MainScene");
+    }
 }

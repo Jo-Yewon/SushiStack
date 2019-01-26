@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class QMainScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void GameStartButtonClicked()
     {
         Debug.Log("GameStartButtonClick");
@@ -19,6 +13,7 @@ public class QMainScene : MonoBehaviour
 
     public void StoreButtonClicked()
     {
+
     }
 
     public void CollectionButtonClicked()
