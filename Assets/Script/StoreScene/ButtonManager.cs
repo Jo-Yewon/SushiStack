@@ -38,6 +38,7 @@ public class ButtonManager : MonoBehaviour
             {
                 playerdata.item_luckycat_num++;
                 playerdata.coin -= LuckyCatPrice;
+                PlayerDataLoad.SaveData();
             }
             else
             {
