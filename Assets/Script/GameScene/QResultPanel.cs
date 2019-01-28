@@ -15,11 +15,13 @@ public class QResultPanel : MonoBehaviour
     }
     public void RetryButtonClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
 
     public void HomeButtonClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
     }
 

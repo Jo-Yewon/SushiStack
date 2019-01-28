@@ -13,11 +13,6 @@ public class TimeContainer : MonoBehaviour
         stageCuttonAnim = stageCutton.GetComponent<Animation>();
     }
 
-    void Start()
-    {
-        Time.timeScale = 1;
-    }
-
     void StageCuttonDownUP()
     {
         stageCuttonAnim.Play("StageCuttonDownAnim");
