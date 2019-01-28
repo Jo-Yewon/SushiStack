@@ -13,12 +13,14 @@ public class DragCat : MonoBehaviour
     public bool moveAllowed = false;
 
     public int firstPlate = 0;
+
+    public int DishCount = 0;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         firstPlate = 0;
-
+        DishCount = 0;
         
    
     }
@@ -28,7 +30,6 @@ public class DragCat : MonoBehaviour
     {
         GameObject catcollider = GameObject.Find("CatCollider");
         GameObject[] obj = GameObject.FindGameObjectsWithTag("Plate");
-
         
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
