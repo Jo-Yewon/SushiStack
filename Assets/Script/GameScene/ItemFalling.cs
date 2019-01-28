@@ -78,7 +78,6 @@ public class ItemFalling : MonoBehaviour
                 whichFall = false;
                 sushi = (int)Random.Range(1f, 3f);
                 tmp = sushi;
-                //dishFalling.speed = 0;
             }
             else
             {

@@ -19,7 +19,7 @@ public class SushiFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = 2550 / DishFalling.fallingSpeed;
+        speed = 2140 / DishFalling.fallingSpeed;
         if (!ItemFalling.whichFall&&!falling)
         {
             if (ItemFalling.sushi == sushinum)
@@ -32,7 +32,7 @@ public class SushiFalling : MonoBehaviour
         {
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
             timerFall += Time.deltaTime;
-            if (timerFall > 7f)
+            if (timerFall > DishFalling.fallingSpeed)
                 falling = false;
         }
     }
