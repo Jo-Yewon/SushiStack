@@ -18,6 +18,7 @@ public class QGamePausePanel : MonoBehaviour
 
     public void GoMainButtonClicked()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
     }
 
