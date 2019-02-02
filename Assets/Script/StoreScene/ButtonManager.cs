@@ -9,9 +9,10 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-
     public GameObject LuckyCatGraphic;
     public GameObject LuckyCatTag;
+    public GameObject MyStoreCoinItemNumManager;
+    public GameObject CoinLackText;
 
     private static int LuckyCatPrice = 1000;
     private PlayerDataLoad.PlayerData playerdata;
@@ -41,10 +42,11 @@ public class ButtonManager : MonoBehaviour
                 playerdata.item_luckycat_num++;
                 playerdata.coin -= LuckyCatPrice;
                 PlayerDataLoad.SaveData();
+                MyStoreCoinItemNumManager.GetComponent<StoreCoinItemNumManager>().UpdateCoinItemNum();
             }
             else
             {
-                Debug.Log("코인이 모자람");
+                CoinLackText.SetActive(true);
             }
         }
         catch (Exception e) { }
