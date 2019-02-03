@@ -86,12 +86,5 @@ public class PlayerDataLoad : MonoBehaviour
     void Start()
     {
         LoadData();
-        StartCoroutine("GoMainScene");
-    }
-
-    IEnumerator GoMainScene() //2초 후에 mainScene으로 자동 전환
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("MainScene");
     }
 }
