@@ -16,6 +16,8 @@ public class PlayerDataLoad : MonoBehaviour
     public class PlayerData
     {
         public int MaxScore; //최고점수
+        public int MaxSushi;
+        public int MaxGuest;
 
         public int AchievementIndex; //칭호(?) 열리는거
         public static string []AchievementString =

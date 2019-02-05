@@ -9,9 +9,13 @@ using UnityEngine.UI;
 public class AchievementsSystem : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        //칭호 업데이트
+        AchievementUpdate();
+    }
+
+    public void AchievementUpdate()
+    {
         try
         {
             gameObject.GetComponent<Text>().text = PlayerDataLoad.PlayerData.AchievementString[PlayerDataLoad.playerdata.AchievementIndex];

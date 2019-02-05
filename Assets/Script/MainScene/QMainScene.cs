@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class QMainScene : MonoBehaviour
 {
+    public GameObject SettingPanel;
+
     public void GameStartButtonClicked()
     {
         SceneManager.LoadScene("SampleScene");
@@ -22,7 +24,7 @@ public class QMainScene : MonoBehaviour
 
     public void SettingButtonClicked()
     {
-
+        SettingPanel.SetActive(true);
     }
 
     public void NameEditButtonClicked()

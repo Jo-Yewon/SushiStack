@@ -8,6 +8,7 @@ TagManager:
   - Plate
   - CatCollider
   - PlateCollider
+  - Achievement
   layers:
   - Default
   - TransparentFX
