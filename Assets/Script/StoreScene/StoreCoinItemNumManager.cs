@@ -10,8 +10,8 @@ public class StoreCoinItemNumManager : MonoBehaviour
 
     public void UpdateCoinItemNum()
     {
-        CoinText.GetComponent<Text>().text = "x "+PlayerDataLoad.playerdata.coin.ToString();
-        LuckyCatNumText.GetComponent<Text>().text = "x "+PlayerDataLoad.playerdata.item_luckycat_num.ToString();
+        CoinText.GetComponent<Text>().text = PlayerDataLoad.playerdata.coin.ToString();
+        LuckyCatNumText.GetComponent<Text>().text = PlayerDataLoad.playerdata.item_luckycat_num.ToString();
     }
 
     public void Start()
