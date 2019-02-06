@@ -30,7 +30,6 @@ public class Timer30s : MonoBehaviour
         cuttonDownAnim.Play(); //커튼 내려오기
         left.value = 0;
         right.value = 0;
-        cuttonDownAnim.Play("StageCuttonUp");
         InitStage();
         StartCoroutine("TimeCount");
     }

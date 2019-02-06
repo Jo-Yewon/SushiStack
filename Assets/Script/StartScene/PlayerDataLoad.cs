@@ -16,26 +16,30 @@ public class PlayerDataLoad : MonoBehaviour
     public class PlayerData
     {
         public int MaxScore; //최고점수
-        public int MaxSushi;
-        public int MaxGuest;
+        public int MaxSushi; //최고초밥 기록
+        public int MaxGuest; //최고 손님수 기록
 
         public int AchievementIndex; //칭호(?) 열리는거
         public static string []AchievementString =
-            {"칭호1", "칭호2", "칭호3", "칭호4"}; //칭호 문자열
+            {"길냥이", "견습생 고양이", "초보 요리사", "숙련된 요리사",
+        "초보 주방장","숙련된 주방장", "오성급 쉐프","스타 쉐프", "초밥 장인", "초밥왕"}; //칭호 문자열
         public static int[] AchievementScore =
-            {0,1000,2000,3000}; //칭호 언락 기준 점수
+            {0,1000,2000,3000,4000,5000,6000,7000,8000,9000,}; //칭호 언락 기준 점수
 
         public int coin;
-
-        public int item_luckycat_num;
+        public int item_luckycat_num; //행운의 고양이 개수
+        public String storeName;
 
         //초기 데이터 생성, 사용자가 첫 게임 시작 한번만.
         public PlayerData()
         {
             MaxScore = 0;
+            MaxSushi = 0;
+            MaxGuest = 0;
             AchievementIndex = 0;
             coin = 0;
             item_luckycat_num = 0;
+            storeName = "붓 버튼을 눌러 가게 이름을 설정해주세요";
         }
 
         public bool IsMaxScore(int newscore)
