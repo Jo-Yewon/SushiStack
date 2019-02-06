@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class QMainScene : MonoBehaviour
 {
     public GameObject SettingPanel;
+    public GameObject StoreInfoPanel;
 
     public void GameStartButtonClicked()
     {
@@ -29,6 +30,6 @@ public class QMainScene : MonoBehaviour
 
     public void NameEditButtonClicked()
     {
-
+        StoreInfoPanel.SetActive(true);
     }
 }

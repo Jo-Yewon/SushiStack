@@ -9,9 +9,22 @@ using UnityEngine.UI;
 public class AchievementStoreManager : MonoBehaviour
 {
     public GameObject storeName;
+    public GameObject storeName_nameedit;
     public GameObject Achievement;
+    public GameObject Achievement_nameedit;
+    public GameObject StarSystem;
 
-    // Start is called before the first frame update
+    private GameObject []StarArray;
+    private int achievementStar;
+
+    void Start()
+    {
+        achievementStar = -1;
+        StarArray = new GameObject[5];
+        for (int i = 0; i < 5; i++)
+            StarArray[i] = StarSystem.transform.GetChild(i).gameObject;
+    }
+
     void OnEnable()
     {
         LoadStoreName();
@@ -23,8 +36,11 @@ public class AchievementStoreManager : MonoBehaviour
         try
         {
             String temp = PlayerDataLoad.playerdata.storeName;
-            storeName.GetComponent<Text>().fontSize = 880/ temp.Length;
+            int fontSize_temp = 880 / temp.Length;
+            storeName.GetComponent<Text>().fontSize = fontSize_temp;
             storeName.GetComponent<Text>().text = temp;
+            storeName_nameedit.GetComponent<Text>().fontSize = fontSize_temp;
+            storeName_nameedit.GetComponent<Text>().text = temp;
         }
         catch (Exception e) { }
     }
@@ -33,8 +49,19 @@ public class AchievementStoreManager : MonoBehaviour
     {
         try
         {
-            String temp = PlayerDataLoad.PlayerData.AchievementString[PlayerDataLoad.playerdata.AchievementIndex];
-            Achievement.GetComponent<Text>().text = temp;
+            int achieveIndex = PlayerDataLoad.playerdata.AchievementIndex;
+            String temp = PlayerDataLoad.PlayerData.AchievementString[achieveIndex];
+
+            Achievement.GetComponent<Text>().text = temp; //현판 칭호 변경
+            Achievement_nameedit.GetComponent<Text>().text = temp; //NameEdit패널 칭호 변경
+            Achievement_nameedit.GetComponent<AchivementCase>().ResizeQuotes();
+
+            //별 개수 변경
+            achieveIndex /= 2;
+            if (achievementStar != -1)
+                StarArray[achievementStar].SetActive(false);
+            StarArray[achieveIndex].SetActive(true);
+            achievementStar = achieveIndex;
         }
         catch (Exception e) { }
     }
