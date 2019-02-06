@@ -6,7 +6,9 @@ public class DragCat : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float CatPositionX;
+    public float CatPositionX, FirstYPosition;
+
+    public int Modenumber;
 
     Rigidbody2D rb;
 
@@ -21,7 +23,6 @@ public class DragCat : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         firstPlate = 0;
         DishCount = 0;
-        
    
     }
 
@@ -29,8 +30,9 @@ public class DragCat : MonoBehaviour
     void Update()
     {
         GameObject catcollider = GameObject.Find("CatCollider");
-        GameObject[] obj = GameObject.FindGameObjectsWithTag("Plate");
-        
+        GameObject[] Gobj = GameObject.FindGameObjectsWithTag("GreenPlate");
+        GameObject[] Bobj = GameObject.FindGameObjectsWithTag("BluePlate");
+        GameObject[] Robj = GameObject.FindGameObjectsWithTag("RedPlate");
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
@@ -59,10 +61,26 @@ public class DragCat : MonoBehaviour
 
                         rb.MovePosition(new Vector2(touchPos.x - CatPositionX, touchPos.y));
 
-                        for (int i = 0; i < obj.Length; i++) {
-                            SortPlate plate = obj[i].GetComponent<SortPlate>();
+                        for (int i = 0; i < Gobj.Length; i++) {
+                            GreenPlate plate = Gobj[i].GetComponent<GreenPlate>();
 
                             if (plate.rb.isKinematic==true)
+                                plate.rb.MovePosition(new Vector2(touchPos.x - CatPositionX, plate.YPosition));
+
+                        }
+                        for (int i = 0; i < Bobj.Length; i++)
+                        {
+                            BluePlate plate = Bobj[i].GetComponent<BluePlate>();
+
+                            if (plate.rb.isKinematic == true)
+                                plate.rb.MovePosition(new Vector2(touchPos.x - CatPositionX, plate.YPosition));
+
+                        }
+                        for (int i = 0; i < Robj.Length; i++)
+                        {
+                            RedPlate plate = Robj[i].GetComponent<RedPlate>();
+
+                            if (plate.rb.isKinematic == true)
                                 plate.rb.MovePosition(new Vector2(touchPos.x - CatPositionX, plate.YPosition));
 
                         }

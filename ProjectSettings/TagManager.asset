@@ -9,6 +9,9 @@ TagManager:
   - CatCollider
   - PlateCollider
   - Achievement
+  - GreenPlate
+  - BluePlate
+  - RedPlate
   layers:
   - Default
   - TransparentFX
