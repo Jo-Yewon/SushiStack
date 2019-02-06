@@ -17,7 +17,7 @@ public class AchievementStoreManager : MonoBehaviour
     private GameObject []StarArray;
     private int achievementStar;
 
-    void Start()
+    void Awake()
     {
         achievementStar = -1;
         StarArray = new GameObject[5];
@@ -63,6 +63,8 @@ public class AchievementStoreManager : MonoBehaviour
             StarArray[achieveIndex].SetActive(true);
             achievementStar = achieveIndex;
         }
-        catch (Exception e) { }
+        catch (Exception e) {
+            Debug.Log(e.Message);
+        }
     }
 }
