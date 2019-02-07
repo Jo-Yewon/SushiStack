@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameScript : MonoBehaviour
 {
-
+    public GameObject LuckyCatItemPanel;
     public int Score;
 
     public bool GameIsOver = false;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         GameObject Cat = GameObject.Find("MovingCat");
         DragCat catmove = Cat.GetComponent<DragCat>();
@@ -54,8 +54,7 @@ public class GameScript : MonoBehaviour
         Score = catmove.DishCount * 10;
 
         if (GameIsOver == true) {
-            //GameOver
-            Debug.Log("Gameisover");
+            LuckyCatItemPanel.SetActive(true);
         }
 
     }

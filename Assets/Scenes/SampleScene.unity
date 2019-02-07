@@ -4713,6 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5404849be56800d4eaad21cd91d5b147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LuckyCatItemPanel: {fileID: 1086327963}
   Score: 0
   GameIsOver: 0
 --- !u!1 &1490084008
