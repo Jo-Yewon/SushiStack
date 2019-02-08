@@ -12,25 +12,30 @@ public class Timer30s : MonoBehaviour
     
     private static float perSecond=0.03333333f;
 
-    // Start is called before the first frame update
     void Start()
-    {
+    { 
         cuttonDownAnim = stageCutton.GetComponent<Animation>();
         StartCoroutine("TimeCount");
     }
 
     IEnumerator TimeCount()
     {
-        for(int i = 0; i < 30; i++)
+        left.value = 1;
+        right.value = 1;
+        for (int i = 0; i < 30; i++)
         {
             yield return new WaitForSeconds(1f);
-            left.value += perSecond;
-            right.value += perSecond;
+            left.value -= perSecond;
+            right.value -= perSecond;
         }
-        cuttonDownAnim.Play(); //커튼 내려오기
-        left.value = 0;
-        right.value = 0;
-        InitStage();
+        cuttonDownAnim.Play("CuttonDown");
+        Invoke("NewRound", 1f); //1초 후에 커튼 올리기
+        InitStage(); //스테이지 초기화 함수
+    }
+
+    public void NewRound()
+    {
+        cuttonDownAnim.Play("CuttonUp");
         StartCoroutine("TimeCount");
     }
 

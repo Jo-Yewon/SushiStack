@@ -4207,8 +4207,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2323.8}
-  m_SizeDelta: {x: 0, y: 452.6001}
+  m_AnchoredPosition: {x: 0, y: 2560}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &1273511504
 Animation:
@@ -4219,9 +4219,10 @@ Animation:
   m_GameObject: {fileID: 1273511502}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 31bf8bdfbc3e2764287d2f7c2be5f386, type: 2}
+  m_Animation: {fileID: 7400000, guid: 1c24dfdf7272559428e882aa336bb475, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 31bf8bdfbc3e2764287d2f7c2be5f386, type: 2}
+  - {fileID: 7400000, guid: 1c24dfdf7272559428e882aa336bb475, type: 2}
+  - {fileID: 7400000, guid: 697d3a1dc07b10f48b7c5489b8e9fca4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 1
@@ -4246,7 +4247,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9539a9441db377f43a00b9baa75bb5f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15c427440243d9c489fc37b7383cd888, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
