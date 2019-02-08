@@ -25,7 +25,6 @@ public class ButtonManager : MonoBehaviour
         }
         catch (Exception e) { }
         LuckyCatGraphic.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
-        LuckyCatTag.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
     }
 
     public void BackButtonClicked()

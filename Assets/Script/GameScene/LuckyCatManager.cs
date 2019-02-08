@@ -7,23 +7,27 @@ public class LuckyCatManager : MonoBehaviour
 {
     public GameObject QLuckyCatNum;
     public GameObject QResultPop;
-    public GameObject QtempPanel;
     public GameObject MyLuckyCatNum;
+    public GameObject MyLuckyCat_Top;
+    public GameObject gameManager;
 
     private int GameOverTime; //게임오버 회수가 늘면 행운의 고양이도 많이 사용
     private int NeedLuckyCat;
-    private Text QLuckyCatNumText;
+    private Text NeedLuckyCatNumText;
     private Text MyLuckyCatNumText;
+    private Text MyLuckyCat_TopText;
 
     void Awake()
     {
         GameOverTime = 0;
         NeedLuckyCat = 1;
 
-        QLuckyCatNumText = QLuckyCatNum.GetComponent<Text>();
+        NeedLuckyCatNumText = QLuckyCatNum.GetComponent<Text>();
         MyLuckyCatNumText = MyLuckyCatNum.GetComponent<Text>();
+        MyLuckyCat_TopText = MyLuckyCat_Top.GetComponent<Text>();
+
+        LoadLuckyCatNumTop(); //게임 상단 아이템 개수 로딩
     }
-    // Start is called before the first frame update
 
     void OnEnable()
     {
@@ -35,8 +39,13 @@ public class LuckyCatManager : MonoBehaviour
             LuckyCatNo();
 
         MyLuckyCatNumText.text = "(보유 : " + PlayerDataLoad.playerdata.item_luckycat_num + "개)";
-        QLuckyCatNumText.text = NeedLuckyCat.ToString();
+        NeedLuckyCatNumText.text = NeedLuckyCat.ToString();
         //이 팝업이 뜰때는 게임을 일시중지
+    }
+
+    public void LoadLuckyCatNumTop()
+    {
+        MyLuckyCat_TopText.text = PlayerDataLoad.playerdata.item_luckycat_num.ToString();
     }
 
     public void LuckyCatYes()
@@ -46,8 +55,10 @@ public class LuckyCatManager : MonoBehaviour
         PlayerDataLoad.playerdata.item_luckycat_num -= NeedLuckyCat;
         PlayerDataLoad.SaveData();//아이템 쓰고 데이터 저장
 
+        LoadLuckyCatNumTop(); //게임 상단 아이템 개수도 업데이트
+
+        gameManager.GetComponent<GameScript>().GameIsOver = false;
         Time.timeScale = 1;
-        QtempPanel.SetActive(true);
         gameObject.SetActive(false);
     }
 
