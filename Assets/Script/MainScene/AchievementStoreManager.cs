@@ -13,6 +13,7 @@ public class AchievementStoreManager : MonoBehaviour
     public GameObject Achievement;
     public GameObject Achievement_nameedit;
     public GameObject StarSystem;
+    public GameObject NameEditPanel;
 
     private GameObject []StarArray;
     private int achievementStar;
@@ -66,5 +67,10 @@ public class AchievementStoreManager : MonoBehaviour
         catch (Exception e) {
             Debug.Log(e.Message);
         }
+    }
+
+    public void NameEditPanel_XButtonClicked()
+    {
+        NameEditPanel.SetActive(false);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +46,11 @@ public class LuckyCatManager : MonoBehaviour
 
     public void LoadLuckyCatNumTop()
     {
-        MyLuckyCat_TopText.text = PlayerDataLoad.playerdata.item_luckycat_num.ToString();
+        try
+        {
+            MyLuckyCat_TopText.text = PlayerDataLoad.playerdata.item_luckycat_num.ToString();
+        }
+        catch (Exception e) { }
     }
 
     public void LuckyCatYes()

@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class BluePlate : MonoBehaviour
 {
+    public GameObject bluePlateCountText;
 
     public Rigidbody2D rb;
 
     public float YPosition;
 
     private int count = 0;
+
+    private static int bluePlateCount;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class BluePlate : MonoBehaviour
             {
                 GameOver.GameIsOver = true;
             }
+            else UpdatePlateCountText();
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
@@ -86,9 +90,13 @@ public class BluePlate : MonoBehaviour
             platecollider.SetActive(false);
             catmove.DishCount++;
             count++;
+            UpdatePlateCountText();
         }
+    }
 
-
-
+    void UpdatePlateCountText()
+    {
+        bluePlateCount++;
+        bluePlateCountText.GetComponent<Text>().text = bluePlateCount.ToString();
     }
 }
