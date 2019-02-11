@@ -14,6 +14,7 @@ public class Timer30s : MonoBehaviour
     public GameObject CatObject;
     public GameObject TheifCatPanel;
     public GameObject TheifCatObject;
+    public GameObject TheifSucceedPop, ThiefFailedPop;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -94,18 +95,28 @@ public class Timer30s : MonoBehaviour
         TheifCatObject.GetComponent<Button>().interactable = true;
         TheifCatAnim.Play("ThiefCatUp");
         yield return new WaitForSeconds(THIEF_CAT_TIME);
-        if (TheifCat.touchCount < THIEF_TOUCH_TIME)
+        if (TheifCat.touchCount < THIEF_TOUCH_TIME) //실패했을때
         {
-            Debug.Log("도둑고양이 퇴치 실패, 점수 감점!");
+            ThiefFailedPop.SetActive(true);
+            TheifCatObject.GetComponent<Image>().sprite= (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
+            TheifCatAnim.Play("ThiefCatRun");
+            yield return new WaitForSeconds(TheifCatAnim["ThiefCatRun"].length);
+            TheifCatObject.GetComponent<Image>().sprite = (Sprite)Resources.Load("0", typeof(Sprite));
+            yield return new WaitForSeconds(0.3f);
+            ThiefFailedPop.SetActive(false);
+            yield return new WaitForSeconds(0.6f);
         }
-        else {
-
+        else { //성공했을때
+            TheifSucceedPop.SetActive(true);
             TheifCatObject.GetComponent<Button>().interactable= false; //퇴치 성공시 울상으로 바뀌고
             TheifCatAnim.Play("ThiefCatCry");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(TheifCatAnim["ThiefCatCry"].length);
 
             TheifCatAnim.Play("ThiefCatDown"); //내려가기
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatDown"].length);
+            TheifSucceedPop.SetActive(false);
+            yield return new WaitForSeconds(0.6f);
+
         }
         TheifCatPanel.SetActive(false);
     }

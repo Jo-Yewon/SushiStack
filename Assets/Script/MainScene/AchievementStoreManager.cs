@@ -54,7 +54,7 @@ public class AchievementStoreManager : MonoBehaviour
             String temp = PlayerDataLoad.PlayerData.AchievementString[achieveIndex];
 
             Achievement.GetComponent<Text>().text = temp; //현판 칭호 변경
-            Achievement_nameedit.GetComponent<Text>().text = temp; //NameEdit패널 칭호 변경
+            Achievement_nameedit.GetComponent<Text>().text = "\""+temp+"\""; //NameEdit패널 칭호 변경
             Achievement_nameedit.GetComponent<AchivementCase>().ResizeQuotes();
 
             //별 개수 변경
