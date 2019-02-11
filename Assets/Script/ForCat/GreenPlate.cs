@@ -5,15 +5,12 @@ using UnityEngine.UI;
 
 public class GreenPlate : MonoBehaviour
 {
-    public GameObject greenPlateCountText;
- 
     public Rigidbody2D rb;
 
     public float YPosition;
 
     private int count = 0;
 
-    private static int greenPlateCount;
     
     // Start is called before the first frame update
     void Start()
@@ -38,7 +35,6 @@ public class GreenPlate : MonoBehaviour
             if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123) {
                 GameOver.GameIsOver = true;
             }
-            else UpdatePlateCountText();
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
@@ -88,14 +84,8 @@ public class GreenPlate : MonoBehaviour
             platecollider.SetActive(false);
             catmove.DishCount++;
             count++;
-            UpdatePlateCountText();
         }
        
     }
 
-    void UpdatePlateCountText()
-    {
-        greenPlateCount++;
-        greenPlateCountText.GetComponent<Text>().text = greenPlateCount.ToString();
-    }
 }

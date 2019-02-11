@@ -5,15 +5,11 @@ using UnityEngine.UI;
 
 public class RedPlate : MonoBehaviour
 {
-    public GameObject redPlateCountText;
-
     public Rigidbody2D rb;
 
     public float YPosition;
 
     private int count = 0;
-
-    private static int redPlateCount;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +35,6 @@ public class RedPlate : MonoBehaviour
             {
                 GameOver.GameIsOver = true;
             }
-            else UpdatePlateCountText();
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
@@ -90,13 +85,6 @@ public class RedPlate : MonoBehaviour
             platecollider.SetActive(false);
             catmove.DishCount++;
             count++;
-            UpdatePlateCountText();
         }
-    }
-
-    void UpdatePlateCountText()
-    {
-        redPlateCount++;
-        redPlateCountText.GetComponent<Text>().text = redPlateCount.ToString();
     }
 }
