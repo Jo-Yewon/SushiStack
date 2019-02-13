@@ -9,7 +9,7 @@ public class Timer30s : MonoBehaviour
     public GameObject stageCutton;
     public GameObject OrderPanel;
     public GameObject GameManager;
-    public int GuestScore;
+    public static int GuestScore, ThiefCatCount;
     public GameObject GuestScoreObject;
     public GameObject CatObject;
     public GameObject TheifCatPanel;
@@ -20,7 +20,6 @@ public class Timer30s : MonoBehaviour
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
     private static readonly float THIEF_CAT_PROB = 0.2f; //도둑고양이 출현 확률
     private static readonly int CAT_SPRITE_NUM = 8; //고양이 종류
-    private static int THIEF_SCORE;
     private static readonly float THIEF_CAT_TIME = 5f; //도둑고양이 5초동안
     private static readonly int THIEF_TOUCH_TIME = 10; //도둑고양이 10번 터치
 
@@ -48,7 +47,8 @@ public class Timer30s : MonoBehaviour
         CatImageComponent = CatObject.GetComponent<SpriteRenderer>();
 
         StartCoroutine("TimeCount");
-        GuestScore = 0;
+        GuestScore = 0; //게임 시작시 static 변수 초기화
+        ThiefCatCount = 0;
         GuestScoreText = GuestScoreObject.GetComponent<Text>();
     }
 
@@ -56,10 +56,9 @@ public class Timer30s : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        if (Random.Range(0.0f, 1.0f) <1) //20퍼 확률로 도둑고양이
+        if (Random.Range(0.0f, 1.0f) <THIEF_CAT_PROB) //20퍼 확률로 도둑고양이
         {
             yield return StartCoroutine("ThiefCatMiniGame");
-            ThiefScoreUpdate();
         }
 
         CatImageChange();
@@ -112,6 +111,8 @@ public class Timer30s : MonoBehaviour
             TheifCatAnim.Play("ThiefCatCry");
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatCry"].length);
 
+            ThiefCatCount++;
+
             TheifCatAnim.Play("ThiefCatDown"); //내려가기
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatDown"].length);
             TheifSucceedPop.SetActive(false);
@@ -131,12 +132,6 @@ public class Timer30s : MonoBehaviour
     {
         GuestScore++;
         GuestScoreText.text = GuestScore.ToString();
-    }
-
-    void ThiefScoreUpdate()
-    {
-        THIEF_SCORE++;
-        //상단 Score 표시도 업데이트하는 코드
     }
 
     void CatImageChange() //고양이 이미지 변경

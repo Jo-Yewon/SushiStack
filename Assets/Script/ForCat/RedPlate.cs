@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RedPlate : MonoBehaviour
 {
+    public static int redPlateNum;
     public Rigidbody2D rb;
 
     public float YPosition;
@@ -34,6 +35,10 @@ public class RedPlate : MonoBehaviour
             if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
+            }
+            else
+            {
+                redPlateNum++;
             }
 
             rb.isKinematic = true;
@@ -84,6 +89,7 @@ public class RedPlate : MonoBehaviour
         {
             platecollider.SetActive(false);
             catmove.DishCount++;
+            redPlateNum++;
             count++;
         }
     }

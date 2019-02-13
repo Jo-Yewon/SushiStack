@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BluePlate : MonoBehaviour
 {
-
+    public static int bluePlateNum;
     public Rigidbody2D rb;
     public float YPosition;
     private int count = 0;
@@ -34,7 +34,10 @@ public class BluePlate : MonoBehaviour
             {
                 GameOver.GameIsOver = true;
             }
-      
+            else
+            {
+                bluePlateNum++;
+            }
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
@@ -84,6 +87,7 @@ public class BluePlate : MonoBehaviour
         {
             platecollider.SetActive(false);
             catmove.DishCount++;
+            bluePlateNum++;
             count++;
         }
     }

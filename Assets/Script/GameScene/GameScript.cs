@@ -14,6 +14,14 @@ public class GameScript : MonoBehaviour
     private DragCat catmove;
     private Transform OrderPanelTransForm;
 
+    void Start()
+    {
+        //시작 시 접시 개수 초기화
+        RedPlate.redPlateNum = 0;
+        BluePlate.bluePlateNum = 0;
+        GreenPlate.greenPlateNum = 0;
+    }
+
     void Awake()
     {
         Cat = GameObject.Find("MovingCat");
