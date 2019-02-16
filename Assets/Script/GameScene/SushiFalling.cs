@@ -11,6 +11,7 @@ public class SushiFalling : MonoBehaviour
 
     }
     float timerFall = 0f;
+    int range;
     public int sushinum;
     public float speed = 0f;
     public bool falling = false;
@@ -19,14 +20,26 @@ public class SushiFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = 2140 / DishFalling.fallingSpeed;
+        speed = 2550 / DishFalling.fallingSpeed; //2140이었음
+
+        
+
         if (!ItemFalling.whichFall&&!falling)
         {
-            if (ItemFalling.sushi == sushinum)
+            if (!falling)
             {
-                Fall();
-                falling = true;
+                if (ItemFalling.sushi == sushinum)  // ItemFalling 스크립트에서 랜덤으로 나온 숫자와 일치하는 초밥을 떨어뜨림
+                {
+                    Fall();
+                    falling = true;
+                }
             }
+            else
+            {
+                GameObject sushiInstance = Instantiate(this.gameObject, transform) as GameObject;
+                sushiInstance.GetComponent<SushiFalling>().falling = true;
+            }
+
         }
         if (falling)
         {
@@ -40,6 +53,7 @@ public class SushiFalling : MonoBehaviour
     public void Fall()
     {
         timerFall = 0f;
+
         transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550 / 2, 0);
     }
 }

@@ -70,4 +70,9 @@ public class GameScript : MonoBehaviour
             LuckyCatItemPanel.SetActive(true);
         }
     }
+
+    public int getScore()
+    {
+        return Score;
+    }
 }

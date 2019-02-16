@@ -2774,7 +2774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &721811725
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5254,6 +5254,7 @@ MonoBehaviour:
   turtle: {fileID: 953907152}
   gook: {fileID: 2034424122}
   speed: 0
+  choose: 0
   tmp: 0
   fallingSpeed: 7
 --- !u!222 &1183229820
@@ -8293,12 +8294,12 @@ PrefabInstance:
     - target: {fileID: 8012347753546113941, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -915.55
+      value: -919.99994
       objectReference: {fileID: 0}
     - target: {fileID: 8012347753546113941, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1369.2
+      value: 1380
       objectReference: {fileID: 0}
     - target: {fileID: 8012347753546113941, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
@@ -8346,6 +8347,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1450474085}
     - target: {fileID: 6784471107219069269, guid: 480879a6fd7069b4e8efa3b29f4904c8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216734139068146658, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_Enabled
       value: 1
