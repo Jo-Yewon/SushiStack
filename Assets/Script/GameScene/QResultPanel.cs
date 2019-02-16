@@ -26,9 +26,6 @@ public class QResultPanel : MonoBehaviour
         //손님 수, 도둑고양이 성공수 표시
         GuestScoreText.GetComponent<Text>().text = Timer30s.GuestScore.ToString();
         ThiefScoreText.GetComponent<Text>().text = Timer30s.ThiefCatCount.ToString();
-
-
-
     }
 
     public void RetryButtonClick()

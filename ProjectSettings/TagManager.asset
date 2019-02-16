@@ -12,6 +12,7 @@ TagManager:
   - GreenPlate
   - BluePlate
   - RedPlate
+  - SoundManager
   layers:
   - Default
   - TransparentFX

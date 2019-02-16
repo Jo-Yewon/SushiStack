@@ -93,5 +93,6 @@ public class PlayerDataLoad : MonoBehaviour
     void Start()
     {
         LoadData();
+        GameObject.FindWithTag("SoundManager").gameObject.GetComponent<BGMScript>().StartBGMPlay(); //시작 노래 틀기
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#pragma warning disable 0168
 
 public class LuckyCatManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class LuckyCatManager : MonoBehaviour
     void OnEnable()
     {
         Time.timeScale = 0;
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().PauseGameBGM();
         NeedLuckyCat += GameOverTime++;
 
         //보유개수가 필요개수보다 작으면 바로 결과창으로
@@ -64,6 +66,8 @@ public class LuckyCatManager : MonoBehaviour
 
         gameManager.GetComponent<GameScript>().GameIsOver = false;
         Time.timeScale = 1;
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
+
         gameObject.SetActive(false);
     }
 
@@ -72,6 +76,5 @@ public class LuckyCatManager : MonoBehaviour
         //No 누르면 게임 종료후 결과창 띄우기
         QResultPop.SetActive(true);
         gameObject.SetActive(false);
-        // 주석을 추가합니다.
     }
 }

@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#pragma warning disable 0168
 
 public class Timer30s : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class Timer30s : MonoBehaviour
     public GameObject TheifCatPanel;
     public GameObject TheifCatObject;
     public GameObject TheifSucceedPop, ThiefFailedPop;
+    public GameObject CatSoundObj, TheifCatSoundObj;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -32,6 +35,14 @@ public class Timer30s : MonoBehaviour
     private SpriteRenderer CatImageComponent;
     private Animation TheifCatAnim;
 
+    void Awake()
+    {
+        try
+        {
+            //게임 배경 음악 틀기
+            GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
+        }catch (Exception e) {        }
+    }
 
     void Start()
     {
@@ -56,7 +67,7 @@ public class Timer30s : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        if (Random.Range(0.0f, 1.0f) <THIEF_CAT_PROB) //20퍼 확률로 도둑고양이
+        if (UnityEngine.Random.Range(0.0f, 1.0f) <THIEF_CAT_PROB) //20퍼 확률로 도둑고양이
         {
             yield return StartCoroutine("ThiefCatMiniGame");
         }
@@ -64,6 +75,7 @@ public class Timer30s : MonoBehaviour
         CatImageChange();
         //고양이 올리기
         CatObjAnim.Play("CatUp");
+        CatSoundObj.GetComponent<AudioSource>().Play(); //고양이 등장 소리
         yield return new WaitForSeconds(0.1f);
         SelectMode(); //모드 선택 및 말풍선
 
@@ -93,12 +105,15 @@ public class Timer30s : MonoBehaviour
         TheifCatPanel.SetActive(true);
         TheifCatObject.GetComponent<Button>().interactable = true;
         TheifCatAnim.Play("ThiefCatUp");
+        CatSoundObj.GetComponent<AudioSource>().Play(); //도둑 고양이 등장 소리
+
         yield return new WaitForSeconds(THIEF_CAT_TIME);
         if (TheifCat.touchCount < THIEF_TOUCH_TIME) //실패했을때
         {
             ThiefFailedPop.SetActive(true);
             TheifCatObject.GetComponent<Image>().sprite= (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
             TheifCatAnim.Play("ThiefCatRun");
+
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatRun"].length);
             TheifCatObject.GetComponent<Image>().sprite = (Sprite)Resources.Load("0", typeof(Sprite));
             yield return new WaitForSeconds(0.3f);
@@ -109,6 +124,7 @@ public class Timer30s : MonoBehaviour
             TheifSucceedPop.SetActive(true);
             TheifCatObject.GetComponent<Button>().interactable= false; //퇴치 성공시 울상으로 바뀌고
             TheifCatAnim.Play("ThiefCatCry");
+            TheifCatSoundObj.GetComponent<AudioSource>().Play(); //유는 고양이 소리
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatCry"].length);
 
             ThiefCatCount++;
@@ -124,7 +140,7 @@ public class Timer30s : MonoBehaviour
 
     void SelectMode() //Mode를 랜덤하게 선택한 후, 말풍선 띄우는 함수
     {
-        currentModeNum = Random.Range(0, orderPanel_Transform.childCount);
+        currentModeNum = UnityEngine.Random.Range(0, orderPanel_Transform.childCount);
         orderArray[currentModeNum].SetActive(true);
     }
 
@@ -136,7 +152,7 @@ public class Timer30s : MonoBehaviour
 
     void CatImageChange() //고양이 이미지 변경
     {
-        int temp = Random.Range(1, CAT_SPRITE_NUM);
+        int temp = UnityEngine.Random.Range(1, CAT_SPRITE_NUM);
         CatImageComponent.sprite = (Sprite)Resources.Load("UserCat/" + temp, typeof(Sprite));
     }
 }

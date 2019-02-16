@@ -20,10 +20,12 @@ public class GameScript : MonoBehaviour
         RedPlate.redPlateNum = 0;
         BluePlate.bluePlateNum = 0;
         GreenPlate.greenPlateNum = 0;
+
     }
 
     void Awake()
-    {
+    { 
+
         Cat = GameObject.Find("MovingCat");
         catmove = Cat.GetComponent<DragCat>();
         OrderPanelTransForm = OrderPanel.transform;

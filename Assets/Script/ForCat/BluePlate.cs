@@ -5,16 +5,13 @@ using UnityEngine.UI;
 
 public class BluePlate : MonoBehaviour
 {
+    public GameObject Gamemanager;
     public static int bluePlateNum;
     public Rigidbody2D rb;
     public float YPosition;
-    private int count = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private int count = 0;
+    private GameScript GameOver;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,8 +21,7 @@ public class BluePlate : MonoBehaviour
         GameObject Plate = this.gameObject;
         DishFalling dishFalling = Plate.GetComponent<DishFalling>();
 
-        GameObject Gamemanager = GameObject.Find("GameManager");
-        GameScript GameOver = Gamemanager.GetComponent<GameScript>();
+        GameOver = Gamemanager.GetComponent<GameScript>();
 
         if (catmove.firstPlate == 0 && collision.gameObject.CompareTag("CatCollider"))
         {

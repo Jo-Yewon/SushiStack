@@ -38,6 +38,7 @@ public class ButtonManager : MonoBehaviour
         {
             if (playerdata.coin >= LuckyCatPrice) //돈이 충분하면
             {
+                gameObject.GetComponent<AudioSource>().Play();
                 playerdata.item_luckycat_num++;
                 playerdata.coin -= LuckyCatPrice;
                 PlayerDataLoad.SaveData();
