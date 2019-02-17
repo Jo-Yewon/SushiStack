@@ -25,10 +25,10 @@ TagManager:
   - Plate
   - Cat
   - 
-  - 
-  - 
-  - 
-  - 
+  - CatUnderUI
+  - CatPlaying
+  - CatUpperUI
+  - CatAppear
   - 
   - 
   - 

@@ -72,15 +72,19 @@ public class Timer30s : MonoBehaviour
             yield return StartCoroutine("ThiefCatMiniGame");
         }
 
-        CatImageChange();
-        //고양이 올리기
-        CatObjAnim.Play("CatUp");
+        CatObject.layer = LayerMask.NameToLayer("CatAppear"); //발 앞쪽으로 레이어 재배치
+        CatImageChange(); //고양이 이미지 변경
+        CatObjAnim.Play("CatUp"); //고양이 올라오기
         CatSoundObj.GetComponent<AudioSource>().Play(); //고양이 등장 소리
         yield return new WaitForSeconds(0.1f);
-        SelectMode(); //모드 선택 및 말풍선
 
+        SelectMode(); //모드 선택 및 말풍선 보여주기
         yield return new WaitForSeconds(2f);//2초 후
-        cuttonDownAnim.Play("CuttonUp");
+
+        cuttonDownAnim.Play("CuttonUp"); //커튼 올리기
+        yield return new WaitForSeconds(0.125f);
+        CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
+
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
 
@@ -93,8 +97,7 @@ public class Timer30s : MonoBehaviour
             right.value -= PER_SECOND;
         }
 
-        cuttonDownAnim.Play("CuttonDown");
-        CatObjAnim.Play("CatDown"); //고양이 내려감
+        cuttonDownAnim.Play("CuttonDown"); //커튼 내리기
         GameManager.SetActive(false);
         GuestScoreUpdate();
         StartCoroutine("TimeCount");
