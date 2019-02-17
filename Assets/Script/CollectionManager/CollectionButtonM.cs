@@ -7,6 +7,7 @@ public class CollectionButtonM : MonoBehaviour
 {
     public void BackButtonClicked()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         SceneManager.LoadScene("MainScene");
     }
 }

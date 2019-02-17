@@ -13,6 +13,7 @@ public class QGamePausePanel : MonoBehaviour
 
     public void ResumeButtonClicked()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         Time.timeScale = 1;
         GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
         gameObject.SetActive(false);
@@ -20,13 +21,15 @@ public class QGamePausePanel : MonoBehaviour
 
     public void GoMainButtonClicked()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
     }
 
-    public void SettingClicked()
+    public void RePlayClicked()
     {
-        //메인 창 띄우기
-        Debug.Log("Main 버튼 클릭");
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("SampleScene");
     }
 }

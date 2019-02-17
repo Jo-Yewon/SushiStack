@@ -30,12 +30,14 @@ public class QResultPanel : MonoBehaviour
 
     public void RetryButtonClick()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
 
     public void HomeButtonClick()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
     }

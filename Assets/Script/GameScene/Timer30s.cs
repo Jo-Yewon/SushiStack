@@ -17,7 +17,7 @@ public class Timer30s : MonoBehaviour
     public GameObject TheifCatPanel;
     public GameObject TheifCatObject;
     public GameObject TheifSucceedPop, ThiefFailedPop;
-    public GameObject CatSoundObj, TheifCatSoundObj;
+    public GameObject CatSoundObj, ThiefCatCry, ThiefCatLaugh;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -113,6 +113,7 @@ public class Timer30s : MonoBehaviour
             ThiefFailedPop.SetActive(true);
             TheifCatObject.GetComponent<Image>().sprite= (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
             TheifCatAnim.Play("ThiefCatRun");
+            ThiefCatLaugh.GetComponent<AudioSource>().Play(); //고양이 웃는 소리
 
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatRun"].length);
             TheifCatObject.GetComponent<Image>().sprite = (Sprite)Resources.Load("0", typeof(Sprite));
@@ -124,7 +125,7 @@ public class Timer30s : MonoBehaviour
             TheifSucceedPop.SetActive(true);
             TheifCatObject.GetComponent<Button>().interactable= false; //퇴치 성공시 울상으로 바뀌고
             TheifCatAnim.Play("ThiefCatCry");
-            TheifCatSoundObj.GetComponent<AudioSource>().Play(); //유는 고양이 소리
+            ThiefCatCry.GetComponent<AudioSource>().Play(); //유는 고양이 소리
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatCry"].length);
 
             ThiefCatCount++;

@@ -57,6 +57,7 @@ public class LuckyCatManager : MonoBehaviour
 
     public void LuckyCatYes()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         //Yes 누르면 행운의 고양이 아이템 사용된 후에, 게임을 계속 진행할 수 있도록
 
         PlayerDataLoad.playerdata.item_luckycat_num -= NeedLuckyCat;
@@ -73,6 +74,7 @@ public class LuckyCatManager : MonoBehaviour
 
     public void LuckyCatNo()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         //No 누르면 게임 종료후 결과창 띄우기
         QResultPop.SetActive(true);
         gameObject.SetActive(false);

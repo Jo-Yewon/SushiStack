@@ -9,6 +9,8 @@ public class SettingButtonManager : MonoBehaviour
 
     public void YesClicked()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
+
         PlayerDataLoad.playerdata = new PlayerDataLoad.PlayerData();
         PlayerDataLoad.SaveData();
 
@@ -20,6 +22,7 @@ public class SettingButtonManager : MonoBehaviour
 
     public void NoClicked()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         warningPanel.SetActive(false);
     }
 }

@@ -14,7 +14,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject MyStoreCoinItemNumManager;
     public GameObject CoinLackText;
 
-    private static int LuckyCatPrice = 1000;
+    private readonly static int LuckyCatPrice = 150;
     private PlayerDataLoad.PlayerData playerdata;
 
     public void Start()

@@ -17,6 +17,7 @@ public class QGamePauseB : MonoBehaviour
 
     public void GamePauseClick()
     {
+        GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         GamePausePanel.SetActive(true);
     }
 }
