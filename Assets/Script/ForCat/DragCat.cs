@@ -17,6 +17,7 @@ public class DragCat : MonoBehaviour
     public int firstPlate = 0;
 
     public int DishCount = 0;
+    public int ItemCount = 0;
     
     void Start()
     {

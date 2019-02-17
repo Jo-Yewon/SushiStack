@@ -13,6 +13,12 @@ TagManager:
   - BluePlate
   - RedPlate
   - SoundManager
+  - turtle
+  - gook
+  - RainbowPlate
+  - itemred
+  - itemblue
+  - itemgreen
   layers:
   - Default
   - TransparentFX
