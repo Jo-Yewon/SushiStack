@@ -26,7 +26,7 @@ public class BluePlate : MonoBehaviour
         if (catmove.firstPlate == 0 && collision.gameObject.CompareTag("CatCollider"))
         {
 
-            if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
+            if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
             }

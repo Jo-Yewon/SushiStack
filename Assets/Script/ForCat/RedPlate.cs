@@ -47,7 +47,7 @@ public class RedPlate : MonoBehaviour
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
-            if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
+            if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
             }
