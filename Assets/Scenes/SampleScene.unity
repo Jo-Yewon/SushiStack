@@ -4936,6 +4936,7 @@ GameObject:
   - component: {fileID: 953907156}
   - component: {fileID: 953907155}
   - component: {fileID: 953907154}
+  - component: {fileID: 953907157}
   m_Layer: 13
   m_Name: turtle
   m_TagString: turtle
@@ -4975,7 +4976,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 6.2, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4986,7 +4987,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 313, y: 182}
+  m_Size: {x: 145.2, y: 30.9}
   m_EdgeRadius: 0
 --- !u!114 &953907155
 MonoBehaviour:
@@ -5025,6 +5026,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953907152}
   m_CullTransparentMesh: 0
+--- !u!114 &953907157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953907152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cef26679cca4094ebb83e85524c99e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gamemanager: {fileID: 1450474085}
+  itemScore: 0
 --- !u!1 &980276038
 GameObject:
   m_ObjectHideFlags: 0
@@ -10293,6 +10308,7 @@ GameObject:
   - component: {fileID: 2034424126}
   - component: {fileID: 2034424125}
   - component: {fileID: 2034424124}
+  - component: {fileID: 2034424127}
   m_Layer: 13
   m_Name: gook
   m_TagString: gook
@@ -10332,7 +10348,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 4.483032, y: -31.377808}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10343,7 +10359,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 200, y: 200}
+  m_Size: {x: 74.475006, y: 50.56836}
   m_EdgeRadius: 0
 --- !u!114 &2034424125
 MonoBehaviour:
@@ -10382,6 +10398,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034424122}
   m_CullTransparentMesh: 0
+--- !u!114 &2034424127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034424122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cef26679cca4094ebb83e85524c99e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gamemanager: {fileID: 1450474085}
+  itemScore: 0
 --- !u!1 &2056785840
 GameObject:
   m_ObjectHideFlags: 0
@@ -10805,6 +10835,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 5827681241567294651, guid: 480879a6fd7069b4e8efa3b29f4904c8,
+        type: 3}
+      propertyPath: tempItemArray
+      value: 
+      objectReference: {fileID: 566709722}
     - target: {fileID: 8808674845961874142, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_Offset.y
@@ -10815,11 +10850,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 59.26307
       objectReference: {fileID: 0}
-    - target: {fileID: 5827681241567294651, guid: 480879a6fd7069b4e8efa3b29f4904c8,
-        type: 3}
-      propertyPath: tempItemArray
-      value: 
-      objectReference: {fileID: 566709722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480879a6fd7069b4e8efa3b29f4904c8, type: 3}
 --- !u!1001 &5433001602164427687
@@ -10969,6 +10999,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
+        type: 3}
+      propertyPath: tempItemArray
+      value: 
+      objectReference: {fileID: 566709722}
     - target: {fileID: 2388492539879270460, guid: 1953feb0f7282944eac2cfaac29c548b,
         type: 3}
       propertyPath: m_Offset.y
@@ -10979,11 +11014,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 48.966927
       objectReference: {fileID: 0}
-    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
-        type: 3}
-      propertyPath: tempItemArray
-      value: 
-      objectReference: {fileID: 566709722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1953feb0f7282944eac2cfaac29c548b, type: 3}
 --- !u!224 &8011513341679674250 stripped
