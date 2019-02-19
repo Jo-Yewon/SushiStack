@@ -22,7 +22,7 @@ public class TheifCat : MonoBehaviour
 
     IEnumerator ThiefCatMoveCoroutine() //도둑고양이가 0.2초 간격으로 좌우로 이동함.
     {
-        for(int i = 0; i < 25; i++)
+        for(int i = 0; i < 24; i++)
         {
             yield return new WaitForSeconds(0.2f);
             thiefCatOffsetMin = gameObject.GetComponent<RectTransform>().offsetMin;

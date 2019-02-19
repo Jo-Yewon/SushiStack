@@ -18,6 +18,7 @@ public class Timer30s : MonoBehaviour
     public GameObject TheifCatObject;
     public GameObject TheifSucceedPop, ThiefFailedPop;
     public GameObject CatSoundObj, ThiefCatCry, ThiefCatLaugh;
+    public GameObject TempItemArray;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -65,7 +66,7 @@ public class Timer30s : MonoBehaviour
 
     IEnumerator TimeCount()
     {
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
 
         if (UnityEngine.Random.Range(0.0f, 1.0f) <THIEF_CAT_PROB) //20퍼 확률로 도둑고양이
         {
@@ -84,12 +85,12 @@ public class Timer30s : MonoBehaviour
         cuttonDownAnim.Play("CuttonUp"); //커튼 올리기
         yield return new WaitForSeconds(0.125f);
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
+        CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
 
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
 
-        GameObject Cat = GameObject.Find("MovingCat");
-        DragCat catmove = Cat.GetComponent<DragCat>();
+        DragCat catmove = CatObject.GetComponent<DragCat>();
         catmove.DishCount = 0; //접시 위치 초기화
         catmove.firstPlate = 0; //접시 아직 하나도 안 받은 것으로 초기화
 
@@ -103,8 +104,26 @@ public class Timer30s : MonoBehaviour
         }
 
         cuttonDownAnim.Play("CuttonDown"); //커튼 내리기
+
+
         GameManager.SetActive(false);
+        CatObject.GetComponent<DragCat>().enabled=false; //고양이 터치로 움직이기 비활성화
         GuestScoreUpdate();
+
+        //화면에 접시 및 초밥 지우기
+        /*GameObject[] Gobj = GameObject.FindGameObjectsWithTag("GreenPlate");
+        GameObject[] Bobj = GameObject.FindGameObjectsWithTag("BluePlate");
+        GameObject[] Robj = GameObject.FindGameObjectsWithTag("RedPlate");
+        for (int i = 0; i < Gobj.Length; i++)
+            if(Gobj[i].GetComponent<GreenPlate>().rb.isKinematic) Destroy(Gobj[i]);
+        for (int i = 0; i < Bobj.Length; i++)
+            if (Bobj[i].GetComponent<BluePlate>().rb.isKinematic) Destroy(Bobj[i]);
+        for (int i = 0; i < Robj.Length; i++)
+            if (Robj[i].GetComponent<RedPlate>().rb.isKinematic) Destroy(Robj[i]);*/
+
+        for (int i = TempItemArray.transform.childCount-1; i >= 0; i--)
+            GameObject.Destroy(TempItemArray.transform.GetChild(i).gameObject);
+
         StartCoroutine("TimeCount");
     }
 

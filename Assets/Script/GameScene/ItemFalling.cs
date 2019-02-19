@@ -125,7 +125,7 @@ public class ItemFalling : MonoBehaviour
     void gookPower()
     {
         gook.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2+182, 0);
-        gookOn = true;
+        //gookOn = true;
     }
 
 

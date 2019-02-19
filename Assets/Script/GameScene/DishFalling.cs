@@ -13,6 +13,7 @@ public class DishFalling : MonoBehaviour
     public GameObject sushi;
     public static bool falling = true;
     public bool isGookTurn = false;
+    public GameObject tempItemArray;
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +34,12 @@ public class DishFalling : MonoBehaviour
             sushi = GameObject.Find("Low3Cucumber");
         }
         speed = 2140 / fallingSpeed;
-        parent = dish.transform.parent;
+        //parent = dish.transform.parent;
     }
+
     // Update is called once per frame
     GameObject change;
+
     void Update()
     {
 
@@ -55,7 +58,8 @@ public class DishFalling : MonoBehaviour
             if (!isGookTurn)
             {
                 change = Instantiate(sushi, transform) as GameObject;
-                change.transform.SetParent(parent, false);
+                //change.transform.SetParent(parent, false);
+                change.transform.SetParent(tempItemArray.transform, false);
             }
             isGookTurn = true;
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
@@ -90,7 +94,8 @@ public class DishFalling : MonoBehaviour
 
         GameObject dishInstance = Instantiate(dish, transform.position, transform.rotation) as GameObject;
 
-        dishInstance.transform.SetParent(parent, false);
+        // dishInstance.transform.SetParent(parent, false);
+        dishInstance.transform.SetParent(tempItemArray.transform, false);
         dishInstance.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
     }
 }

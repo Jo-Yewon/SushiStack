@@ -18,13 +18,14 @@ public class PlayerDataLoad : MonoBehaviour
         public int MaxScore; //최고점수
         public int MaxSushi; //최고초밥 기록
         public int MaxGuest; //최고 손님수 기록
-        public int MaxPlate;
+        public int MaxPlate; //최고 접시수 기록
 
+        public int LastAchievementIndex;
         public int AchievementIndex; //칭호(?) 열리는거
-        public static string []AchievementString =
+        public readonly static string []AchievementString =
             {"길냥이", "견습생 고양이", "초보 요리사", "숙련된 요리사",
         "초보 주방장","숙련된 주방장", "오성급 쉐프","스타 쉐프", "초밥 장인", "초밥왕"}; //칭호 문자열
-        public static int[] AchievementScore =
+        public readonly static int[] AchievementScore =
             {0,1000,2000,3000,4000,5000,6000,7000,8000,9000,}; //칭호 언락 기준 점수
 
         public int coin;
@@ -42,16 +43,35 @@ public class PlayerDataLoad : MonoBehaviour
             item_luckycat_num = 0;
             storeName = "붓 버튼을 눌러 가게 이름을 설정해주세요";
         }
-
-        public bool IsMaxScore(int newscore)
+        
+        public bool IsMaxScore(int newScore)
         {
-            //기존 최고기록 경신된다면, true 반환
-            if (newscore > MaxScore)
-            {
-                MaxScore = newscore;
-                return true;
-            }
-            else return false;
+            if (newScore > MaxScore) return true;
+            return false;
+        }
+
+        public int IsMaxScoreIsUnlock(int newscore, int newSushiScore, int newGuestScore, int newPlateScore)
+        {
+            //return -1 : 신기록 경신X.
+            //return 0 : 신기록은 경신되었으나, 새로운 칭호는 언락되지 않음.
+            //return n : 신기록이 경신되었으며, AchievementIndex가 n으로 높아짐.
+
+            if (newSushiScore > MaxSushi) MaxSushi = newSushiScore;
+            if (newGuestScore > MaxGuest) MaxGuest = newGuestScore;
+            if (newPlateScore > MaxPlate) MaxPlate = newPlateScore;
+
+            if (newscore > MaxScore) MaxScore = newscore;
+            else return -1; //신기록 경신 안함
+
+            int i;
+            for(i = AchievementIndex + 1; i < 10; i++)
+                if (newscore < AchievementScore[i]) break;
+
+            if (i == AchievementIndex + 1) return 0; //신기록은 경신되었으나 새로운 칭호는 X
+
+            LastAchievementIndex = AchievementIndex; //갱신 전 인덱스 따로 저장
+            AchievementIndex = (i - 1); //칭호 인덱스 갱신
+            return AchievementIndex;
         }
 
         public bool IsUnlockAchievement(int newscore)
@@ -68,27 +88,45 @@ public class PlayerDataLoad : MonoBehaviour
 
     public static void SaveData()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
-        bf.Serialize(file, playerdata);
-        file.Close();
+            bf.Serialize(file, playerdata);
+            file.Close();
+        }catch (Exception e)
+        {
+            Debug.Log(e.Message + "\n사용자 데이터를 저장하는데 오류가 발생.");
+        }
     }
 
-    public void LoadData()
+    //사용자가 첫 접속인 경우에는 0 반환, 그렇지 않을때는 1 반환
+    public int LoadData()
     {
-        try { 
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat",FileMode.Open);
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
 
-        if (file != null && file.Length > 0) //기존 데이터가 존재할 경우
+            if (file != null && file.Length > 0) //기존 데이터가 존재할 경우
                 playerdata = (PlayerData)bf.Deserialize(file);
-        }catch(Exception e) //첫 접속일 경우
+            return 1;
+
+        }
+        catch (FileNotFoundException e) //첫 접속이어서 데이터가 존재하지 않을 경우,
         {
             playerdata = new PlayerData();
+            return 0;
+
+        } catch (Exception e)
+        {
+            Debug.Log(e.Message + "\n사용자 데이터를 읽어오는데 오류가 발생");
+            return 0;
         }
 
     }
+
     // Start is called before the first frame update
     void Start()
     {

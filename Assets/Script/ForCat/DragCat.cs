@@ -18,19 +18,28 @@ public class DragCat : MonoBehaviour
 
     public int DishCount = 0;
     public int ItemCount = 0;
+
+    private GameObject catcollider;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //firstPlate = 0;
+        //DishCount = 0; //OnEnable로 이동
+        catcollider = GameObject.Find("CatCollider");
+    }
+
+    //30초마다 새로운 고양이로 바뀌면 실행될 함수,
+    void OnEnable()
+    {
         firstPlate = 0;
         DishCount = 0;
-   
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject catcollider = GameObject.Find("CatCollider");
+        //GameObject catcollider = GameObject.Find("CatCollider");
         GameObject[] Gobj = GameObject.FindGameObjectsWithTag("GreenPlate");
         GameObject[] Bobj = GameObject.FindGameObjectsWithTag("BluePlate");
         GameObject[] Robj = GameObject.FindGameObjectsWithTag("RedPlate");
