@@ -15,10 +15,10 @@ public class PlayerDataLoad : MonoBehaviour
     [Serializable]
     public class PlayerData
     {
-        public int MaxScore; //최고점수
-        public int MaxSushi; //최고초밥 기록
-        public int MaxGuest; //최고 손님수 기록
-        public int MaxPlate; //최고 접시수 기록
+        public static int MaxScore; //최고점수(static으로 처리해 다른 씬에서도 유지되게 설정)
+        public static int MaxSushi; //최고초밥 기록
+        public static int MaxGuest; //최고 손님수 기록
+        public static int MaxPlate; //최고 접시수 기록
 
         public int LastAchievementIndex;
         public int AchievementIndex; //칭호(?) 열리는거
