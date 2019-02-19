@@ -19,6 +19,7 @@ public class Timer30s : MonoBehaviour
     public GameObject TheifSucceedPop, ThiefFailedPop;
     public GameObject CatSoundObj, ThiefCatCry, ThiefCatLaugh;
     public GameObject TempItemArray;
+    public GameObject ItemFallingObject;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -86,6 +87,7 @@ public class Timer30s : MonoBehaviour
         yield return new WaitForSeconds(0.125f);
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
         CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
+        ItemFallingObject.SetActive(true); //다시 아이템 복제 실행
 
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
@@ -105,22 +107,12 @@ public class Timer30s : MonoBehaviour
 
         cuttonDownAnim.Play("CuttonDown"); //커튼 내리기
 
-
+        ItemFallingObject.SetActive(false); //아이템 복제 중지하기
         GameManager.SetActive(false);
         CatObject.GetComponent<DragCat>().enabled=false; //고양이 터치로 움직이기 비활성화
         GuestScoreUpdate();
 
         //화면에 접시 및 초밥 지우기
-        /*GameObject[] Gobj = GameObject.FindGameObjectsWithTag("GreenPlate");
-        GameObject[] Bobj = GameObject.FindGameObjectsWithTag("BluePlate");
-        GameObject[] Robj = GameObject.FindGameObjectsWithTag("RedPlate");
-        for (int i = 0; i < Gobj.Length; i++)
-            if(Gobj[i].GetComponent<GreenPlate>().rb.isKinematic) Destroy(Gobj[i]);
-        for (int i = 0; i < Bobj.Length; i++)
-            if (Bobj[i].GetComponent<BluePlate>().rb.isKinematic) Destroy(Bobj[i]);
-        for (int i = 0; i < Robj.Length; i++)
-            if (Robj[i].GetComponent<RedPlate>().rb.isKinematic) Destroy(Robj[i]);*/
-
         for (int i = TempItemArray.transform.childCount-1; i >= 0; i--)
             GameObject.Destroy(TempItemArray.transform.GetChild(i).gameObject);
 

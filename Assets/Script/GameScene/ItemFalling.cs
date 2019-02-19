@@ -29,6 +29,7 @@ public class ItemFalling : MonoBehaviour
     public static int sushi;
     public static int dish;
     public int tmp;
+
     // Update is called once per frame
     void Update()
     {
@@ -109,9 +110,6 @@ public class ItemFalling : MonoBehaviour
             }
             timerFall = 0f;
         }
-        
-
-
     }
 
     public float fallingSpeed = 7f;
