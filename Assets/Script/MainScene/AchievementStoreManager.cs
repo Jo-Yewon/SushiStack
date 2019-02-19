@@ -18,12 +18,25 @@ public class AchievementStoreManager : MonoBehaviour
     private GameObject []StarArray;
     private int achievementStar;
 
+    static String sName = "연어먹다죽는인생나쁘지않다";
+    private TouchScreenKeyboard keyboard;
+
     void Awake()
     {
         achievementStar = -1;
         StarArray = new GameObject[5];
         for (int i = 0; i < 5; i++)
             StarArray[i] = StarSystem.transform.GetChild(i).gameObject;
+    }
+
+    void Update()
+    {
+        storeName.GetComponent<Text>().text = sName;
+        storeName_nameedit.GetComponent<Text>().text = sName;
+
+        if (TouchScreenKeyboard.visible) {
+            sName = keyboard.text;
+        }
     }
 
     void OnEnable()
@@ -36,7 +49,8 @@ public class AchievementStoreManager : MonoBehaviour
     {
         try
         {
-            String temp = PlayerDataLoad.playerdata.storeName;
+            //String temp = PlayerDataLoad.playerdata.storeName;
+            String temp = sName;
             int fontSize_temp = 880 / temp.Length;
             storeName.GetComponent<Text>().fontSize = fontSize_temp;
             storeName.GetComponent<Text>().text = temp;
@@ -67,6 +81,21 @@ public class AchievementStoreManager : MonoBehaviour
         catch (Exception e) {
             Debug.Log(e.Message);
         }
+    }
+
+    
+
+    public void ReviseText() {
+        
+            keyboard = TouchScreenKeyboard.Open(sName, TouchScreenKeyboardType.Default, true, false);
+
+        /*
+        if (keyboard.text != null && !TouchScreenKeyboard.visible)
+            {
+            sName = keyboard.text;
+            }
+        */
+
     }
 
     public void NameEditPanel_XButtonClicked()

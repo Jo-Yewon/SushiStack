@@ -41,7 +41,7 @@ public class PlayerDataLoad : MonoBehaviour
             AchievementIndex = 0;
             coin = 0;
             item_luckycat_num = 0;
-            storeName = "붓 버튼을 눌러 가게 이름을 설정해주세요";
+            //storeName = "붓 버튼을 눌러 가게 이름을 설정해주세요";
         }
         
         public bool IsMaxScore(int newScore)
