@@ -88,6 +88,11 @@ public class Timer30s : MonoBehaviour
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
 
+        GameObject Cat = GameObject.Find("MovingCat");
+        DragCat catmove = Cat.GetComponent<DragCat>();
+        catmove.DishCount = 0; //접시 위치 초기화
+        catmove.firstPlate = 0; //접시 아직 하나도 안 받은 것으로 초기화
+
         left.value = 1;
         right.value = 1;
         for (int i = 0; i < 30; i++) //30초동안 세기
