@@ -9,17 +9,22 @@ public class GreenPlate : MonoBehaviour
     public static int greenPlateNum;
     public Rigidbody2D rb;
     public float YPosition;
+    public GameObject Cat;
 
+    private GameObject platecollider;
+    private DragCat catmove;
     private int count = 0;
     private GameScript GameOver;
 
+    public void Start()
+    {
+        platecollider = gameObject.transform.GetChild(0).gameObject;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject Cat = GameObject.Find("MovingCat");
-        DragCat catmove = Cat.GetComponent<DragCat>();
-
-        GameObject Plate = this.gameObject;
-        DishFalling dishFalling = Plate.GetComponent<DishFalling>();
+        catmove = Cat.GetComponent<DragCat>();
+        DishFalling dishFalling = gameObject.GetComponent<DishFalling>();
 
         GameOver = Gamemanager.GetComponent<GameScript>();
 
@@ -28,11 +33,6 @@ public class GreenPlate : MonoBehaviour
 
             if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123) {
                 GameOver.GameIsOver = true;
-            }
-            else
-            {
-                greenPlateNum++;
-
             }
 
             rb.isKinematic = true;
@@ -59,11 +59,9 @@ public class GreenPlate : MonoBehaviour
 
             if (count == 0)
             {
-                YPosition = catmove.FirstYPosition + (catmove.DishCount*(0.2f));
+                YPosition = catmove.FirstYPosition + (catmove.DishCount * (0.2f));
             }
-
             //YPosition = transform.position.y;
-
             count++;
             //catmove.DishCount++;
         }
@@ -72,18 +70,19 @@ public class GreenPlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         GameObject plate = this.gameObject;
-
         GameObject platecollider = plate.transform.GetChild(0).gameObject;
-        
         GameObject Cat = GameObject.Find("MovingCat");
         DragCat catmove = Cat.GetComponent<DragCat>();
+        */
 
         if (count == 2) {
             platecollider.SetActive(false);
             catmove.DishCount++;
             greenPlateNum++;
             count++;
+            this.enabled = false;
         }
        
     }

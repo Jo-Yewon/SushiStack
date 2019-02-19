@@ -368,6 +368,7 @@ MonoBehaviour:
   Gamemanager: {fileID: 0}
   rb: {fileID: 0}
   YPosition: 0
+  Cat: {fileID: 0}
 --- !u!212 &75796622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2270,6 +2271,7 @@ MonoBehaviour:
   Gamemanager: {fileID: 0}
   rb: {fileID: 0}
   YPosition: 0
+  Cat: {fileID: 0}
 --- !u!212 &596388660
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2415,6 +2417,7 @@ MonoBehaviour:
   Gamemanager: {fileID: 0}
   rb: {fileID: 0}
   YPosition: 0
+  Cat: {fileID: 0}
 --- !u!212 &631464405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2856,6 +2859,11 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1734080410}
+    - target: {fileID: 2855665154847754555, guid: 4e23c77818562d44f8076b93279141c7,
+        type: 3}
+      propertyPath: Cat
+      value: 
+      objectReference: {fileID: 642785359}
     - target: {fileID: 8855050823849267038, guid: 4e23c77818562d44f8076b93279141c7,
         type: 3}
       propertyPath: m_Layer
@@ -4628,6 +4636,7 @@ MonoBehaviour:
   Gamemanager: {fileID: 0}
   rb: {fileID: 0}
   YPosition: 0
+  Cat: {fileID: 0}
 --- !u!212 &927159151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5910,6 +5919,7 @@ MonoBehaviour:
   Gamemanager: {fileID: 0}
   rb: {fileID: 0}
   YPosition: 0
+  Cat: {fileID: 0}
 --- !u!212 &1133532496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10826,6 +10836,11 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1667309061}
+    - target: {fileID: 6784471107219069269, guid: 480879a6fd7069b4e8efa3b29f4904c8,
+        type: 3}
+      propertyPath: Cat
+      value: 
+      objectReference: {fileID: 642785359}
     - target: {fileID: 3216734139068146658, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_Enabled
@@ -10995,6 +11010,11 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1195810874}
+    - target: {fileID: 1387985887568926376, guid: 1953feb0f7282944eac2cfaac29c548b,
+        type: 3}
+      propertyPath: Cat
+      value: 
+      objectReference: {fileID: 642785359}
     - target: {fileID: 143521538376513822, guid: 1953feb0f7282944eac2cfaac29c548b,
         type: 3}
       propertyPath: m_Layer
