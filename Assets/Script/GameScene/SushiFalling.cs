@@ -5,12 +5,7 @@ using UnityEngine;
 public class SushiFalling : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-    float timerFall = 0f;
+    public float timerFall = 0f;
     int range;
     public float sushinum;
     public float speed = 0f;
@@ -63,7 +58,6 @@ public class SushiFalling : MonoBehaviour
     public void Fall()
     {
         timerFall = 0f;
-
     }
 
     public void SushiUp()

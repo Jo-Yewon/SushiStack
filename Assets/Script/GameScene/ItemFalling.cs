@@ -118,9 +118,6 @@ public class ItemFalling : MonoBehaviour
             }
         }
 
-
-
-
         // 접시 또는 초밥 떨어뜨리기
         timerFall += Time.deltaTime;    // 시간 재기
         if(timerFall > dishTimeBetweenFall) // 일정한 간격마다 접시 또는 초밥을 떨어뜨림

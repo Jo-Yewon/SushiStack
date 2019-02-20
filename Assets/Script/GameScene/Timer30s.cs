@@ -29,6 +29,7 @@ public class Timer30s : MonoBehaviour
     private static readonly int CAT_SPRITE_NUM = 8; //고양이 종류
     private static readonly float THIEF_CAT_TIME = 5f; //도둑고양이 5초동안
     private static readonly int THIEF_TOUCH_TIME = 10; //도둑고양이 10번 터치
+    private static readonly float infinite = 987654321f;
 
     private Animation CatObjAnim;
     private Animation cuttonDownAnim;
@@ -81,18 +82,22 @@ public class Timer30s : MonoBehaviour
 
         SelectMode(); //모드 선택 및 말풍선 보여주기
 
+        yield return new WaitForSeconds(1.95f);
+
+        //화면에 접시 및 초밥 지우기
+        for (int i = TempItemArray.transform.childCount - 1; i >= 0; i--)
+            GameObject.Destroy(TempItemArray.transform.GetChild(i).gameObject);
+
+        stageCutton.GetComponent<Animation>().Play("CuttonUp"); //커튼 올리기
+
         //내려온 스시 전부 위로 올리기
         GameObject[] GItem = GameObject.FindGameObjectsWithTag("itemgreen");
         GameObject[] BItem = GameObject.FindGameObjectsWithTag("itemblue");
         GameObject[] RItem = GameObject.FindGameObjectsWithTag("itemred");
-        for (int i = 0; i < GItem.Length; i++) GItem[i].GetComponent<SushiFalling>().SushiUp();
-        for (int i = 0; i < BItem.Length; i++) BItem[i].GetComponent<SushiFalling>().SushiUp();
-        for (int i = 0; i < RItem.Length; i++) RItem[i].GetComponent<SushiFalling>().SushiUp();
+        for (int i = 0; i < GItem.Length; i++) GItem[i].GetComponent<SushiFalling>().timerFall = infinite;
+        for (int i = 0; i < BItem.Length; i++) BItem[i].GetComponent<SushiFalling>().timerFall = infinite;
+        for (int i = 0; i < RItem.Length; i++) RItem[i].GetComponent<SushiFalling>().timerFall = infinite;
 
-        yield return new WaitForSeconds(1f);//2초 후
-
-        stageCutton.GetComponent<Animation>().Play("CuttonUp"); //커튼 올리기
-        yield return new WaitForSeconds(0.125f);
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
         CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
         ItemFallingObject.SetActive(true); //다시 아이템 복제 실행
@@ -119,10 +124,6 @@ public class Timer30s : MonoBehaviour
         GameManager.SetActive(false);
         CatObject.GetComponent<DragCat>().enabled=false; //고양이 터치로 움직이기 비활성화
         GuestScoreUpdate();
-
-        //화면에 접시 및 초밥 지우기
-        for (int i = TempItemArray.transform.childCount-1; i >= 0; i--)
-            GameObject.Destroy(TempItemArray.transform.GetChild(i).gameObject);
 
         StartCoroutine("TimeCount");
     }

@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e47ebed18313d49940ae1821ca0bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CatObject: {fileID: 0}
+  CatObject: {fileID: 642785359}
   redPlateText: {fileID: 455529463}
   greenPlateText: {fileID: 1516717811}
   bluePlateText: {fileID: 395702724}
@@ -3299,6 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 1
   speed: 0
   falling: 0
@@ -4995,6 +4996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 2
   speed: 0
   falling: 0
@@ -5630,6 +5632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 5
   speed: 0
   falling: 0
@@ -5785,6 +5788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 9
   speed: 0
   falling: 0
@@ -8920,6 +8924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 6
   speed: 0
   falling: 0
@@ -9926,6 +9931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 8
   speed: 0
   falling: 0
@@ -11279,6 +11285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 3
   speed: 0
   falling: 0
@@ -11687,6 +11694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 1.6
   speed: 0
   falling: 0
@@ -11970,6 +11978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerFall: 0
   sushinum: 1.3
   speed: 0
   falling: 0
@@ -12246,11 +12255,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 5827681241567294651, guid: 480879a6fd7069b4e8efa3b29f4904c8,
-        type: 3}
-      propertyPath: tempItemArray
-      value: 
-      objectReference: {fileID: 566709722}
     - target: {fileID: 8808674845961874142, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_Offset.y
@@ -12261,6 +12265,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 59.26307
       objectReference: {fileID: 0}
+    - target: {fileID: 5827681241567294651, guid: 480879a6fd7069b4e8efa3b29f4904c8,
+        type: 3}
+      propertyPath: tempItemArray
+      value: 
+      objectReference: {fileID: 566709722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480879a6fd7069b4e8efa3b29f4904c8, type: 3}
 --- !u!1001 &5433001602164427687
@@ -12425,16 +12434,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
-        type: 3}
-      propertyPath: tempItemArray
-      value: 
-      objectReference: {fileID: 566709722}
-    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
-        type: 3}
-      propertyPath: dishNum
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2388492539879270460, guid: 1953feb0f7282944eac2cfaac29c548b,
         type: 3}
       propertyPath: m_Offset.y
@@ -12444,6 +12443,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 48.966927
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
+        type: 3}
+      propertyPath: tempItemArray
+      value: 
+      objectReference: {fileID: 566709722}
+    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
+        type: 3}
+      propertyPath: dishNum
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1953feb0f7282944eac2cfaac29c548b, type: 3}
