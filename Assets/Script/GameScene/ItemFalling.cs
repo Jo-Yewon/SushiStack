@@ -125,7 +125,7 @@ public class ItemFalling : MonoBehaviour
             if (choose < 0)
             {
                 whichFall = false;
-                float sushiRange = (float)PlayerDataLoad.playerdata.AchievementIndex;
+                float sushiRange = (float)PlayerDataLoad.playerdata.AchievementIndex+1;
                 sushi = (int)Random.Range(1f, sushiRange);
                 tmp = sushi;
             }
