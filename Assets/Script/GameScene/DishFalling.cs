@@ -69,6 +69,7 @@ public class DishFalling : MonoBehaviour
 
         }
 
+        /* 장국은 동아리 최종발표 이후에 재수정
         if (ItemFalling.gookOn)
         {
             //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
@@ -93,6 +94,7 @@ public class DishFalling : MonoBehaviour
            // Destroy(this.gameObject);
         }
         else
+        */
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
 
 

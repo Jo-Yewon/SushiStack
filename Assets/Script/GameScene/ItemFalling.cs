@@ -43,7 +43,7 @@ public class ItemFalling : MonoBehaviour
         if (itemTimer > timeBetweenFall && whichItem==0 )
         {
             while (whichItem == 0f)
-                whichItem = Random.Range(-1f, 1f);  //랜덤으로 음수 양수를 정해서 아이템 선택
+                whichItem = Random.Range(0, 1f);  //랜덤으로 음수 양수를 정해서 아이템 선택 거북이만 나옴
 
             itemTimer = 0f;
             effectTime = 0f;    // 
@@ -89,18 +89,23 @@ public class ItemFalling : MonoBehaviour
                 rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
                 if (feverOn)
                 {
+                    rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
                     feverTimer = 0;
                 }
             }
-            if (feverOn && feverTimer > 10f)
+            if (feverOn)
             {
-                DragCat.DishScore = 1;
-                feverOn = false;
-                this.GetComponent<AudioSource>().Stop();
+                if (feverTimer > 10f)
+                {
+                    DragCat.DishScore = 1;
+                    feverOn = false;
+                    this.GetComponent<AudioSource>().Stop();
 
-                rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
-                feverTimer = 0;
+                    feverTimer = 0;
+                }
             }
+            
+
         }
         else
             feverTimer = 0;
@@ -116,10 +121,10 @@ public class ItemFalling : MonoBehaviour
             if (choose < 0)
             {
                 whichFall = false;
-                if (PlayerDataLoad.playerdata != null)
+               // if (PlayerDataLoad.playerdata != null)
                     sushiRange = PlayerDataLoad.playerdata.AchievementIndex + 2;
-                else
-                    sushiRange = 2;
+                //else
+                  //  sushiRange = 2;
                 sushi = Random.Range(1f, sushiRange);
                 //tmp = sushi;
             }
