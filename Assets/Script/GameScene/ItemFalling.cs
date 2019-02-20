@@ -86,7 +86,7 @@ public class ItemFalling : MonoBehaviour
             feverTimer += Time.deltaTime;
             if (feverTimer > 15f)   // 무지개 접시 떨어뜨리기
             {
-                
+               
                 if (feverOn)
                 {
                     Debug.Log("fever on");
