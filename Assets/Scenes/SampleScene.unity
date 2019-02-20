@@ -2989,6 +2989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
+  ScoreManager: {fileID: 908520368}
   itemScore: 15
 --- !u!50 &721787053
 Rigidbody2D:
@@ -4354,6 +4355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
+  ScoreManager: {fileID: 908520368}
   itemScore: 15
 --- !u!50 &936786714
 Rigidbody2D:
@@ -4591,6 +4593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
+  ScoreManager: {fileID: 0}
   itemScore: 0
 --- !u!1 &983599064
 GameObject:
@@ -4920,7 +4923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
-  itemScore: 15
+  ScoreManager: {fileID: 908520368}
+  itemScore: 25
 --- !u!114 &1018324438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5074,7 +5078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
-  itemScore: 15
+  ScoreManager: {fileID: 908520368}
+  itemScore: 35
 --- !u!114 &1034534765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8009,7 +8014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
-  itemScore: 15
+  ScoreManager: {fileID: 908520368}
+  itemScore: 25
 --- !u!114 &1502868318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8885,7 +8891,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
-  itemScore: 15
+  ScoreManager: {fileID: 908520368}
+  itemScore: 35
 --- !u!114 &1666903557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10206,6 +10213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
+  ScoreManager: {fileID: 908520368}
   itemScore: 15
 --- !u!50 &2016001634
 Rigidbody2D:
@@ -10369,6 +10377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
+  ScoreManager: {fileID: 0}
   itemScore: 0
 --- !u!1 &2056785840
 GameObject:
@@ -10545,7 +10554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
-  itemScore: 15
+  ScoreManager: {fileID: 908520368}
+  itemScore: 35
 --- !u!114 &2063458788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10827,7 +10837,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
-  itemScore: 15
+  ScoreManager: {fileID: 908520368}
+  itemScore: 25
 --- !u!114 &2124710057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11111,6 +11122,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 5827681241567294651, guid: 480879a6fd7069b4e8efa3b29f4904c8,
+        type: 3}
+      propertyPath: tempItemArray
+      value: 
+      objectReference: {fileID: 566709722}
     - target: {fileID: 8808674845961874142, guid: 480879a6fd7069b4e8efa3b29f4904c8,
         type: 3}
       propertyPath: m_Offset.y
@@ -11121,11 +11137,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 59.26307
       objectReference: {fileID: 0}
-    - target: {fileID: 5827681241567294651, guid: 480879a6fd7069b4e8efa3b29f4904c8,
-        type: 3}
-      propertyPath: tempItemArray
-      value: 
-      objectReference: {fileID: 566709722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480879a6fd7069b4e8efa3b29f4904c8, type: 3}
 --- !u!1001 &5433001602164427687
@@ -11285,6 +11296,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
+        type: 3}
+      propertyPath: tempItemArray
+      value: 
+      objectReference: {fileID: 566709722}
     - target: {fileID: 2388492539879270460, guid: 1953feb0f7282944eac2cfaac29c548b,
         type: 3}
       propertyPath: m_Offset.y
@@ -11295,11 +11311,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 48.966927
       objectReference: {fileID: 0}
-    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
-        type: 3}
-      propertyPath: tempItemArray
-      value: 
-      objectReference: {fileID: 566709722}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1953feb0f7282944eac2cfaac29c548b, type: 3}
 --- !u!224 &8011513341679674250 stripped

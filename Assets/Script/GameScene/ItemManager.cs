@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
-    public GameObject Gamemanager;
+    public GameObject Gamemanager, ScoreManager;
 
     public int itemScore;
     private GameScript GameOver;
@@ -37,7 +37,11 @@ public class ItemManager : MonoBehaviour
                 {
                     GameOver.GameIsOver = true;
                 }
-                Debug.Log("Tagged");
+                else
+                {
+                    Debug.Log("Tagged");
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                }
             }
             else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
             {
@@ -45,12 +49,23 @@ public class ItemManager : MonoBehaviour
                 {
                     GameOver.GameIsOver = true;
                 }
+                else
+                {
+                    Debug.Log("Tagged");
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                }
+
             }
             else if (Item.CompareTag("itemred"))    //빨강 접시 초밥 받았을 때
             {
                 if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                 {
                     GameOver.GameIsOver = true;
+                }
+                else
+                {
+                    Debug.Log("Tagged");
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                 }
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
@@ -79,6 +94,11 @@ public class ItemManager : MonoBehaviour
                 {
                     GameOver.GameIsOver = true;
                 }
+                else
+                {
+                    Debug.Log("Tagged");
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                }
             }
             else if (Item.CompareTag("itemblue"))
             {
@@ -86,12 +106,22 @@ public class ItemManager : MonoBehaviour
                 {
                     GameOver.GameIsOver = true;
                 }
+                else
+                {
+                    Debug.Log("Tagged");
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                }
             }
             else if (Item.CompareTag("itemred"))
             {
                 if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                 {
                     GameOver.GameIsOver = true;
+                }
+                else
+                {
+                    Debug.Log("Tagged");
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                 }
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
@@ -112,7 +142,7 @@ public class ItemManager : MonoBehaviour
             }
 
             //점수에 아이템 점수 더함
-            GameOver.Score += itemScore;
+            
             Item.SetActive(false);
         }
 
