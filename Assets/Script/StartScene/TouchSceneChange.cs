@@ -9,6 +9,7 @@ public class TouchSceneChange : MonoBehaviour
     void Update()
     {
         if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
-            SceneManager.LoadScene("MainScene");
+            //SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("IntroScene");
     }
 }

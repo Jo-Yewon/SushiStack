@@ -11,6 +11,7 @@ public class ItemFalling : MonoBehaviour
     {
         timeBetweenFall = Random.Range(10f, 15f);
     }
+
     float itemTimer = 0f;
     float feverTimer = 0f;
     public float whichItem = 0f;

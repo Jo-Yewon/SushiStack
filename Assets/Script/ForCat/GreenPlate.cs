@@ -16,7 +16,7 @@ public class GreenPlate : MonoBehaviour
     private int count = 0;
     private GameScript GameOver;
 
-    public void Start()
+    public void Awake()
     {
         platecollider = gameObject.transform.GetChild(0).gameObject;
     }
@@ -71,21 +71,13 @@ public class GreenPlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        GameObject plate = this.gameObject;
-        GameObject platecollider = plate.transform.GetChild(0).gameObject;
-        GameObject Cat = GameObject.Find("MovingCat");
-        DragCat catmove = Cat.GetComponent<DragCat>();
-        */
-
-        if (count == 2) {
+        if (count == 2)
+        {
             platecollider.SetActive(false);
             catmove.DishCount += DragCat.DishScore;
             greenPlateNum++;
             count++;
             this.enabled = false;
         }
-       
     }
-
 }

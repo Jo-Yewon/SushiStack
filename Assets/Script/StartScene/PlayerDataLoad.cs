@@ -12,13 +12,19 @@ public class PlayerDataLoad : MonoBehaviour
 {
     public static PlayerData playerdata; //게임 전체에서 PlayerData가 담기는 곳.
 
+    private bool isFirst;
+
     [Serializable]
     public class PlayerData
     {
-        public static int MaxScore; //최고점수(static으로 처리해 다른 씬에서도 유지되게 설정)
-        public static int MaxSushi; //최고초밥 기록
-        public static int MaxGuest; //최고 손님수 기록
-        public static int MaxPlate; //최고 접시수 기록
+        //게임 시작하면 위 필드에 playerdata 변수에 사용자 정보가 인스턴스로 담깁니다.
+        //static 설정 필요 없이 위 playerdata의 인스턴스 변수에 접근하면 됩니다!
+        //모든 신에서 PlayerDataLoad.playerdata.(필드이름)으로 접근하여 수정한후
+        //PlayerDataLoad.playerdata.SaveData()를 하면 자동으로 로컬기기에 파일로 저장됩니다.
+        public int MaxScore; //최고점수
+        public int MaxSushi; //최고초밥 기록
+        public int MaxGuest; //최고 손님수 기록
+        public int MaxPlate; //최고 접시수 기록
 
         public int LastAchievementIndex;
         public int AchievementIndex; //칭호(?) 열리는거
@@ -41,7 +47,7 @@ public class PlayerDataLoad : MonoBehaviour
             AchievementIndex = 0;
             coin = 0;
             item_luckycat_num = 0;
-            //storeName = "붓 버튼을 눌러 가게 이름을 설정해주세요";
+            storeName = "붓 버튼을 눌러봐요 >>";
         }
         
         public bool IsMaxScore(int newScore)
@@ -101,8 +107,8 @@ public class PlayerDataLoad : MonoBehaviour
         }
     }
 
-    //사용자가 첫 접속인 경우에는 0 반환, 그렇지 않을때는 1 반환
-    public int LoadData()
+    //사용자가 첫 접속인 경우에는 true 반환, 그렇지 않을때는 false 반환
+    public bool LoadData()
     {
         try
         {
@@ -111,18 +117,18 @@ public class PlayerDataLoad : MonoBehaviour
 
             if (file != null && file.Length > 0) //기존 데이터가 존재할 경우
                 playerdata = (PlayerData)bf.Deserialize(file);
-            return 1;
+            return false;
 
         }
         catch (FileNotFoundException e) //첫 접속이어서 데이터가 존재하지 않을 경우,
         {
             playerdata = new PlayerData();
-            return 0;
+            return true;
 
         } catch (Exception e)
         {
             Debug.Log(e.Message + "\n사용자 데이터를 읽어오는데 오류가 발생");
-            return 0;
+            return false;
         }
 
     }
@@ -130,7 +136,7 @@ public class PlayerDataLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadData();
+        isFirst=LoadData();
         GameObject.FindWithTag("SoundManager").gameObject.GetComponent<BGMScript>().StartBGMPlay(); //시작 노래 틀기
     }
 }
