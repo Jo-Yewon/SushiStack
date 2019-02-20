@@ -86,7 +86,7 @@ public class ItemFalling : MonoBehaviour
             feverTimer += Time.deltaTime;
             if (feverTimer > 15f)   // 무지개 접시 떨어뜨리기
             {
-                rainbowDish.transform.localPosition = new Vector3(gook.transform.localPosition.x, gook.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
+                rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
                 if (feverOn)
                 {
                     feverTimer = 0;

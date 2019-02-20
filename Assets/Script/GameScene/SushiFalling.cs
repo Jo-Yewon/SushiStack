@@ -45,9 +45,9 @@ public class SushiFalling : MonoBehaviour
         {
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
             timerFall += Time.deltaTime;
-            if (timerFall > DishFalling.fallingSpeed || transform.localPosition.y>=(2550/2)) {
+            if (timerFall > DishFalling.fallingSpeed) {
                 falling = false;
-                transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550 / 2, 0);
+                transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
             }
         }
     }
@@ -60,7 +60,7 @@ public class SushiFalling : MonoBehaviour
 
     public void SushiUp()
     {
-        transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550 / 2, 0);
+        transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
 
     }
 }

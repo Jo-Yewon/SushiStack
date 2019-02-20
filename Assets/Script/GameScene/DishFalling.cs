@@ -22,7 +22,7 @@ public class DishFalling : MonoBehaviour
         if (dishNum == 2)
         {
             dish = GameObject.Find("blueDish");
-            sushi = GameObject.Find("Low2Shrimp"); //임의로
+            sushi = GameObject.Find("Blue1"); //임의로
         }
         if (dishNum == 1)
         {
@@ -32,7 +32,7 @@ public class DishFalling : MonoBehaviour
         if (dishNum == 3)
         {
             dish = GameObject.Find("redDish");
-            sushi = GameObject.Find("Low3Cucumber");
+            sushi = GameObject.Find("Red1");
         }
         speed = 2140 / fallingSpeed;
         //parent = dish.transform.parent;
@@ -72,25 +72,25 @@ public class DishFalling : MonoBehaviour
         if (ItemFalling.gookOn)
         {
             //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
-            if (count == 0)
+            if (count == 0 && !this.gameObject.Equals(dish))
             {
                 if (!isGookTurn)
                 {
                     change = Instantiate(sushi, transform) as GameObject;
-                    //change.transform.SetParent(parent, false);
                     change.transform.SetParent(tempItemArray.transform, false);
-                transform.localScale = new Vector3(0, 0, 0);
+                    transform.localScale = new Vector3(0, 0, 0);
                 }
                 isGookTurn = true;
-                change.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
+                change.transform.localPosition = new Vector3(change.transform.localPosition.x, change.transform.localPosition.y - speed * Time.deltaTime, -10);
             }
         }
         else if(isGookTurn)
         {
-            transform.localScale = new Vector3(1, 1, 1);
             Destroy(change);
             isGookTurn = false;
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            //transform.localScale = new Vector3(1, 1, 1);
+           // Destroy(this.gameObject);
         }
         else
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
