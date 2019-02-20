@@ -71,6 +71,7 @@ public class DishFalling : MonoBehaviour
 
         if (ItemFalling.gookOn)
         {
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
             if (count == 0)
             {
                 if (!isGookTurn)
@@ -80,7 +81,6 @@ public class DishFalling : MonoBehaviour
                     change.transform.SetParent(tempItemArray.transform, false);
                 }
                 isGookTurn = true;
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
                 transform.localScale = new Vector3(0, 0, 0);
                 change.transform.localPosition = transform.localPosition;
             }

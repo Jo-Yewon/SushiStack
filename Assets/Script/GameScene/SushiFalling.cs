@@ -56,4 +56,10 @@ public class SushiFalling : MonoBehaviour
 
         transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550 / 2, 0);
     }
+
+    public void SushiUp()
+    {
+        transform.localPosition = new Vector3(Random.Range(-520f, 720f), 2550 / 2, 0);
+
+    }
 }
