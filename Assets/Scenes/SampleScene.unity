@@ -773,7 +773,6 @@ MonoBehaviour:
   TempItemArray: {fileID: 566709722}
   ItemFallingObject: {fileID: 1183229816}
   ScoreManager: {fileID: 908520368}
-  SushiArrayObj: {fileID: 0}
 --- !u!1 &306098584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e47ebed18313d49940ae1821ca0bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CatObject: {fileID: 642785359}
   redPlateText: {fileID: 455529463}
   greenPlateText: {fileID: 1516717811}
   bluePlateText: {fileID: 395702724}
@@ -3275,12 +3273,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721787047}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 0
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3299,7 +3297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 1.3
+  sushinum: 1
   speed: 0
   falling: 0
 --- !u!114 &721787050
@@ -4971,12 +4969,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936786708}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 1
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4995,7 +4993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 2.5
+  sushinum: 2
   speed: 0
   falling: 0
 --- !u!114 &936786711
@@ -5548,8 +5546,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 4
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5630,7 +5628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 5.5
+  sushinum: 5
   speed: 0
   falling: 0
 --- !u!114 &1018324439
@@ -5703,8 +5701,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 8
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5785,7 +5783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 9.5
+  sushinum: 9
   speed: 0
   falling: 0
 --- !u!114 &1034534766
@@ -6733,7 +6731,15 @@ RectTransform:
   - {fileID: 566709723}
   - {fileID: 2034424123}
   - {fileID: 953907153}
-  - {fileID: 2063103030}
+  - {fileID: 721787048}
+  - {fileID: 936786709}
+  - {fileID: 2016001629}
+  - {fileID: 2124710053}
+  - {fileID: 1018324434}
+  - {fileID: 1502868314}
+  - {fileID: 2063458784}
+  - {fileID: 1666903553}
+  - {fileID: 1034534761}
   m_Father: {fileID: 524533423}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8830,8 +8836,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 5
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8912,7 +8918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 6.5
+  sushinum: 6
   speed: 0
   falling: 0
 --- !u!114 &1502868319
@@ -9836,8 +9842,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 7
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9918,7 +9924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 8.5
+  sushinum: 8
   speed: 0
   falling: 0
 --- !u!114 &1666903558
@@ -11247,12 +11253,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016001628}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 2
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11271,7 +11277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 3.5
+  sushinum: 3
   speed: 0
   falling: 0
 --- !u!114 &2016001631
@@ -11564,50 +11570,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056785840}
   m_CullTransparentMesh: 0
---- !u!1 &2063103029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063103030}
-  m_Layer: 13
-  m_Name: Sushi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2063103030
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063103029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 721787048}
-  - {fileID: 936786709}
-  - {fileID: 2016001629}
-  - {fileID: 2124710053}
-  - {fileID: 1018324434}
-  - {fileID: 1502868314}
-  - {fileID: 2063458784}
-  - {fileID: 1666903553}
-  - {fileID: 1034534761}
-  m_Father: {fileID: 1183229817}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2063458783
 GameObject:
   m_ObjectHideFlags: 0
@@ -11641,8 +11603,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 6
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11723,7 +11685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 1.99
+  sushinum: 1.6
   speed: 0
   falling: 0
 --- !u!114 &2063458789
@@ -11924,8 +11886,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
   m_Children: []
-  m_Father: {fileID: 2063103030}
-  m_RootOrder: 3
+  m_Father: {fileID: 1183229817}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12006,7 +11968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847f91a62bc0ae4a92e912f46d3bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushinum: 1.6
+  sushinum: 1.3
   speed: 0
   falling: 0
 --- !u!114 &2124710058
