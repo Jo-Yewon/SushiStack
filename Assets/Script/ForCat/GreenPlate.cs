@@ -31,6 +31,12 @@ public class GreenPlate : MonoBehaviour
         {
             isScoreUpdate = true;
             greenPlateNum++;
+            if (GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>().FeverOn)
+            {
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
+
+            }
+            else
             ScoreManager.GetComponent<ScoreManager>().ScoreUp(10);
         }
     }

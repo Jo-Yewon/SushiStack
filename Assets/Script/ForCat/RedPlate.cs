@@ -32,7 +32,13 @@ public class RedPlate : MonoBehaviour
         {
             isScoreUpdate = true;
             redPlateNum++;
-            ScoreManager.GetComponent<ScoreManager>().ScoreUp(30);
+            if (GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>().FeverOn)
+            {
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(60);
+
+            }
+            else
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(30);
         }
     }
 

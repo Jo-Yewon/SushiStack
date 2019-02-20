@@ -21,6 +21,7 @@ public class ItemFalling : MonoBehaviour
     public GameObject turtle;
     public GameObject gook;
     public GameObject rainbowDish;
+    public GameObject feverBG;
 
     // 접시 떨어지는 코드 관련 변수
     float timerFall = 0f;
@@ -84,12 +85,15 @@ public class ItemFalling : MonoBehaviour
         if (Timer30s.GuestScore % 3 == 0)   // 고양이가 3의 배수 번째 고양이 일때
         {
             feverTimer += Time.deltaTime;
-            if (feverTimer > 15f)   // 무지개 접시 떨어뜨리기
+            if (feverTimer > 5f)   // 무지개 접시 떨어뜨리기
             {
                
                 if (feverOn)
                 {
                     Debug.Log("fever on");
+                    feverBG.SetActive(true);
+                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().PauseGameBGM();
+                    this.GetComponent<AudioSource>().Play();
                     rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
                     feverTimer = 0;
                 }else
@@ -100,7 +104,9 @@ public class ItemFalling : MonoBehaviour
                 {
                     DragCat.DishScore = 1;
                     feverOn = false;
+                    feverBG.SetActive(false);
                     this.GetComponent<AudioSource>().Stop();
+                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
 
                     feverTimer = 0;
                 }

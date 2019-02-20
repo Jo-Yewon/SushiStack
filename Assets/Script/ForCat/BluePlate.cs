@@ -31,8 +31,14 @@ public class BluePlate : MonoBehaviour
         {
             isScoreUpdate = true;
             bluePlateNum++;
-            ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
+            if (GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>().FeverOn)
+            {
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(40);
+
             }
+            else
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
