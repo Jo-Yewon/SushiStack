@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour
 {
     public GameObject Gamemanager, ScoreManager;
+    public static int SushiNum;
 
     public int itemScore;
     private GameScript GameOver;
+
+    public void Start()
+    {
+        SushiNum = 0;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +49,7 @@ public class ItemManager : MonoBehaviour
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     Debug.Log("Tagged");
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                    SushiNum++;
                 }
             }
             else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
@@ -57,6 +64,7 @@ public class ItemManager : MonoBehaviour
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     Debug.Log("Tagged");
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                    SushiNum++;
                 }
 
             }
@@ -72,6 +80,7 @@ public class ItemManager : MonoBehaviour
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     Debug.Log("Tagged");
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                    SushiNum++;
                 }
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
@@ -93,15 +102,12 @@ public class ItemManager : MonoBehaviour
                 // 초밥 점수 2배로 하는 코드 필요
 
             }
-
             //점수에 아이템 점수 더함
             GameOver.Score += itemScore;
             //Item.SetActive(false);
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
-
-
             GameObject ob = collision.gameObject.transform.parent.gameObject;
             DishFalling dF = ob.GetComponent<DishFalling>();
 
@@ -126,6 +132,7 @@ public class ItemManager : MonoBehaviour
                         Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                         Debug.Log("Tagged");
                         ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                        SushiNum++;
                     }
                 }
                 else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
@@ -140,6 +147,7 @@ public class ItemManager : MonoBehaviour
                         Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                         Debug.Log("Tagged");
                         ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                        SushiNum++;
                     }
 
                 }
@@ -155,6 +163,7 @@ public class ItemManager : MonoBehaviour
                         Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                         Debug.Log("Tagged");
                         ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                        SushiNum++;
                     }
                 }
                 else if (Item.CompareTag("turtle"))     //거북이 받았을떄
@@ -193,7 +202,6 @@ public class ItemManager : MonoBehaviour
     void Update()
     {
         GameObject plate = this.gameObject;
-
 
     }
 

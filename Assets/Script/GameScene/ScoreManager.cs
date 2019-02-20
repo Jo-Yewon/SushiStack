@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public GameObject ScoreTextObject;
     public GameObject MaxScoreDeco, Score50DownDeco;
+    public GameObject getSound;
 
     private Text scoreText;
     private int total_score;
@@ -22,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     //외부에서 호출.
    public void ScoreUp(int score)
     {
+        getSound.GetComponent<AudioSource>().Play();
         total_score += score; //피버모드이면 2배해서 더하도록 수정
         scoreText.text = total_score.ToString();
 

@@ -27,8 +27,8 @@ public class QResultPanel : MonoBehaviour
         plateNumScore = RedPlate.redPlateNum + GreenPlate.greenPlateNum + BluePlate.bluePlateNum;//총 접시 개수
 
         //스시 개수 표시하기
-        //sushiNumScore=...
-        sushiNumScore = 0; //임시로해놓음
+        sushiNumScore = ItemManager.SushiNum; //임시로해놓음
+        SushiScoreText.GetComponent<Text>().text = sushiNumScore.ToString();
 
         //손님 수, 도둑고양이 성공수 표시
         GuestScoreText.GetComponent<Text>().text = Timer30s.GuestScore.ToString();
