@@ -38,7 +38,7 @@ public class QResultPanel : MonoBehaviour
         //점수 및 코인 표시
         totalScore = Int32.Parse(IngameScoreText.GetComponent<Text>().text); //점수를 저장
         TotalScoreText.GetComponent<Text>().text = totalScore.ToString(); //결과창에 점수 표시
-        coin = totalScore * 10; //코인 계산
+        coin = totalScore * 5; //코인 계산
         TotalCoinText.GetComponent<Text>().text = coin.ToString(); //결과창에 코인 표시
         PlayerDataLoad.playerdata.coin += coin; //코인 획득
 

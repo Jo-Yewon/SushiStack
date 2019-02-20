@@ -20,6 +20,7 @@ public class Timer30s : MonoBehaviour
     public GameObject CatSoundObj, ThiefCatCry, ThiefCatLaugh;
     public GameObject TempItemArray;
     public GameObject ItemFallingObject;
+    public GameObject ScoreManager;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -131,6 +132,8 @@ public class Timer30s : MonoBehaviour
         if (TheifCat.touchCount < THIEF_TOUCH_TIME) //실패했을때
         {
             ThiefFailedPop.SetActive(true);
+            ScoreManager.GetComponent<ScoreManager>().ThiefFailed(); //점수 깎기
+
             TheifCatObject.GetComponent<Image>().sprite= (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
             TheifCatAnim.Play("ThiefCatRun");
             ThiefCatLaugh.GetComponent<AudioSource>().Play(); //고양이 웃는 소리

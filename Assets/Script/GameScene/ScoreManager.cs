@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public GameObject ScoreTextObject;
-    public GameObject MaxScoreDeco;
+    public GameObject MaxScoreDeco, Score50DownDeco;
 
     private Text scoreText;
     private int total_score;
@@ -33,6 +33,7 @@ public class ScoreManager : MonoBehaviour
     //도둑고양이 실패시 50퍼 까임
     public void ThiefFailed()
     {
+        Score50DownDeco.SetActive(true);
         total_score /= 2;
         scoreText.text = total_score.ToString();
 
