@@ -2200,11 +2200,16 @@ PrefabInstance:
         type: 3}
       propertyPath: rb
       value: 
-      objectReference: {fileID: 581701071}
+      objectReference: {fileID: 0}
     - target: {fileID: 8855050823849267038, guid: 4e23c77818562d44f8076b93279141c7,
         type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855050823849267038, guid: 4e23c77818562d44f8076b93279141c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4414436788614526999, guid: 4e23c77818562d44f8076b93279141c7,
         type: 3}
@@ -2222,7 +2227,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c685117e9d6a73c47934a8e8ce2cad31,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 2095142646047256344, guid: 4e23c77818562d44f8076b93279141c7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095142646047256344, guid: 4e23c77818562d44f8076b93279141c7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7653433341628975915, guid: 4e23c77818562d44f8076b93279141c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e23c77818562d44f8076b93279141c7, type: 3}
 --- !u!224 &581701069 stripped
 RectTransform:
@@ -2236,12 +2252,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 581701068}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &581701071 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 7653433341628975915, guid: 4e23c77818562d44f8076b93279141c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 581701068}
+--- !u!114 &581701071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581701070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cef26679cca4094ebb83e85524c99e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gamemanager: {fileID: 1450474085}
+  ScoreManager: {fileID: 908520368}
+  itemScore: 0
 --- !u!1 &642785359
 GameObject:
   m_ObjectHideFlags: 0

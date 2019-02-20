@@ -81,19 +81,20 @@ public class ItemFalling : MonoBehaviour
         }
 
         //무지개 초밥(피버타임)
-        if (Timer30s.GuestScore % 3 == 2)   // 고양이가 3의 배수 번째 고양이 일때
+        if (Timer30s.GuestScore % 3 == 0)   // 고양이가 3의 배수 번째 고양이 일때
         {
             feverTimer += Time.deltaTime;
             if (feverTimer > 15f)   // 무지개 접시 떨어뜨리기
             {
-                rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
+                
                 if (feverOn)
                 {
+                    Debug.Log("fever on");
                     rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
                     feverTimer = 0;
-                }
-            }
-            if (feverOn)
+                }else
+                    rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
+            }else if (feverOn)
             {
                 if (feverTimer > 10f)
                 {
