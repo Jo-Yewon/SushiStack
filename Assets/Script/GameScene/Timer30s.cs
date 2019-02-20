@@ -167,6 +167,10 @@ public class Timer30s : MonoBehaviour
 
     void GuestScoreUpdate()
     {
+        if(DishFalling.fallingSpeed >= 1f)
+        {
+            DishFalling.fallingSpeed -= 0.5f;
+        }
         GuestScore++;
         GuestScoreText.text = GuestScore.ToString();
     }

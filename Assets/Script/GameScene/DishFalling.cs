@@ -7,7 +7,7 @@ public class DishFalling : MonoBehaviour
 
     public int dishNum;
     public static float timerFall = 0f;
-    public static float fallingSpeed = 7f;
+    public static float fallingSpeed = 5f;
     public float speed = 0f;
     GameObject dish;
     public GameObject sushi;

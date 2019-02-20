@@ -132,7 +132,7 @@ public class ItemFalling : MonoBehaviour
         }
     }
     public int sushiRange;
-    public float fallingSpeed = 7f;
+    //public float fallingSpeed = 7f;
 
     public bool FeverOn { get => feverOn; set => feverOn = value; }
 
@@ -146,7 +146,7 @@ public class ItemFalling : MonoBehaviour
     public void gookPower()
     {
         gook.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2+182, 0);
-        //gookOn = true;
+        gookOn = true;
     }
 
 
