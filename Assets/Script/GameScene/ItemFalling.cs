@@ -9,7 +9,7 @@ public class ItemFalling : MonoBehaviour
 
     void Start()
     {
-        timeBetweenFall = Random.Range(10f, 15f);
+        timeBetweenFall = Random.Range(15f, 25f);
     }
 
     float itemTimer = 0f;
@@ -48,7 +48,7 @@ public class ItemFalling : MonoBehaviour
 
             itemTimer = 0f;
             effectTime = 0f;    // 
-            timeBetweenFall = Random.Range(10f, 15f);
+            timeBetweenFall = Random.Range(15f, 25f);
         }
         if(whichItem < 0)
         {
