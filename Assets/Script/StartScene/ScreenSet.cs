@@ -7,6 +7,6 @@ public class ScreenSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
+        Screen.SetResolution(1440, 2560, true);
     }
 }
