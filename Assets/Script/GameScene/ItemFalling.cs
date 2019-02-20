@@ -44,7 +44,7 @@ public class ItemFalling : MonoBehaviour
         if (itemTimer > timeBetweenFall && whichItem==0 )
         {
             while (whichItem == 0f)
-                whichItem = Random.Range(0, 1f);  //랜덤으로 음수 양수를 정해서 아이템 선택 거북이만 나옴
+                whichItem = Random.Range(-3f, 0f);  //랜덤으로 음수 양수를 정해서 아이템 선택 거북이만 나옴
 
             itemTimer = 0f;
             effectTime = 0f;    // 
@@ -85,37 +85,39 @@ public class ItemFalling : MonoBehaviour
         if (Timer30s.GuestScore % 3 == 0)   // 고양이가 3의 배수 번째 고양이 일때
         {
             feverTimer += Time.deltaTime;
-            if (feverTimer > 5f)   // 무지개 접시 떨어뜨리기
-            {
-               
-                if (feverOn)
-                {
-                    Debug.Log("fever on");
-                    feverBG.SetActive(true);
-                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().PauseGameBGM();
-                    this.GetComponent<AudioSource>().Play();
-                    rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
-                    feverTimer = 0;
-                }else
-                    rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
-            }else if (feverOn)
-            {
-                if (feverTimer > 10f)
-                {
-                    DragCat.DishScore = 1;
-                    feverOn = false;
-                    feverBG.SetActive(false);
-                    this.GetComponent<AudioSource>().Stop();
-                    GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
-
-                    feverTimer = 0;
-                }
-            }
-            
-
+           
         }
         else
             feverTimer = 0;
+
+        if (feverTimer > 15f)   // 무지개 접시 떨어뜨리기
+        {
+
+            if (feverOn)
+            {
+                Debug.Log("fever on");
+                feverBG.SetActive(true);
+                GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().PauseGameBGM();
+                this.GetComponent<AudioSource>().Play();
+                rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
+                feverTimer = 0;
+            }
+            else
+                rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
+        }
+        else if (feverOn)
+        {
+            if (feverTimer > 10f)
+            {
+                feverOn = false;
+                feverBG.SetActive(false);
+                this.GetComponent<AudioSource>().Stop();
+                GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
+
+                feverTimer = 0;
+            }
+        }
+
 
 
 
