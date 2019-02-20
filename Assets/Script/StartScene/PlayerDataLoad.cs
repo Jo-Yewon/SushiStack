@@ -11,8 +11,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDataLoad : MonoBehaviour
 {
     public static PlayerData playerdata; //게임 전체에서 PlayerData가 담기는 곳.
-
-    private bool isFirst;
+    public static bool isFirst;
 
     [Serializable]
     public class PlayerData
@@ -47,7 +46,7 @@ public class PlayerDataLoad : MonoBehaviour
             AchievementIndex = 0;
             coin = 0;
             item_luckycat_num = 0;
-            storeName = "붓 버튼을 눌러봐요 >>";
+            storeName = "클릭해보세요!";
         }
         
         public bool IsMaxScore(int newScore)

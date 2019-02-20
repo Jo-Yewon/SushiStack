@@ -40,7 +40,11 @@ public class IntroManager : MonoBehaviour
                     else
                     {
                         if (++CurrentCutNum >= HowMuchCut)
+                        {
+                            PlayerDataLoad.playerdata.item_luckycat_num++; //행운의 고양이 아이템 한개 줌.
+                            PlayerDataLoad.SaveData();
                             SceneManager.LoadScene("MainScene"); //마지막 인트로 컷이었다면, 메인신으로 이동.
+                        }
                         else
                         {
                             gameObject.GetComponent<AudioSource>().Play();

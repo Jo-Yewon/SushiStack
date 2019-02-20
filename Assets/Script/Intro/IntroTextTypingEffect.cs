@@ -9,7 +9,7 @@ public class IntroTextTypingEffect : MonoBehaviour
     public float TimePerALetter;
     public GameObject IntroManagerObject;
 
-    private IntroManager MyIntroManager;
+    private IntroManager_Re MyIntroManager;
     private String message;
     private Text textObject;
 
@@ -20,7 +20,7 @@ public class IntroTextTypingEffect : MonoBehaviour
         message = textObject.text;
         textObject.text = "";
         StartCoroutine("TextTyping");
-        MyIntroManager = IntroManagerObject.GetComponent<IntroManager>();
+        MyIntroManager = IntroManagerObject.GetComponent<IntroManager_Re>();
     }
 
     public void Update()
@@ -40,6 +40,6 @@ public class IntroTextTypingEffect : MonoBehaviour
             textObject.text = message.Substring(0, i);
             yield return new WaitForSeconds(TimePerALetter);
         }
-        MyIntroManager.isTypingSkip = true;
+        MyIntroManager.isTypingSkip_re = true;
     }
 }

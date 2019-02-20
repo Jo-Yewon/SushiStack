@@ -45,4 +45,10 @@ public class QMainScene : MonoBehaviour
         buttonClikedSound.Play();
         StoreInfoPanel.SetActive(true);
     }
+
+    public void IntroButtonClicked()
+    {
+        buttonClikedSound.Play();
+        SceneManager.LoadScene("IntroScene(Re)");
+    }
 }
