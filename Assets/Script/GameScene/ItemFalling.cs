@@ -76,7 +76,8 @@ public class ItemFalling : MonoBehaviour
             effectTime += Time.deltaTime;
             if (effectTime > 10f)
             {
-                DishFalling.fallingSpeed -= 2;
+                if(DishFalling.fallingSpeed>3)
+                    DishFalling.fallingSpeed -= 2;
                 whichItem = 0;//아무 아이템도 내려오고 있지 않은 상태를 만들기 위해.
             }
         }
@@ -147,6 +148,7 @@ public class ItemFalling : MonoBehaviour
     public void turtlePower()
     {
         turtle.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2+182, 0);
+        if(DishFalling.fallingSpeed<=5)
         DishFalling.fallingSpeed += 2;
         turtleOn = true;
     }
