@@ -19,6 +19,7 @@ public class DishFalling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fallingSpeed = 5f;
         if (dishNum == 2)
         {
             dish = GameObject.Find("blueDish");
