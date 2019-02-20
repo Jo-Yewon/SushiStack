@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
     //외부에서 호출.
    public void ScoreUp(int score)
     {
-        total_score += score;
+        total_score += score; //피버모드이면 2배해서 더하도록 수정
         scoreText.text = total_score.ToString();
 
         if (score > maxScore) //신기록 경신시 데코

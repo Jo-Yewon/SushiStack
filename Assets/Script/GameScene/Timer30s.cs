@@ -39,6 +39,7 @@ public class Timer30s : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         try
         {
             //게임 배경 음악 틀기
