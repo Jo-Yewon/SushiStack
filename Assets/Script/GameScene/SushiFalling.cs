@@ -36,7 +36,7 @@ public class SushiFalling : MonoBehaviour
                         falling = true;
                     }
                 }
-                if ((int)ItemFalling.sushi == (int)sushinum)  // ItemFalling 스크립트에서 랜덤으로 나온 숫자와 일치하는 초밥을 떨어뜨림
+                else if ((int)ItemFalling.sushi == (int)sushinum)  // ItemFalling 스크립트에서 랜덤으로 나온 숫자와 일치하는 초밥을 떨어뜨림
                 {
                     Fall();
                     falling = true;
