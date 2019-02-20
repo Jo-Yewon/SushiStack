@@ -14,7 +14,7 @@ public class DishFalling : MonoBehaviour
     public static bool falling = true;
     public bool isGookTurn = false;
     public GameObject tempItemArray;
-    int count;
+    int c;
 
     // Start is called before the first frame update
     void Start()
@@ -54,49 +54,48 @@ public class DishFalling : MonoBehaviour
 
         }
 
+        if (dishNum == 1)
+        {
+            c = this.GetComponent<GreenPlate>().Count;
+        }
+        if (dishNum == 2)
+        {
+            c = this.GetComponent<BluePlate>().Count;
+
+        }
+        if (dishNum == 3)
+        {
+            c = this.GetComponent<RedPlate>().Count;
+
+        }
+
         /* 장국은 동아리 최종발표 이후에 재수정
-       if (dishNum == 1)
-       {
-           count = this.GetComponent<GreenPlate>().Count;
-       }
-       if (dishNum == 2)
-       {
-           count = this.GetComponent<BluePlate>().Count;
-
-       }
-       if (dishNum == 3)
-       {
-           count = this.GetComponent<RedPlate>().Count;
-
-       }
-
-
-       if (ItemFalling.gookOn)
-       {
-           //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
-           if (count == 0 && !this.gameObject.Equals(dish))
-           {
-               if (!isGookTurn)
-               {
-                   change = Instantiate(sushi, transform) as GameObject;
-                   change.transform.SetParent(tempItemArray.transform, false);
-                   transform.localScale = new Vector3(0, 0, 0);
-               }
-               isGookTurn = true;
-               change.transform.localPosition = new Vector3(change.transform.localPosition.x, change.transform.localPosition.y - speed * Time.deltaTime, -10);
-           }
-       }
-       else if(isGookTurn)
-       {
-           Destroy(change);
-           isGookTurn = false;
-           this.gameObject.SetActive(false);
-           //transform.localScale = new Vector3(1, 1, 1);
-          // Destroy(this.gameObject);
-       }
-       else
-       */
-        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
+        if (ItemFalling.gookOn)
+        {
+            //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
+            if (count == 0 && !this.gameObject.Equals(dish))
+            {
+                if (!isGookTurn)
+                {
+                    change = Instantiate(sushi, transform) as GameObject;
+                    change.transform.SetParent(tempItemArray.transform, false);
+                    transform.localScale = new Vector3(0, 0, 0);
+                }
+                isGookTurn = true;
+                change.transform.localPosition = new Vector3(change.transform.localPosition.x, change.transform.localPosition.y - speed * Time.deltaTime, -10);
+            }
+        }
+        else if(isGookTurn)
+        {
+            Destroy(change);
+            isGookTurn = false;
+            this.gameObject.SetActive(false);
+            //transform.localScale = new Vector3(1, 1, 1);
+           // Destroy(this.gameObject);
+        }
+        else
+        */
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
 
 
         if (transform.localPosition.y < -(2560 / 2))
