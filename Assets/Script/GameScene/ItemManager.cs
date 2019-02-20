@@ -83,7 +83,6 @@ public class ItemManager : MonoBehaviour
             }
 
             //점수에 아이템 점수 더함
-            GameOver.Score += itemScore;
             Item.SetActive(false);
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
