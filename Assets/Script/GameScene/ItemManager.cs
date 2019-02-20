@@ -83,7 +83,10 @@ public class ItemManager : MonoBehaviour
             }
 
             //점수에 아이템 점수 더함
-            Item.SetActive(false);
+            GameOver.Score += itemScore;
+            //Item.SetActive(false);
+            Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2 , 0);
+            Item.GetComponent<SushiFalling>().falling = false;
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
@@ -142,7 +145,7 @@ public class ItemManager : MonoBehaviour
 
             //점수에 아이템 점수 더함
         //transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-            Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+            Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2 , 0);
 
 
         }

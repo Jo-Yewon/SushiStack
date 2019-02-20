@@ -71,7 +71,7 @@ public class DishFalling : MonoBehaviour
 
         if (ItemFalling.gookOn)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
+            //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
             if (count == 0)
             {
                 if (!isGookTurn)
@@ -79,10 +79,10 @@ public class DishFalling : MonoBehaviour
                     change = Instantiate(sushi, transform) as GameObject;
                     //change.transform.SetParent(parent, false);
                     change.transform.SetParent(tempItemArray.transform, false);
+                transform.localScale = new Vector3(0, 0, 0);
                 }
                 isGookTurn = true;
-                transform.localScale = new Vector3(0, 0, 0);
-                change.transform.localPosition = transform.localPosition;
+                change.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
             }
         }
         else if(isGookTurn)
@@ -90,6 +90,7 @@ public class DishFalling : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             Destroy(change);
             isGookTurn = false;
+            Destroy(this.gameObject);
         }
         else
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
