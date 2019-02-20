@@ -15,7 +15,7 @@ public class SushiFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = 2550 / DishFalling.fallingSpeed; //2140이었음
+        speed = 2140 / DishFalling.fallingSpeed; //2140이었음
 
         
 
@@ -60,8 +60,4 @@ public class SushiFalling : MonoBehaviour
         timerFall = 0f;
     }
 
-    public void SushiUp()
-    {
-        transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-    }
 }

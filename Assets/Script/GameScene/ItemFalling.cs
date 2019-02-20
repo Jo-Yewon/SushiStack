@@ -123,7 +123,7 @@ public class ItemFalling : MonoBehaviour
         if(timerFall > dishTimeBetweenFall) // 일정한 간격마다 접시 또는 초밥을 떨어뜨림
         {
             timerFall = 0f;
-            choose = Random.Range(-1f, 1);   // 접시와 초밥 중 선택
+            choose = Random.Range(-1f, 1f);   // 접시와 초밥 중 선택
             if (choose < 0)
             {
                 whichFall = false;
