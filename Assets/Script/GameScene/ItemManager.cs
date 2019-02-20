@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour
 {
     public GameObject Gamemanager, ScoreManager;
+    public static int SushiNum;
 
     public int itemScore;
     private GameScript GameOver;
+
+    public void Start()
+    {
+        SushiNum = 0;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,7 +33,6 @@ public class ItemManager : MonoBehaviour
         GameObject[] RItem = GameObject.FindGameObjectsWithTag("itemred");
         */
 
-        
 
         if (catmove.firstPlate == 0 && collision.gameObject.CompareTag("CatCollider"))
         {
@@ -44,6 +49,7 @@ public class ItemManager : MonoBehaviour
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     Debug.Log("Tagged");
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                    SushiNum++;
                 }
             }
             else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
@@ -58,6 +64,7 @@ public class ItemManager : MonoBehaviour
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     Debug.Log("Tagged");
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                    SushiNum++;
                 }
 
             }
@@ -73,6 +80,7 @@ public class ItemManager : MonoBehaviour
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     Debug.Log("Tagged");
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
+                    SushiNum++;
                 }
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
@@ -90,9 +98,9 @@ public class ItemManager : MonoBehaviour
                 Debug.Log("Rainbow");
                 Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 itemFalling.FeverOn = true;
-                DragCat.DishScore *= 2; // 피버타임때 점수가 2배 되므로 접시를 받을때마다 2갰기 받은 것으로 처리
                 //DragCat.DishScore *= 2; // 피버타임때 점수가 2배 되므로 접시를 받을때마다 2갰기 받은 것으로 처리
                 // 초밥 점수 2배로 하는 코드 필요
+                this.itemScore *= 2;
 
             }
             //점수에 아이템 점수 더함
@@ -204,7 +212,7 @@ public class ItemManager : MonoBehaviour
             if (!turnF)
             {
                 this.itemScore *= 2;
-                Debug.Log(this.gameObject.name+this.itemScore);
+                Debug.Log(this.gameObject.name + this.itemScore);
             }
             turnF = true;
 
@@ -213,7 +221,7 @@ public class ItemManager : MonoBehaviour
         {
             if (turnF)
             {
-                Debug.Log(this.gameObject.name+this.itemScore);
+                Debug.Log(this.gameObject.name + this.itemScore);
                 itemScore /= 2;
             }
             turnF = false;
