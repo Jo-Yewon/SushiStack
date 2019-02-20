@@ -23,7 +23,7 @@ public class ItemFalling : MonoBehaviour
     public GameObject rainbowDish;
 
     // 접시 떨어지는 코드 관련 변수
-    public static float timerFall = 0f;
+    float timerFall = 0f;
     float dishTimeBetweenFall = 2f;
     public float speed = 0f;
     public float choose; // 접시와 초밥 중 어떤 것을 떨어뜨릴 지 결정하는 변수
@@ -32,7 +32,7 @@ public class ItemFalling : MonoBehaviour
     public bool turtleOn = false;
     public static bool gookOn = false;
     public static bool whichFall = true;
-    public static int sushi;
+    public static float sushi;
     public static int dish;
     public int tmp;
 
@@ -45,11 +45,6 @@ public class ItemFalling : MonoBehaviour
             while (whichItem == 0f)
                 whichItem = Random.Range(-1f, 1f);  //랜덤으로 음수 양수를 정해서 아이템 선택
 
-            //if (whichItem < 0)  //음수면 거북이
-            //    turtlePower();
-            //if(whichItem > 0)//양수면 장국
-            //    gookPower();
-
             itemTimer = 0f;
             effectTime = 0f;    // 
             timeBetweenFall = Random.Range(10f, 15f);
@@ -58,18 +53,12 @@ public class ItemFalling : MonoBehaviour
         {
             turtle.transform.localPosition = new Vector3(turtle.transform.localPosition.x, turtle.transform.localPosition.y - (2140/DishFalling.fallingSpeed * Time.deltaTime), 0);
             
-        }/*
-        else if(turtle.transform.localPosition.y < (2550 / 2))
-            turtle.transform.localPosition = new Vector3(turtle.transform.localPosition.x, turtle.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
-*/
+        }
         if (whichItem > 0)
         {
             gook.transform.localPosition = new Vector3(gook.transform.localPosition.x, gook.transform.localPosition.y - (2140/DishFalling.fallingSpeed * Time.deltaTime), 0);
         }
-        /*
-        else if(gook.transform.localPosition.y<2550/2)
-            gook.transform.localPosition = new Vector3(gook.transform.localPosition.x, gook.transform.localPosition.y - (2140/DishFalling.fallingSpeed * Time.deltaTime), 0);
-            */
+
         if (gookOn)
         {
             effectTime += Time.deltaTime;
@@ -118,16 +107,20 @@ public class ItemFalling : MonoBehaviour
 
 
         // 접시 또는 초밥 떨어뜨리기
-            timerFall += Time.deltaTime;    // 시간 재기
+        timerFall += Time.deltaTime;    // 시간 재기
         if(timerFall > dishTimeBetweenFall) // 일정한 간격마다 접시 또는 초밥을 떨어뜨림
         {
+            timerFall = 0f;
             choose = Random.Range(-1f, 1f);   // 접시와 초밥 중 선택
             if (choose < 0)
             {
                 whichFall = false;
-                float sushiRange = (float)PlayerDataLoad.playerdata.AchievementIndex+1;
-                sushi = (int)Random.Range(1f, sushiRange);
-                tmp = sushi;
+                if (PlayerDataLoad.playerdata != null)
+                    sushiRange = PlayerDataLoad.playerdata.AchievementIndex + 2;
+                else
+                    sushiRange = 2;
+                sushi = Random.Range(1f, sushiRange);
+                //tmp = sushi;
             }
             else
             {
@@ -135,10 +128,10 @@ public class ItemFalling : MonoBehaviour
                 dish = (int)Random.Range(1f, 4f);
                 DishFalling.falling = false;
             }
-            timerFall = 0f;
+            
         }
     }
-
+    public int sushiRange;
     public float fallingSpeed = 7f;
 
     public bool FeverOn { get => feverOn; set => feverOn = value; }

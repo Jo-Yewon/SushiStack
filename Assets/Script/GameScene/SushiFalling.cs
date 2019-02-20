@@ -12,7 +12,7 @@ public class SushiFalling : MonoBehaviour
     }
     float timerFall = 0f;
     int range;
-    public int sushinum;
+    public float sushinum;
     public float speed = 0f;
     public bool falling = false;
     
@@ -24,21 +24,21 @@ public class SushiFalling : MonoBehaviour
 
         
 
-        if (!ItemFalling.whichFall&&!falling)
+        if (!ItemFalling.whichFall)
         {
             if (!falling)
             {
-                if (ItemFalling.sushi == sushinum)  // ItemFalling 스크립트에서 랜덤으로 나온 숫자와 일치하는 초밥을 떨어뜨림
+                if (ItemFalling.sushi < sushinum && ItemFalling.sushi > sushinum-0.3)  // ItemFalling 스크립트에서 랜덤으로 나온 숫자와 일치하는 초밥을 떨어뜨림
                 {
                     Fall();
                     falling = true;
                 }
             }
-            else
-            {
-                GameObject sushiInstance = Instantiate(this.gameObject, transform) as GameObject;
-                sushiInstance.GetComponent<SushiFalling>().falling = true;
-            }
+            //else
+            //{
+            //    GameObject sushiInstance = Instantiate(this.gameObject, transform) as GameObject;
+            //    sushiInstance.GetComponent<SushiFalling>().falling = true;
+            //}
 
         }
         if (falling)
