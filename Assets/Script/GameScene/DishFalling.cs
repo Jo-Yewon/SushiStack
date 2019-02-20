@@ -14,6 +14,7 @@ public class DishFalling : MonoBehaviour
     public static bool falling = true;
     public bool isGookTurn = false;
     public GameObject tempItemArray;
+    int count;
 
     // Start is called before the first frame update
     void Start()
@@ -53,8 +54,25 @@ public class DishFalling : MonoBehaviour
 
         }
 
-        if (ItemFalling.gookOn)
+        if (dishNum == 1)
         {
+            count = this.GetComponent<GreenPlate>().Count;
+        }
+        if (dishNum == 2)
+        {
+            count = this.GetComponent<BluePlate>().Count;
+
+        }
+        if (dishNum == 3)
+        {
+            count = this.GetComponent<RedPlate>().Count;
+
+        }
+
+        if (ItemFalling.gookOn && count == 0)
+        {
+
+
             if (!isGookTurn)
             {
                 change = Instantiate(sushi, transform) as GameObject;
@@ -71,8 +89,9 @@ public class DishFalling : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             Destroy(change);
             isGookTurn = false;
-        }else
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
+        }
+        //else
+        //    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
 
 
         if (transform.localPosition.y < -(2560 / 2))
