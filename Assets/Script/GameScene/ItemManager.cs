@@ -168,6 +168,7 @@ public class ItemManager : MonoBehaviour
                 else if (Item.CompareTag("RainbowPlate"))
                 {
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    itemFalling.FeverOn = true;
                     DragCat.DishScore *= 2; // 피버타임때 점수가 2배 되므로 접시를 받을때마다 2갰기 받은 것으로 처리
                                             // 초밥 점수 2배로 하는 코드 필요
 
