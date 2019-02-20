@@ -69,20 +69,21 @@ public class DishFalling : MonoBehaviour
 
         }
 
-        if (ItemFalling.gookOn && count == 0)
+        if (ItemFalling.gookOn)
         {
-
-
-            if (!isGookTurn)
+            if (count == 0)
             {
-                change = Instantiate(sushi, transform) as GameObject;
-                //change.transform.SetParent(parent, false);
-                change.transform.SetParent(tempItemArray.transform, false);
+                if (!isGookTurn)
+                {
+                    change = Instantiate(sushi, transform) as GameObject;
+                    //change.transform.SetParent(parent, false);
+                    change.transform.SetParent(tempItemArray.transform, false);
+                }
+                isGookTurn = true;
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
+                transform.localScale = new Vector3(0, 0, 0);
+                change.transform.localPosition = transform.localPosition;
             }
-            isGookTurn = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, -10);
-            transform.localScale = new Vector3(0, 0, 0);
-            change.transform.localPosition = transform.localPosition;
         }
         else if(isGookTurn)
         {

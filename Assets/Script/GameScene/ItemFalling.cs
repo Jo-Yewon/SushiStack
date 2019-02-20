@@ -66,6 +66,7 @@ public class ItemFalling : MonoBehaviour
             {
                 whichItem = 0;
                 gookOn = false;
+                effectTime = 0f;
             }
         }
 
