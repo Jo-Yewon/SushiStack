@@ -2586,6 +2586,11 @@ PrefabInstance:
       propertyPath: tempItemArray
       value: 
       objectReference: {fileID: 566709722}
+    - target: {fileID: 5368622211976278727, guid: 4e23c77818562d44f8076b93279141c7,
+        type: 3}
+      propertyPath: dishNum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7653433341628975915, guid: 4e23c77818562d44f8076b93279141c7,
         type: 3}
       propertyPath: m_BodyType
@@ -6080,7 +6085,6 @@ MonoBehaviour:
   turtleOn: 0
   tmp: 0
   sushiRange: 0
-  fallingSpeed: 7
 --- !u!82 &1183229819
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11302,6 +11306,11 @@ PrefabInstance:
       propertyPath: tempItemArray
       value: 
       objectReference: {fileID: 566709722}
+    - target: {fileID: 6179091644175396691, guid: 1953feb0f7282944eac2cfaac29c548b,
+        type: 3}
+      propertyPath: dishNum
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2388492539879270460, guid: 1953feb0f7282944eac2cfaac29c548b,
         type: 3}
       propertyPath: m_Offset.y

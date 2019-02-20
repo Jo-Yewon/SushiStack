@@ -19,12 +19,12 @@ public class DishFalling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (dishNum == 1)
+        if (dishNum == 2)
         {
             dish = GameObject.Find("blueDish");
             sushi = GameObject.Find("Low2Shrimp"); //임의로
         }
-        if (dishNum == 2)
+        if (dishNum == 1)
         {
             dish = GameObject.Find("greenDish");
             sushi = GameObject.Find("Low1Egg");
@@ -90,8 +90,8 @@ public class DishFalling : MonoBehaviour
             Destroy(change);
             isGookTurn = false;
         }
-        //else
-        //    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
+        else
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - speed * Time.deltaTime, 0);
 
 
         if (transform.localPosition.y < -(2560 / 2))
