@@ -10,6 +10,8 @@ public class RedPlate : MonoBehaviour
     public Rigidbody2D rb;
     public float YPosition;
     public GameObject Cat;
+    public GameObject getSound;
+
 
     private GameObject platecollider;
     private DragCat catmove;
@@ -52,6 +54,7 @@ public class RedPlate : MonoBehaviour
             }
             else
             {
+                getSound.GetComponent<AudioSource>().Play();
                 ScoreGet();
             }
 
@@ -74,6 +77,7 @@ public class RedPlate : MonoBehaviour
             }
             else
             {
+                getSound.GetComponent<AudioSource>().Play();
                 ScoreGet();
             }
 

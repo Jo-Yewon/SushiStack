@@ -10,6 +10,8 @@ public class BluePlate : MonoBehaviour
     public Rigidbody2D rb;
     public float YPosition;
     public GameObject Cat;
+    public GameObject getSound;
+
 
     private GameObject platecollider;
     private DragCat catmove;
@@ -51,6 +53,7 @@ public class BluePlate : MonoBehaviour
             }
             else
             {
+                getSound.GetComponent<AudioSource>().Play();
                 ScoreGet();
             }
 
@@ -72,6 +75,7 @@ public class BluePlate : MonoBehaviour
             }
             else
             {
+                getSound.GetComponent<AudioSource>().Play();
                 ScoreGet();
             }
 

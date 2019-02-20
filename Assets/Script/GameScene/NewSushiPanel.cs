@@ -15,9 +15,12 @@ public class NewSushiPanel : MonoBehaviour
         //SushiImage 배열에 스시이미지 오브젝트 번호 맞추어 저장
         for (int i = 0; i < 6; i++)
             SushiImage[SushiUnlockInfo[i]] = SushiImageObject.transform.GetChild(i).gameObject;
+    }
 
+    void OnEnable()
+    {
         //새롭게 획득한 칭호 표시 //다수의 칭호를 동시에 획득시 가장 높은 칭호만 표시하기.
-        NewAchieveText.GetComponent<Text>().text = 
+        NewAchieveText.GetComponent<Text>().text =
             PlayerDataLoad.PlayerData.AchievementString[PlayerDataLoad.playerdata.AchievementIndex];
         NewAchieveText.SetActive(true);
 
@@ -29,7 +32,8 @@ public class NewSushiPanel : MonoBehaviour
     {
         int last = 0;
 
-        for (int i = PlayerDataLoad.playerdata.LastAchievementIndex + 1; i <= PlayerDataLoad.playerdata.AchievementIndex; i++)
+        for (int i = 1; i <= 4; i++)
+            //for (int i = PlayerDataLoad.playerdata.LastAchievementIndex + 1; i <= PlayerDataLoad.playerdata.AchievementIndex; i++)
         {
             if (i == 3 || i == 6 || i == 9) continue;
 

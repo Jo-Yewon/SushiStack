@@ -66,8 +66,6 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score = catmove.DishCount * 10;
-
         if (GameIsOver == true) {
             LuckyCatItemPanel.SetActive(true);
         }
