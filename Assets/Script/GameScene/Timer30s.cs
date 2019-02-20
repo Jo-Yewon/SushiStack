@@ -103,10 +103,13 @@ public class Timer30s : MonoBehaviour
 
         yield return new WaitForSeconds(1.95f);
         ClearPlate();
+        ClearSushi();
+        yield return new WaitForSeconds(0.2f);
 
         stageCutton.GetComponent<Animation>().Play("CuttonUp"); //커튼 올리기
 
-        ClearSushi();
+        
+
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
         CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
         //ItemFallingObject.SetActive(true); //다시 아이템 복제 실행

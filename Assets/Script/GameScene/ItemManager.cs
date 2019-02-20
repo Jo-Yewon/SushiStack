@@ -10,16 +10,22 @@ public class ItemManager : MonoBehaviour
 
     public int itemScore;
     private GameScript GameOver;
+    private DragCat catmove;
 
     public void Start()
     {
+        GameObject Cat = GameObject.Find("MovingCat");
+        catmove = Cat.GetComponent<DragCat>();
+
         SushiNum = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         GameObject Cat = GameObject.Find("MovingCat");
         DragCat catmove = Cat.GetComponent<DragCat>();
+        */
 
         GameObject Item = this.gameObject;
         DishFalling dishFalling = Item.GetComponent<DishFalling>();
