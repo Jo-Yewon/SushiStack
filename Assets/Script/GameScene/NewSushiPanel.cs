@@ -10,11 +10,16 @@ public class NewSushiPanel : MonoBehaviour
 
     private readonly static int[] SushiUnlockInfo = { 1, 2, 4, 5, 7, 8 };
 
-    void Start()
+    void Awake()
     {
         //SushiImage 배열에 스시이미지 오브젝트 번호 맞추어 저장
         for (int i = 0; i < 6; i++)
             SushiImage[SushiUnlockInfo[i]] = SushiImageObject.transform.GetChild(i).gameObject;
+    }
+
+    void Update()
+    {
+        Time.timeScale = 1;
     }
 
     void OnEnable()
@@ -22,7 +27,6 @@ public class NewSushiPanel : MonoBehaviour
         //새롭게 획득한 칭호 표시 //다수의 칭호를 동시에 획득시 가장 높은 칭호만 표시하기.
         NewAchieveText.GetComponent<Text>().text =
             PlayerDataLoad.PlayerData.AchievementString[PlayerDataLoad.playerdata.AchievementIndex];
-        NewAchieveText.SetActive(true);
 
         //Sushi 뜨는 것 시작
         StartCoroutine("SushiPopCoroutine");
@@ -32,8 +36,7 @@ public class NewSushiPanel : MonoBehaviour
     {
         int last = 0;
 
-        for (int i = 1; i <= 4; i++)
-            //for (int i = PlayerDataLoad.playerdata.LastAchievementIndex + 1; i <= PlayerDataLoad.playerdata.AchievementIndex; i++)
+        for (int i = PlayerDataLoad.playerdata.LastAchievementIndex + 1; i <= PlayerDataLoad.playerdata.AchievementIndex; i++)
         {
             if (i == 3 || i == 6 || i == 9) continue;
 
@@ -46,8 +49,7 @@ public class NewSushiPanel : MonoBehaviour
         }
     }
 
-
-    public void ScreenClicked() //화면 누르면 다시 결과창으로 돌아가기
+    public void OKClicked() //화면 누르면 다시 결과창으로 돌아가기
     {
         gameObject.SetActive(false);
     }

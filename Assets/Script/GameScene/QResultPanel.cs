@@ -34,6 +34,7 @@ public class QResultPanel : MonoBehaviour
         GuestScoreText.GetComponent<Text>().text = Timer30s.GuestScore.ToString();
         ThiefScoreText.GetComponent<Text>().text = Timer30s.ThiefCatCount.ToString();
         guestNumScore = Timer30s.GuestScore;//손님 수
+        TimeManager.SetActive(false);
 
         //점수 및 코인 표시
         totalScore = Int32.Parse(IngameScoreText.GetComponent<Text>().text); //점수를 저장
