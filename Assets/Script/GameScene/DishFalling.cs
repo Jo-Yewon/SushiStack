@@ -27,7 +27,7 @@ public class DishFalling : MonoBehaviour
         if (dishNum == 1)
         {
             dish = GameObject.Find("greenDish");
-            sushi = GameObject.Find("Low1Egg");
+            sushi = GameObject.Find("Low1");
         }
         if (dishNum == 3)
         {

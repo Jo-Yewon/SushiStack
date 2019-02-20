@@ -773,6 +773,7 @@ MonoBehaviour:
   TempItemArray: {fileID: 566709722}
   ItemFallingObject: {fileID: 1183229816}
   ScoreManager: {fileID: 908520368}
+  SushiArrayObj: {fileID: 0}
 --- !u!1 &306098584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e47ebed18313d49940ae1821ca0bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CatObject: {fileID: 0}
   redPlateText: {fileID: 455529463}
   greenPlateText: {fileID: 1516717811}
   bluePlateText: {fileID: 395702724}
@@ -3260,7 +3262,7 @@ GameObject:
   - component: {fileID: 721787053}
   - component: {fileID: 721787054}
   m_Layer: 13
-  m_Name: Low1Egg
+  m_Name: Low1
   m_TagString: itemgreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3282,7 +3284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 258, y: 1380}
+  m_AnchoredPosition: {x: 935, y: 1370}
   m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721787049
@@ -4956,7 +4958,7 @@ GameObject:
   - component: {fileID: 936786714}
   - component: {fileID: 936786715}
   m_Layer: 13
-  m_Name: Low2Shrimp
+  m_Name: Low2
   m_TagString: itemgreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11240,7 +11242,7 @@ GameObject:
   - component: {fileID: 2016001634}
   - component: {fileID: 2016001635}
   m_Layer: 13
-  m_Name: Low3Cucumber
+  m_Name: Low3
   m_TagString: itemgreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

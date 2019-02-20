@@ -96,11 +96,11 @@ public class ItemFalling : MonoBehaviour
             if (feverOn)
             {
                 Debug.Log("fever on");
+                feverTimer = 0;
                 feverBG.SetActive(true);
                 GameObject.FindGameObjectWithTag("SoundManager").GetComponent<BGMScript>().PauseGameBGM();
                 this.GetComponent<AudioSource>().Play();
                 rainbowDish.transform.localPosition = new Vector3(0, 1335, 0);
-                feverTimer = 0;
             }
             else
                 rainbowDish.transform.localPosition = new Vector3(rainbowDish.transform.localPosition.x, rainbowDish.transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0);
