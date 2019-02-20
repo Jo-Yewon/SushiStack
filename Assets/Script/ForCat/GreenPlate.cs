@@ -17,6 +17,8 @@ public class GreenPlate : MonoBehaviour
     private GameScript GameOver;
     private bool isScoreUpdate;
 
+    public int Count { get => count; set => count = value; }
+
     public void Awake()
     {
         platecollider = gameObject.transform.GetChild(0).gameObject;
