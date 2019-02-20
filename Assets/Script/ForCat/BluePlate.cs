@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BluePlate : MonoBehaviour
 {
-    public GameObject Gamemanager;
+    public GameObject Gamemanager,ScoreManager;
     public static int bluePlateNum;
     public Rigidbody2D rb;
     public float YPosition;
@@ -15,10 +15,22 @@ public class BluePlate : MonoBehaviour
     private DragCat catmove;
     private int count = 0;
     private GameScript GameOver;
+    private bool isScoreUpdate;
 
     public void Awake()
     {
         platecollider = gameObject.transform.GetChild(0).gameObject;
+        isScoreUpdate = false;
+    }
+
+    private void ScoreGet()
+    {
+        if (!isScoreUpdate)
+        {
+            isScoreUpdate = true;
+            bluePlateNum++;
+            ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +46,10 @@ public class BluePlate : MonoBehaviour
             if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
+            }
+            else
+            {
+                ScoreGet();
             }
 
             rb.isKinematic = true;
@@ -52,6 +68,10 @@ public class BluePlate : MonoBehaviour
             {
                 GameOver.GameIsOver = true;
             }
+            else
+            {
+                ScoreGet();
+            }
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
@@ -65,6 +85,7 @@ public class BluePlate : MonoBehaviour
             //YPosition = transform.position.y;
             count++;
             //catmove.DishCount++;
+            
         }
     }
 
@@ -75,7 +96,6 @@ public class BluePlate : MonoBehaviour
         {
             platecollider.SetActive(false);
             catmove.DishCount+=DragCat.DishScore;
-            bluePlateNum++;
             count++;
             this.enabled = false;
         }

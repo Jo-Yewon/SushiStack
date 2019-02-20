@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RedPlate : MonoBehaviour
 {
-    public GameObject Gamemanager;
+    public GameObject Gamemanager, ScoreManager;
     public static int redPlateNum;
     public Rigidbody2D rb;
     public float YPosition;
@@ -15,10 +15,23 @@ public class RedPlate : MonoBehaviour
     private DragCat catmove;
     private int count = 0;
     private GameScript GameOver;
+    private bool isScoreUpdate;
 
     public void Awake()
     {
         platecollider = gameObject.transform.GetChild(0).gameObject;
+        isScoreUpdate = false;
+
+    }
+
+    private void ScoreGet()
+    {
+        if (!isScoreUpdate)
+        {
+            isScoreUpdate = true;
+            redPlateNum++;
+            ScoreManager.GetComponent<ScoreManager>().ScoreUp(30);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +47,10 @@ public class RedPlate : MonoBehaviour
             if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
+            }
+            else
+            {
+                ScoreGet();
             }
 
             rb.isKinematic = true;
@@ -52,6 +69,10 @@ public class RedPlate : MonoBehaviour
             if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
+            }
+            else
+            {
+                ScoreGet();
             }
 
             rb.isKinematic = true;
@@ -76,7 +97,6 @@ public class RedPlate : MonoBehaviour
         {
             platecollider.SetActive(false);
             catmove.DishCount+=DragCat.DishScore;
-            redPlateNum++;
             count++;
             this.enabled = false;
         }

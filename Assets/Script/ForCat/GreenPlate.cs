@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GreenPlate : MonoBehaviour
 {
-    public GameObject Gamemanager;
+    public GameObject Gamemanager, ScoreManager;
     public static int greenPlateNum;
     public Rigidbody2D rb;
     public float YPosition;
@@ -15,10 +15,22 @@ public class GreenPlate : MonoBehaviour
     private DragCat catmove;
     private int count = 0;
     private GameScript GameOver;
+    private bool isScoreUpdate;
 
     public void Awake()
     {
         platecollider = gameObject.transform.GetChild(0).gameObject;
+        isScoreUpdate = false;
+    }
+
+    private void ScoreGet()
+    {
+        if (!isScoreUpdate)
+        {
+            isScoreUpdate = true;
+            greenPlateNum++;
+            ScoreManager.GetComponent<ScoreManager>().ScoreUp(10);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,6 +46,10 @@ public class GreenPlate : MonoBehaviour
             if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123) {
                 GameOver.GameIsOver = true;
             }
+            else
+            {
+                ScoreGet();
+            }
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
@@ -44,6 +60,7 @@ public class GreenPlate : MonoBehaviour
             catmove.firstPlate = 1;
             count++;
             catmove.DishCount += DragCat.DishScore;
+            ScoreGet();
 
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
@@ -51,6 +68,10 @@ public class GreenPlate : MonoBehaviour
             if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
             {
                 GameOver.GameIsOver = true;
+            }
+            else
+            {
+                ScoreGet();
             }
 
             rb.isKinematic = true;
@@ -75,7 +96,6 @@ public class GreenPlate : MonoBehaviour
         {
             platecollider.SetActive(false);
             catmove.DishCount += DragCat.DishScore;
-            greenPlateNum++;
             count++;
             this.enabled = false;
         }
