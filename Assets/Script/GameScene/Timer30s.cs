@@ -29,7 +29,7 @@ public class Timer30s : MonoBehaviour
     private static readonly int CAT_SPRITE_NUM = 8; //고양이 종류
     private static readonly float THIEF_CAT_TIME = 5f; //도둑고양이 5초동안
     private static readonly int THIEF_TOUCH_TIME = 10; //도둑고양이 10번 터치
-    private static readonly float infinite = 987654321f;
+    private static readonly float infinite = 100f;
 
     private Animation CatObjAnim;
     private Animation cuttonDownAnim;
@@ -100,7 +100,7 @@ public class Timer30s : MonoBehaviour
 
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
         CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
-        ItemFallingObject.SetActive(true); //다시 아이템 복제 실행
+        //ItemFallingObject.SetActive(true); //다시 아이템 복제 실행
 
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
@@ -120,7 +120,7 @@ public class Timer30s : MonoBehaviour
 
         stageCutton.GetComponent<Animation>().Play("CuttonDown"); //커튼 내리기
 
-        ItemFallingObject.SetActive(false); //아이템 복제 중지하기
+        //ItemFallingObject.SetActive(false); //아이템 복제 중지하기
         GameManager.SetActive(false);
         CatObject.GetComponent<DragCat>().enabled=false; //고양이 터치로 움직이기 비활성화
         GuestScoreUpdate();
