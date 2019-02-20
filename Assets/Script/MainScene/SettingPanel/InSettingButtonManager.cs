@@ -17,4 +17,10 @@ public class InSettingButtonManager : MonoBehaviour
         GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().ButtonClickedSoundPlay();
         warningPanel.SetActive(true);
     }
+
+    public void SoundCheck()
+    {
+        if (AudioListener.volume == 0f) AudioListener.volume = 1f;
+        else if (AudioListener.volume == 1f) AudioListener.volume = 0f;
+    }
 }
