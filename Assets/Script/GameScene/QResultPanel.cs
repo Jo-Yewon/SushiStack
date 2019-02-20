@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class QResultPanel : MonoBehaviour
 {
+    public GameObject CatObject;
     public GameObject redPlateText, greenPlateText, bluePlateText;
     public GameObject GuestScoreText, ThiefScoreText;
     public GameObject TimeManager;
@@ -18,6 +19,8 @@ public class QResultPanel : MonoBehaviour
 
     void OnEnable()
     {
+        CatObject.SetActive(false);
+
         int totalScore, sushiNumScore, guestNumScore, plateNumScore, coin;
 
         //접시 개수 표시하기

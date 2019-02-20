@@ -14,6 +14,7 @@ public class AchievementStoreManager : MonoBehaviour
     public GameObject Achievement_nameedit;
     public GameObject StarSystem;
     public GameObject NameEditPanel;
+    public GameObject MaxScoreText, MaxGuestText, MaxPlateText, MaxSushiText;
 
     private GameObject []StarArray;
     private int achievementStar;
@@ -43,6 +44,16 @@ public class AchievementStoreManager : MonoBehaviour
     {
         LoadStoreName();
         LoadAchievement();
+        LoadMaxScores();
+    }
+
+    public void LoadMaxScores()
+    {
+        MaxScoreText.GetComponent<Text>().text = PlayerDataLoad.playerdata.MaxScore.ToString()+"점";
+        MaxGuestText.GetComponent<Text>().text = PlayerDataLoad.playerdata.MaxGuest.ToString()+"명";
+        MaxPlateText.GetComponent<Text>().text = PlayerDataLoad.playerdata.MaxPlate.ToString()+"개";
+        MaxSushiText.GetComponent<Text>().text = PlayerDataLoad.playerdata.MaxSushi.ToString()+"개";
+
     }
 
     public void LoadStoreName()

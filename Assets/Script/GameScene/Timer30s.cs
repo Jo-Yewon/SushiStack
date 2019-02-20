@@ -21,6 +21,7 @@ public class Timer30s : MonoBehaviour
     public GameObject TempItemArray;
     public GameObject ItemFallingObject;
     public GameObject ScoreManager;
+    public GameObject SushiArrayObj;
 
     //<상수필드>
     private static readonly float PER_SECOND = 0.03333333f; // 1나누기30(초)
@@ -34,7 +35,6 @@ public class Timer30s : MonoBehaviour
     private List<GameObject> orderArray; /// order들이 배열로 담김.
     private Transform orderPanel_Transform;
     private int currentModeNum;
-    private Text GuestScoreText;
     private SpriteRenderer CatImageComponent;
     private Animation TheifCatAnim;
 
@@ -56,15 +56,12 @@ public class Timer30s : MonoBehaviour
         for (int i = 0; i < OrderPanel.transform.childCount; i++)
             orderArray.Add(orderPanel_Transform.GetChild(i).gameObject);
 
-        cuttonDownAnim = stageCutton.GetComponent<Animation>();
-        CatObjAnim = CatObject.GetComponent<Animation>();
         TheifCatAnim = TheifCatObject.GetComponent<Animation>();
         CatImageComponent = CatObject.GetComponent<SpriteRenderer>();
 
         StartCoroutine("TimeCount");
         GuestScore = 0; //게임 시작시 static 변수 초기화
         ThiefCatCount = 0;
-        GuestScoreText = GuestScoreObject.GetComponent<Text>();
     }
 
     IEnumerator TimeCount()
@@ -78,14 +75,23 @@ public class Timer30s : MonoBehaviour
 
         CatObject.layer = LayerMask.NameToLayer("CatAppear"); //발 앞쪽으로 레이어 재배치
         CatImageChange(); //고양이 이미지 변경
-        CatObjAnim.Play("CatUp"); //고양이 올라오기
+        CatObject.GetComponent<Animation>().Play("CatUp"); //고양이 올라오기
         CatSoundObj.GetComponent<AudioSource>().Play(); //고양이 등장 소리
         yield return new WaitForSeconds(0.1f);
 
         SelectMode(); //모드 선택 및 말풍선 보여주기
-        yield return new WaitForSeconds(2f);//2초 후
 
-        cuttonDownAnim.Play("CuttonUp"); //커튼 올리기
+        //내려온 스시 전부 위로 올리기
+        GameObject[] GItem = GameObject.FindGameObjectsWithTag("itemgreen");
+        GameObject[] BItem = GameObject.FindGameObjectsWithTag("itemblue");
+        GameObject[] RItem = GameObject.FindGameObjectsWithTag("itemred");
+        for (int i = 0; i < GItem.Length; i++) GItem[i].GetComponent<SushiFalling>().SushiUp();
+        for (int i = 0; i < BItem.Length; i++) BItem[i].GetComponent<SushiFalling>().SushiUp();
+        for (int i = 0; i < RItem.Length; i++) RItem[i].GetComponent<SushiFalling>().SushiUp();
+
+        yield return new WaitForSeconds(1f);//2초 후
+
+        stageCutton.GetComponent<Animation>().Play("CuttonUp"); //커튼 올리기
         yield return new WaitForSeconds(0.125f);
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
         CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
@@ -107,7 +113,7 @@ public class Timer30s : MonoBehaviour
             right.value -= PER_SECOND;
         }
 
-        cuttonDownAnim.Play("CuttonDown"); //커튼 내리기
+        stageCutton.GetComponent<Animation>().Play("CuttonDown"); //커튼 내리기
 
         ItemFallingObject.SetActive(false); //아이템 복제 중지하기
         GameManager.SetActive(false);
@@ -175,7 +181,7 @@ public class Timer30s : MonoBehaviour
             DishFalling.fallingSpeed -= 0.5f;
         }
         GuestScore++;
-        GuestScoreText.text = GuestScore.ToString();
+        GuestScoreObject.GetComponent<Text>().text = GuestScore.ToString();
     }
 
     void CatImageChange() //고양이 이미지 변경
