@@ -43,7 +43,8 @@ public class GreenPlate : MonoBehaviour
             YPosition = transform.position.y;
             catmove.firstPlate = 1;
             count++;
-            catmove.DishCount++;
+            catmove.DishCount += DragCat.DishScore;
+
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
@@ -79,7 +80,7 @@ public class GreenPlate : MonoBehaviour
 
         if (count == 2) {
             platecollider.SetActive(false);
-            catmove.DishCount++;
+            catmove.DishCount += DragCat.DishScore;
             greenPlateNum++;
             count++;
             this.enabled = false;

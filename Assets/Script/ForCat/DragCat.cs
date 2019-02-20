@@ -18,6 +18,7 @@ public class DragCat : MonoBehaviour
 
     public int DishCount = 0;
     public int ItemCount = 0;
+    public static int DishScore = 1;    // 피버타임때 점수를 2배로 만들기 위한 변수
 
     private GameObject catcollider;
     

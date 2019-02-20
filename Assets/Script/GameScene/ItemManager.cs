@@ -17,6 +17,7 @@ public class ItemManager : MonoBehaviour
 
         GameObject Item = this.gameObject;
         DishFalling dishFalling = Item.GetComponent<DishFalling>();
+        ItemFalling itemFalling = GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>();
 
         GameOver = Gamemanager.GetComponent<GameScript>();
 
@@ -36,9 +37,6 @@ public class ItemManager : MonoBehaviour
                 {
                     GameOver.GameIsOver = true;
                 }
-
-                
-
                 Debug.Log("Tagged");
             }
             else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
@@ -56,10 +54,16 @@ public class ItemManager : MonoBehaviour
                 }
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
-            {  
-
+            {
+                itemFalling.turtlePower();
             }
             else if (Item.CompareTag("gook")) { //국 받았을 때
+                itemFalling.gookPower();
+            }
+            else if (Item.CompareTag("RainbowPlate"))
+            {
+                DragCat.DishScore *= 2; // 피버타임때 점수가 2배 되므로 접시를 받을때마다 2갰기 받은 것으로 처리
+                // 초밥 점수 2배로 하는 코드 필요
 
             }
 
@@ -91,10 +95,18 @@ public class ItemManager : MonoBehaviour
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
             {
-
+                itemFalling.turtlePower();
             }
             else if (Item.CompareTag("gook"))
             { //국 받았을 때
+                itemFalling.gookPower();
+            }
+            else if (Item.CompareTag("RainbowPlate"))
+            {
+                itemFalling.FeverOn = true;
+                itemFalling.GetComponent<AudioSource>().Play();
+                DragCat.DishScore *= 2; // 피버타임때 점수가 2배 되므로 접시를 받을때마다 2갰기 받은 것으로 처리
+                // 초밥 점수 2배로 하는 코드 필요
 
             }
 

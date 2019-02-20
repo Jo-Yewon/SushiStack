@@ -44,7 +44,8 @@ public class RedPlate : MonoBehaviour
             YPosition = transform.position.y;
             catmove.firstPlate = 1;
             count++;
-            catmove.DishCount++;
+            catmove.DishCount += DragCat.DishScore;
+
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
@@ -74,7 +75,7 @@ public class RedPlate : MonoBehaviour
         if (count == 2)
         {
             platecollider.SetActive(false);
-            catmove.DishCount++;
+            catmove.DishCount+=DragCat.DishScore;
             redPlateNum++;
             count++;
             this.enabled = false;
