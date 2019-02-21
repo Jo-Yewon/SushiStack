@@ -91,17 +91,20 @@ public class ItemManager : MonoBehaviour
             }
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
             {
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                 Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 itemFalling.turtlePower();
             }
             else if (Item.CompareTag("gook"))
             { //국 받았을 때
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                 Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 itemFalling.gookPower();
             }
             else if (Item.CompareTag("RainbowPlate"))
             {
                 Debug.Log("Rainbow");
+                ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                 Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 itemFalling.FeverOn = true;
                 // 초밥 점수 2배로 하는 코드 필요
@@ -174,16 +177,21 @@ public class ItemManager : MonoBehaviour
                 }
                 else if (Item.CompareTag("turtle"))     //거북이 받았을떄
                 {
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
+
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     itemFalling.turtlePower();
                 }
                 else if (Item.CompareTag("gook"))
                 { //국 받았을 때
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
+
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     itemFalling.gookPower();
                 }
                 else if (Item.CompareTag("RainbowPlate"))
                 {
+                    ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                     Debug.Log("Rainbow");
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     itemFalling.FeverOn = true;
