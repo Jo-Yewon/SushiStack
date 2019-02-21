@@ -10,6 +10,7 @@ public class ItemFalling : MonoBehaviour
     void Start()
     {
         timeBetweenFall = Random.Range(15f, 25f);
+        StartCoroutine("TurtleFall");
     }
 
     float itemTimer = 0f;
@@ -37,9 +38,22 @@ public class ItemFalling : MonoBehaviour
     public static int dish;
     public int tmp;
 
+    IEnumerator TurtleFall()
+    {
+        yield return new WaitForSeconds(timeBetweenFall);
+        if (turtle.activeSelf == true)
+        {
+            turtle.SetActive(false);
+            turtle.SetActive(true);
+        }
+        else turtle.SetActive(true);
+        StartCoroutine("TurtleFall");
+    }
+
     // Update is called once per frame
     void Update()
     {
+        /*
         itemTimer += Time.deltaTime;
         if (itemTimer > timeBetweenFall && whichItem==0 )
         {
@@ -59,6 +73,7 @@ public class ItemFalling : MonoBehaviour
         {
             gook.transform.localPosition = new Vector3(gook.transform.localPosition.x, gook.transform.localPosition.y - (2140/DishFalling.fallingSpeed * Time.deltaTime), 0);
         }
+        */
 
         if (gookOn)
         {
@@ -79,6 +94,7 @@ public class ItemFalling : MonoBehaviour
                 if(DishFalling.fallingSpeed>3)
                     DishFalling.fallingSpeed -= 2;
                 whichItem = 0;//아무 아이템도 내려오고 있지 않은 상태를 만들기 위해.
+                turtleOn = false;
             }
         }
 
@@ -147,7 +163,7 @@ public class ItemFalling : MonoBehaviour
 
     public void turtlePower()
     {
-        turtle.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2+182, 0);
+        //turtle.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2+182, 0);
         if(DishFalling.fallingSpeed<=5)
         DishFalling.fallingSpeed += 2;
         turtleOn = true;

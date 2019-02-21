@@ -17,8 +17,6 @@ public class SushiFalling : MonoBehaviour
     {
         speed = 2140 / DishFalling.fallingSpeed; //2140이었음
 
-        
-
         if (!ItemFalling.whichFall)
         {
             if (!falling)

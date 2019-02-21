@@ -73,40 +73,10 @@ public class Timer30s : MonoBehaviour
 
     private void StopAndClearSushi()
     {
-        /*
-        Debug.Log("ClearSushi");
-        GameObject[] GItem = GameObject.FindGameObjectsWithTag("itemgreen");
-        GameObject[] BItem = GameObject.FindGameObjectsWithTag("itemblue");
-        GameObject[] RItem = GameObject.FindGameObjectsWithTag("itemred");
-        for (int i = 0; i < GItem.Length; i++)
-        {
-            Debug.Log(GItem[i].name + "을 초기화");
-            GItem[i].GetComponent<SushiFalling>().timerFall = infinite;
-        }
-        for (int i = 0; i < BItem.Length; i++)
-        {
-            BItem[i].GetComponent<SushiFalling>().timerFall = infinite;
-            Debug.Log(BItem[i].name + "을 초기화");
-        }
-        for (int i = 0; i < RItem.Length; i++)
-        {
-            RItem[i].GetComponent<SushiFalling>().timerFall = infinite;
-            Debug.Log(BItem[i].name + "을 초기화");
-        }*/
-
         for (int i = 0; i < 9; i++)
         {
             //SushiArrayObj.transform.GetChild(i).GetComponent<SushiFalling>().enabled=false;
-            SushiArrayObj.transform.GetChild(i).localPosition = new Vector3(UnityEngine.Random.Range(-520f, 520f), 2550 / 2, 0);
-        }
-
-    }
-
-    private void RedropSushi()
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            SushiArrayObj.transform.GetChild(i).GetComponent<SushiFalling>().enabled = true;
+            SushiArrayObj.transform.GetChild(i).localPosition = new Vector3(0, -2000, 0); //끝난것처럼 처리
         }
     }
 
@@ -120,7 +90,6 @@ public class Timer30s : MonoBehaviour
             yield return StartCoroutine("ThiefCatMiniGame");
         }
         ClearPlate();
-        StopAndClearSushi();
 
         //CatObject.SetActive(true);
         CatObject.layer = LayerMask.NameToLayer("CatAppear"); //발 앞쪽으로 레이어 재배치
@@ -129,30 +98,21 @@ public class Timer30s : MonoBehaviour
         CatSoundObj.GetComponent<AudioSource>().Play(); //고양이 등장 소리
 
         ClearPlate();
-        StopAndClearSushi();
         yield return new WaitForSeconds(0.1f);
 
         SelectMode(); //모드 선택 및 말풍선 보여주기
 
-        yield return new WaitForSeconds(1.95f);
+        yield return new WaitForSeconds(2f);
         ClearPlate();
-        StopAndClearSushi();
-        yield return new WaitForSeconds(0.2f);
 
         stageCutton.GetComponent<Animation>().Play("CuttonUp"); //커튼 올리기
-
         CatObject.layer = LayerMask.NameToLayer("CatPlaying"); //초밥 뒤쪽으로 레이어 재배치
         CatObject.GetComponent<DragCat>().enabled = true; //이때부터 다시 고양이가 움직일 수 있도록
-        //RedropSushi();
-        //ItemFallingObject.GetComponent<ItemFalling>().enabled = true; //다시 아이템 복제 실행
+        ItemFallingObject.GetComponent<ItemFalling>().enabled = true; //다시 아이템 복제 실행
 
         GameManager.GetComponent<GameScript>().GameIsOver = false;
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
-
-        //DragCat catmove = CatObject.GetComponent<DragCat>();
-        //catmove.DishCount = 0; //접시 위치 초기화
-        //catmove.firstPlate = 0; //접시 아직 하나도 안 받은 것으로 초기화
 
         left.value = 1;
         right.value = 1;
@@ -164,12 +124,11 @@ public class Timer30s : MonoBehaviour
         }
 
         stageCutton.GetComponent<Animation>().Play("CuttonDown"); //커튼 내리기
-
         ClearPlate();
-        StopAndClearSushi();
 
         //CatObject.SetActive(false);
-        //ItemFallingObject.GetComponent<ItemFalling>().enabled=false; //아이템 복제 중지하기
+        ItemFallingObject.GetComponent<ItemFalling>().enabled=false; //아이템 복제 중지하기
+        StopAndClearSushi(); //현재 스시 전부 없애기
         GameManager.SetActive(false);
         CatObject.GetComponent<DragCat>().enabled=false; //고양이 터치로 움직이기 비활성화
         GuestScoreUpdate();

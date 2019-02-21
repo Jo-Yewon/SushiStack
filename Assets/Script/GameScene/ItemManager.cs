@@ -20,6 +20,13 @@ public class ItemManager : MonoBehaviour
         SushiNum = 0;
     }
 
+    public void OnEnable()
+    {
+        if(gameObject.CompareTag("turtle"))
+            gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0); //화면 상단으로
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         /*
@@ -92,8 +99,9 @@ public class ItemManager : MonoBehaviour
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
             {
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
-                Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 itemFalling.turtlePower();
+                gameObject.SetActive(false);
             }
             else if (Item.CompareTag("gook"))
             { //국 받았을 때
@@ -178,9 +186,9 @@ public class ItemManager : MonoBehaviour
                 else if (Item.CompareTag("turtle"))     //거북이 받았을떄
                 {
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
-
-                    Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     itemFalling.turtlePower();
+                    gameObject.SetActive(false);
                 }
                 else if (Item.CompareTag("gook"))
                 { //국 받았을 때
@@ -209,10 +217,15 @@ public class ItemManager : MonoBehaviour
     bool turnF = false;
 
     // Update is called once per frame
+
     void Update()
     {
         GameObject plate = this.gameObject;
         ItemFalling itemFalling = GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>();
+
+        if (gameObject.CompareTag("turtle"))
+            transform.localPosition = 
+                new Vector3(transform.localPosition.x, transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0); //떨어지기
 
         if (itemFalling.FeverOn)
         {
