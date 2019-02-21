@@ -115,11 +115,11 @@ public class DishFalling : MonoBehaviour
     void Fall()
     {
         timerFall = 0f;
-
         GameObject dishInstance = Instantiate(dish, transform.position, transform.rotation) as GameObject;
 
         // dishInstance.transform.SetParent(parent, false);
         dishInstance.transform.SetParent(tempItemArray.transform, false);
         dishInstance.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+        dishInstance.GetComponent<DishFalling>().speed= 2140 / fallingSpeed;
     }
 }

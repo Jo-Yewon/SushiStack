@@ -15,7 +15,6 @@ public class SushiFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = 2140 / DishFalling.fallingSpeed; //2140이었음
 
         if (!ItemFalling.whichFall)
         {
@@ -55,6 +54,8 @@ public class SushiFalling : MonoBehaviour
 
     public void Fall()
     {
+        speed = 2140 / DishFalling.fallingSpeed; //2140이었음
+
         timerFall = 0f;
     }
 
