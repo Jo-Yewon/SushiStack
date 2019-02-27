@@ -29,7 +29,7 @@ public class Timer30s : MonoBehaviour
     private static readonly int CAT_SPRITE_NUM = 8; //고양이 종류
     private static readonly float THIEF_CAT_TIME = 5f; //도둑고양이 5초동안
     private static readonly int THIEF_TOUCH_TIME = 10; //도둑고양이 10번 터치
-    private static readonly float infinite = 100f;
+    //private static readonly float infinite = 100f;
 
     private Animation CatObjAnim;
     private Animation cuttonDownAnim;

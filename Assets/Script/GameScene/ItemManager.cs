@@ -7,6 +7,7 @@ public class ItemManager : MonoBehaviour
 {
     public GameObject Gamemanager, ScoreManager;
     public static int SushiNum;
+    public GameObject turtleLetter, feverLetter, gookLetter;
 
     public int itemScore;
     private GameScript GameOver;
@@ -99,7 +100,10 @@ public class ItemManager : MonoBehaviour
             else if (Item.CompareTag("turtle"))     //거북이 받았을떄
             {
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
+
                 //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                //글자 표시
+                turtleLetter.GetComponent<Animation>().Play();
                 itemFalling.turtlePower();
                 gameObject.SetActive(false);
             }
@@ -111,8 +115,8 @@ public class ItemManager : MonoBehaviour
             }
             else if (Item.CompareTag("RainbowPlate"))
             {
-                Debug.Log("Rainbow");
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
+                feverLetter.GetComponent<Animation>().Play();
                 Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 itemFalling.FeverOn = true;
                 // 초밥 점수 2배로 하는 코드 필요
@@ -187,6 +191,8 @@ public class ItemManager : MonoBehaviour
                 {
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                     //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+
+                    turtleLetter.GetComponent<Animation>().Play();
                     itemFalling.turtlePower();
                     gameObject.SetActive(false);
                 }
@@ -200,7 +206,7 @@ public class ItemManager : MonoBehaviour
                 else if (Item.CompareTag("RainbowPlate"))
                 {
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
-                    Debug.Log("Rainbow");
+                    feverLetter.GetComponent<Animation>().Play();
                     Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                     itemFalling.FeverOn = true;
                     // 초밥 점수 2배로 하는 코드 필요

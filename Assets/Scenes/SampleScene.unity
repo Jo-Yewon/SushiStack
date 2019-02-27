@@ -306,6 +306,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55356986}
   m_CullTransparentMesh: 0
+--- !u!1 &66592167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 66592168}
+  - component: {fileID: 66592170}
+  - component: {fileID: 66592169}
+  - component: {fileID: 66592172}
+  m_Layer: 13
+  m_Name: FeverStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &66592168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66592167}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1236227355}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.14063689, y: 0.29988754}
+  m_AnchorMax: {x: 0.84000003, y: 0.53888756}
+  m_AnchoredPosition: {x: 10.34, y: -77.682}
+  m_SizeDelta: {x: 0.39001465, y: -4.3951416}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &66592169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66592167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 1399cf83a2ef7304690d4c1cc19a5a4b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &66592170
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66592167}
+  m_CullTransparentMesh: 0
+--- !u!111 &66592172
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66592167}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d58be3511efa1da489da268ceea61485, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d58be3511efa1da489da268ceea61485, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &70838016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1431,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335551826}
+  m_CullTransparentMesh: 0
+--- !u!1 &344547488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344547489}
+  - component: {fileID: 344547491}
+  - component: {fileID: 344547490}
+  m_Layer: 13
+  m_Name: GookStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &344547489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344547488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
+  m_Children: []
+  m_Father: {fileID: 1236227355}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.06768156, y: 0.24965239}
+  m_AnchorMax: {x: 0.9092995, y: 0.4666953}
+  m_AnchoredPosition: {x: 0.6710205, y: 8}
+  m_SizeDelta: {x: -10, y: 12}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &344547490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344547488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: d54f8381dcfbb284db8349e1408f442b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &344547491
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344547488}
   m_CullTransparentMesh: 0
 --- !u!1 &375547287
 GameObject:
@@ -2591,6 +2756,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 66592167}
+  gookLetter: {fileID: 0}
   itemScore: 0
 --- !u!1 &642785359
 GameObject:
@@ -3354,6 +3522,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 15
 --- !u!50 &721787053
 Rigidbody2D:
@@ -3435,6 +3606,7 @@ RectTransform:
   - {fileID: 1517374498}
   - {fileID: 1820042545}
   - {fileID: 1162500120}
+  - {fileID: 1236227355}
   m_Father: {fileID: 524533423}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5051,6 +5223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 15
 --- !u!50 &936786714
 Rigidbody2D:
@@ -5289,7 +5464,101 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 980973639}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 0
+--- !u!1 &980973639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980973640}
+  - component: {fileID: 980973642}
+  - component: {fileID: 980973641}
+  - component: {fileID: 980973645}
+  m_Layer: 13
+  m_Name: TurtleStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &980973640
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980973639}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00096, y: 1.00096, z: 1.00096}
+  m_Children: []
+  m_Father: {fileID: 1236227355}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.21831845, y: 0.24965239}
+  m_AnchorMax: {x: 0.77831846, y: 0.5892352}
+  m_AnchoredPosition: {x: 1.7958984, y: -132}
+  m_SizeDelta: {x: 20.100006, y: 10.091995}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &980973641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980973639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: a17542d6db0e41a4b99117ba8073f17a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &980973642
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980973639}
+  m_CullTransparentMesh: 0
+--- !u!111 &980973645
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980973639}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: dfd02b771d403e64da4974e38f386728, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: dfd02b771d403e64da4974e38f386728, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &983599064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5619,6 +5888,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 25
 --- !u!114 &1018324438
 MonoBehaviour:
@@ -5775,6 +6047,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 35
 --- !u!114 &1034534765
 MonoBehaviour:
@@ -7148,6 +7423,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233987775}
   m_CullTransparentMesh: 0
+--- !u!1 &1236227354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236227355}
+  m_Layer: 13
+  m_Name: EffectLetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1236227355
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236227354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 66592168}
+  - {fileID: 344547489}
+  - {fileID: 980973640}
+  m_Father: {fileID: 721811725}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.13841666, y: 0.45465627}
+  m_AnchorMax: {x: 0.8757223, y: 0.8155313}
+  m_AnchoredPosition: {x: 1.5999756, y: 3.9200134}
+  m_SizeDelta: {x: 6.300049, y: 11.150024}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1249013777
 GameObject:
   m_ObjectHideFlags: 0
@@ -8947,6 +9260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 25
 --- !u!114 &1502868318
 MonoBehaviour:
@@ -9954,6 +10270,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 35
 --- !u!114 &1666903557
 MonoBehaviour:
@@ -11376,6 +11695,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 15
 --- !u!50 &2016001634
 Rigidbody2D:
@@ -11540,6 +11862,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 0
 --- !u!1 &2056785840
 GameObject:
@@ -11717,6 +12042,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 35
 --- !u!114 &2063458788
 MonoBehaviour:
@@ -12001,6 +12329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gamemanager: {fileID: 1450474085}
   ScoreManager: {fileID: 908520368}
+  turtleLetter: {fileID: 0}
+  feverLetter: {fileID: 0}
+  gookLetter: {fileID: 0}
   itemScore: 25
 --- !u!114 &2124710057
 MonoBehaviour:
