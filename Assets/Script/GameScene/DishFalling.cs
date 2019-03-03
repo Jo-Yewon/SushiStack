@@ -7,7 +7,7 @@ public class DishFalling : MonoBehaviour
 
     public int dishNum;
     public static float timerFall = 0f;
-    public static float fallingSpeed = 5f;
+    public static float fallingSpeed = 3f;
     public float speed = 0f;
     GameObject dish;
     public GameObject sushi;
@@ -19,7 +19,7 @@ public class DishFalling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fallingSpeed = 5f;
+        fallingSpeed = 3f;
         if (dishNum == 2)
         {
             dish = GameObject.Find("blueDish");
