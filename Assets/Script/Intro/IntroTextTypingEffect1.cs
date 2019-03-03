@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IntroTextTypingEffect : MonoBehaviour
+//오리지널 인트로
+public class IntroTextTypingEffect1 : MonoBehaviour
 {
-    public readonly static float TimePerALetter = 0.05f;
+    public readonly static float TimePerALetter=0.05f;
     public GameObject IntroManagerObject;
 
-    private IntroManager_Re MyIntroManager;
+    private IntroManager MyIntroManager;
     private String message;
     private Text textObject;
 
@@ -19,7 +20,7 @@ public class IntroTextTypingEffect : MonoBehaviour
         textObject = gameObject.GetComponent<Text>();
         message = textObject.text;
         textObject.text = "";
-        MyIntroManager = IntroManagerObject.GetComponent<IntroManager_Re>();
+        MyIntroManager = IntroManagerObject.GetComponent<IntroManager>();
         StartCoroutine("TextTyping");
     }
 
@@ -40,6 +41,6 @@ public class IntroTextTypingEffect : MonoBehaviour
             yield return new WaitForSeconds(TimePerALetter);
             textObject.text = message.Substring(0, i);
         }
-        MyIntroManager.isTypingSkip_re = true;
+        MyIntroManager.isTypingSkip = true;
     }
 }
