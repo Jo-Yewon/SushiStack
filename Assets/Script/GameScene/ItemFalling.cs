@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class ItemFalling : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float timeBetweenFall = 2f;
+    //떨어지는 속도
+    public static float FallingSpeed;
+
+    //장국,거북이 떨어지는 간격 범위
+    private readonly static float 
+        ITEM_INTERVAL_MIN=15f, ITEM_INTERVAL_MAX=25f; 
 
     void Start()
     {
-        timeBetweenFall = Random.Range(15f, 25f);
-        StartCoroutine("TurtleFall");
+        StartCoroutine("TurtleAndGookFall");
     }
 
     float itemTimer = 0f;
@@ -23,6 +26,7 @@ public class ItemFalling : MonoBehaviour
     public GameObject gook;
     public GameObject rainbowDish;
     public GameObject feverBG;
+    public GameObject GameManager;
 
     // 접시 떨어지는 코드 관련 변수
     float timerFall = 0f;
@@ -38,43 +42,28 @@ public class ItemFalling : MonoBehaviour
     public static int dish;
     public int tmp;
 
-    IEnumerator TurtleFall()
+    IEnumerator TurtleAndGookFall() //랜덤시간마다 거북이, 장국 중 랜덤 드랍.
     {
-        yield return new WaitForSeconds(timeBetweenFall);
-        if (turtle.activeSelf == true)
+        yield return new WaitForSeconds(Random.Range(ITEM_INTERVAL_MIN, ITEM_INTERVAL_MAX));
+        if (GameManager.activeSelf) //발이 올라가 있을 때만 아이템 드랍
         {
-            turtle.SetActive(false);
-            turtle.SetActive(true);
+            if(Random.Range(0f, 1f) < 0.5f)
+            {
+                if(turtle.activeSelf == true) turtle.SetActive(false);
+                turtle.SetActive(true);
+            }
+            else
+            {
+                if (gook.activeSelf == true) gook.SetActive(false);
+                gook.SetActive(true);
+            }
         }
-        else turtle.SetActive(true);
-        StartCoroutine("TurtleFall");
+        StartCoroutine("TurtleAndGookFall");
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        itemTimer += Time.deltaTime;
-        if (itemTimer > timeBetweenFall && whichItem==0 )
-        {
-            while (whichItem == 0f)
-                whichItem = Random.Range(-3f, 0f);  //랜덤으로 음수 양수를 정해서 아이템 선택 거북이만 나옴
-
-            itemTimer = 0f;
-            effectTime = 0f;    // 
-            timeBetweenFall = Random.Range(15f, 25f);
-        }
-        if(whichItem < 0)
-        {
-            turtle.transform.localPosition = new Vector3(turtle.transform.localPosition.x, turtle.transform.localPosition.y - (2140/DishFalling.fallingSpeed * Time.deltaTime), 0);
-            
-        }
-        if (whichItem > 0)
-        {
-            gook.transform.localPosition = new Vector3(gook.transform.localPosition.x, gook.transform.localPosition.y - (2140/DishFalling.fallingSpeed * Time.deltaTime), 0);
-        }
-        */
-
         if (gookOn)
         {
             effectTime += Time.deltaTime;

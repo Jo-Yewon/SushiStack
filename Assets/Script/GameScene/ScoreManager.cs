@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject ScoreTextObject;
     public GameObject MaxScoreDeco, Score50DownDeco;
     public GameObject getSound;
+    public bool isFeverOn;
 
     private Text scoreText;
     private int total_score;
@@ -15,6 +16,7 @@ public class ScoreManager : MonoBehaviour
 
     public void Start()
     {
+        isFeverOn = false;
         scoreText = ScoreTextObject.GetComponent<Text>();
         total_score = 0;
         maxScore = PlayerDataLoad.playerdata.MaxScore;
@@ -24,7 +26,8 @@ public class ScoreManager : MonoBehaviour
    public void ScoreUp(int score)
     {
         getSound.GetComponent<AudioSource>().Play();
-        total_score += score; //피버모드이면 2배해서 더하도록 수정
+        if (isFeverOn) score *= 2; //피버모드이면 2배
+        total_score += score;
         scoreText.text = total_score.ToString();
 
         if (score > maxScore) //신기록 경신시 데코

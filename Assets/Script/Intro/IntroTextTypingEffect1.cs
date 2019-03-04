@@ -13,6 +13,7 @@ public class IntroTextTypingEffect1 : MonoBehaviour
     private IntroManager MyIntroManager;
     private String message;
     private Text textObject;
+    private Touch tempTouchs;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,14 @@ public class IntroTextTypingEffect1 : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            StopCoroutine("TextTyping"); //타이핑 멈추기
-            textObject.text = message; //자막 전체 바로 띄우기
-            this.enabled = true; //이 스크립트 떼버리기.
+            tempTouchs = Input.GetTouch(0);
+            if (tempTouchs.phase == TouchPhase.Ended)
+            {
+                StopCoroutine("TextTyping"); //타이핑 멈추기
+                textObject.text = message; //자막 전체 바로 띄우기
+                MyIntroManager.isTypingSkip = true;
+                this.enabled = true; //이 스크립트 떼버리기.
+            }
         }
     }
 

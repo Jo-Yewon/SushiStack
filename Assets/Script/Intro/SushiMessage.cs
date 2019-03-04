@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SushiMessage : MonoBehaviour
 {
-    private readonly static float TWINKLE_INTERVAL1 = 0.5f, TWINKLE_INTERVAL2=0.4f;
+    private readonly static float TWINKLE_INTERVAL1 = 0.1f, TWINKLE_INTERVAL2=0.3f;
     private Color transparent,original;
 
     void Start()

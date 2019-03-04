@@ -16,6 +16,7 @@ public class BluePlate : MonoBehaviour
     private int count = 0;
     private GameScript GameOver;
     private bool isScoreUpdate;
+    private bool isChangeToSushi;
 
     public int Count { get => count; set => count = value; }
 
@@ -31,20 +32,14 @@ public class BluePlate : MonoBehaviour
         {
             isScoreUpdate = true;
             bluePlateNum++;
-            if (GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>().FeverOn)
-            {
-                ScoreManager.GetComponent<ScoreManager>().ScoreUp(40);
-
-            }
-            else
-                ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
+            ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         catmove = Cat.GetComponent<DragCat>();
-        DishFalling dishFalling = gameObject.GetComponent<DishFalling>();
+        //DishFalling dishFalling = gameObject.GetComponent<DishFalling>();
 
         GameOver = Gamemanager.GetComponent<GameScript>();
 
@@ -63,12 +58,13 @@ public class BluePlate : MonoBehaviour
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
 
-            dishFalling.speed = 0;
+            //dishFalling.speed = 0;
+            gameObject.GetComponent<FallingScript>().enabled = false;
             catmove.FirstYPosition = transform.position.y;
             YPosition = transform.position.y;
             catmove.firstPlate = 1;
             count++;
-            catmove.DishCount ++;
+            catmove.DishCount++;
         }
         else if (catmove.firstPlate == 1 && collision.gameObject.CompareTag("PlateCollider"))
         {
@@ -84,7 +80,8 @@ public class BluePlate : MonoBehaviour
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
 
-            dishFalling.speed = 0;
+            //dishFalling.speed = 0;
+            gameObject.GetComponent<FallingScript>().enabled = false;
 
             if (count == 0)
             {
@@ -93,7 +90,7 @@ public class BluePlate : MonoBehaviour
             //YPosition = transform.position.y;
             count++;
             //catmove.DishCount++;
-            
+
         }
     }
 

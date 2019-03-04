@@ -33,11 +33,10 @@ public class IntroManager : MonoBehaviour
         {
             for (int i = 0; i < Input.touchCount; i++)
             {
-                tempTouchs = Input.GetTouch(i);
+                tempTouchs = Input.GetTouch(0);
                 if (tempTouchs.phase == TouchPhase.Ended)
                 {
-                    if (isTypingSkip == false) isTypingSkip = true; //첫번째 터치는 자막 타이핑 효과만 스킵
-                    else
+                    if (isTypingSkip)
                     {
                         if (++CurrentCutNum >= HowMuchCut)
                         {

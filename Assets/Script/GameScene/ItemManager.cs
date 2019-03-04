@@ -8,6 +8,7 @@ public class ItemManager : MonoBehaviour
     public GameObject Gamemanager, ScoreManager;
     public static int SushiNum;
     public GameObject turtleLetter, feverLetter, gookLetter;
+    public GameObject myFallingManager;
 
     public int itemScore;
     private GameScript GameOver;
@@ -17,27 +18,20 @@ public class ItemManager : MonoBehaviour
     {
         GameObject Cat = GameObject.Find("MovingCat");
         catmove = Cat.GetComponent<DragCat>();
-
         SushiNum = 0;
     }
 
-    public void OnEnable()
-    {
-        if(gameObject.CompareTag("turtle"))
-            gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0); //화면 상단으로
-    }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
-        GameObject Cat = GameObject.Find("MovingCat");
-        DragCat catmove = Cat.GetComponent<DragCat>();
-        */
+        if (collision.gameObject.CompareTag("bottom"))
+        {
+            //Debug.Log("bottom과 충돌");
+            gameObject.SetActive(false);
+        }
 
-        GameObject Item = this.gameObject;
-        DishFalling dishFalling = Item.GetComponent<DishFalling>();
-        ItemFalling itemFalling = GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>();
+        //GameObject gameObject = this.gameObject;
+        //DishFalling dishFalling = Item.GetComponent<DishFalling>();
+        //ItemFalling itemFalling = GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>();
 
         GameOver = Gamemanager.GetComponent<GameScript>();
 
@@ -47,10 +41,9 @@ public class ItemManager : MonoBehaviour
         GameObject[] RItem = GameObject.FindGameObjectsWithTag("itemred");
         */
 
-
         if (catmove.firstPlate == 0 && collision.gameObject.CompareTag("CatCollider"))
         {
-            if (Item.CompareTag("itemgreen"))   //초록 접시 초밥 방았을때
+            if (gameObject.CompareTag("itemgreen"))   //초록 접시 초밥 방았을때
             {
                 //모드체크
                 if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
@@ -59,14 +52,16 @@ public class ItemManager : MonoBehaviour
                 }
                 else
                 {
-                    Item.GetComponent<SushiFalling>().falling = false;
-                    Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                    Debug.Log("Tagged");
+                    //gameObject.GetComponent<SushiFalling>().falling = false;
+                    //gameObject.GetComponent<FallingScript>().enabled=false;
+                    //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    //Debug.Log("Tagged");
+                    gameObject.SetActive(false);
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                     SushiNum++;
                 }
             }
-            else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
+            else if (gameObject.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
             {
                 if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                 {
@@ -74,15 +69,17 @@ public class ItemManager : MonoBehaviour
                 }
                 else
                 {
-                    Item.GetComponent<SushiFalling>().falling = false;
-                    Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                    Debug.Log("Tagged");
+                    //gameObject.GetComponent<SushiFalling>().falling = false;
+                    //gameObject.GetComponent<FallingScript>().enabled=false;
+                    //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    //Debug.Log("Tagged");
+                    gameObject.SetActive(false);
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                     SushiNum++;
                 }
 
             }
-            else if (Item.CompareTag("itemred"))    //빨강 접시 초밥 받았을 때
+            else if (gameObject.CompareTag("itemred"))    //빨강 접시 초밥 받았을 때
             {
                 if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                 {
@@ -90,38 +87,44 @@ public class ItemManager : MonoBehaviour
                 }
                 else
                 {
-                    Item.GetComponent<SushiFalling>().falling = false;
-                    Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                    Debug.Log("Tagged");
+                    //gameObject.GetComponent<SushiFalling>().falling = false;
+                    //gameObject.GetComponent<FallingScript>().enabled=false;
+                    //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    //Debug.Log("Tagged");
+                    gameObject.SetActive(false);
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                     SushiNum++;
                 }
             }
-            else if (Item.CompareTag("turtle"))     //거북이 받았을떄
+            else if (gameObject.CompareTag("turtle"))     //거북이 받았을떄
             {
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
-
                 //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
                 //글자 표시
                 turtleLetter.GetComponent<Animation>().Play();
-                itemFalling.turtlePower();
+                //itemFalling.turtlePower();
                 gameObject.SetActive(false);
+                myFallingManager.GetComponent<FallingManager>().TurtleStart();
             }
-            else if (Item.CompareTag("gook"))
+            else if (gameObject.CompareTag("gook"))
             { //국 받았을 때
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
-                Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                itemFalling.gookPower();
+                //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                gookLetter.GetComponent<Animation>().Play();
+                //itemFalling.gookPower();
+                gameObject.SetActive(false);
+                myFallingManager.GetComponent<FallingManager>().GookStart();
             }
-            else if (Item.CompareTag("RainbowPlate"))
+            else if (gameObject.CompareTag("RainbowPlate"))
             {
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                 feverLetter.GetComponent<Animation>().Play();
-                Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                itemFalling.FeverOn = true;
+                //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                //itemFalling.FeverOn = true;
                 // 초밥 점수 2배로 하는 코드 필요
                 //this.itemScore *= 2;
-
+                gameObject.SetActive(false);
+                myFallingManager.GetComponent<FallingManager>().FeverStart();
             }
             //점수에 아이템 점수 더함
             GameOver.Score += itemScore;
@@ -140,7 +143,7 @@ public class ItemManager : MonoBehaviour
 
             if (count == 1)
             {
-                if (Item.CompareTag("itemgreen"))   //초록 접시 초밥 방았을때
+                if (gameObject.CompareTag("itemgreen"))   //초록 접시 초밥 방았을때
                 {
                     //모드체크
                     if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
@@ -149,14 +152,16 @@ public class ItemManager : MonoBehaviour
                     }
                     else
                     {
-                        Item.GetComponent<SushiFalling>().falling = false;
-                        Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                        Debug.Log("Tagged");
+                        //gameObject.GetComponent<SushiFalling>().falling = false;
+                        //gameObject.GetComponent<FallingScript>().enabled=false;
+                        //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                        //Debug.Log("Tagged");
+                        gameObject.SetActive(false);
                         ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                         SushiNum++;
                     }
                 }
-                else if (Item.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
+                else if (gameObject.CompareTag("itemblue"))   //파랑 접시 초밥 받았을 때
                 {
                     if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                     {
@@ -164,15 +169,17 @@ public class ItemManager : MonoBehaviour
                     }
                     else
                     {
-                        Item.GetComponent<SushiFalling>().falling = false;
-                        Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                        Debug.Log("Tagged");
+                        //gameObject.GetComponent<SushiFalling>().falling = false;
+                        //gameObject.GetComponent<FallingScript>().enabled=false;
+                        //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                        //Debug.Log("Tagged");
+                        gameObject.SetActive(false);
                         ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                         SushiNum++;
                     }
 
                 }
-                else if (Item.CompareTag("itemred"))    //빨강 접시 초밥 받았을 때
+                else if (gameObject.CompareTag("itemred"))    //빨강 접시 초밥 받았을 때
                 {
                     if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                     {
@@ -180,37 +187,44 @@ public class ItemManager : MonoBehaviour
                     }
                     else
                     {
-                        Item.GetComponent<SushiFalling>().falling = false;
-                        Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                        Debug.Log("Tagged");
+                        //gameObject.GetComponent<SushiFalling>().falling = false;
+                        //gameObject.GetComponent<FallingScript>().enabled=false;
+                        //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                        //Debug.Log("Tagged");
+                        gameObject.SetActive(false);
                         ScoreManager.GetComponent<ScoreManager>().ScoreUp(this.itemScore);
                         SushiNum++;
                     }
                 }
-                else if (Item.CompareTag("turtle"))     //거북이 받았을떄
+                else if (gameObject.CompareTag("turtle"))     //거북이 받았을떄
                 {
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                     //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
 
                     turtleLetter.GetComponent<Animation>().Play();
-                    itemFalling.turtlePower();
+                    //itemFalling.turtlePower();
                     gameObject.SetActive(false);
+                    myFallingManager.GetComponent<FallingManager>().TurtleStart();
                 }
-                else if (Item.CompareTag("gook"))
+                else if (gameObject.CompareTag("gook"))
                 { //국 받았을 때
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
-
-                    Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                    itemFalling.gookPower();
+                    //Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    gookLetter.GetComponent<Animation>().Play();
+                    //itemFalling.gookPower();
+                    gameObject.SetActive(false);
+                    myFallingManager.GetComponent<FallingManager>().GookStart();
                 }
-                else if (Item.CompareTag("RainbowPlate"))
+                else if (gameObject.CompareTag("RainbowPlate"))
                 {
                     ScoreManager.GetComponent<ScoreManager>().ScoreUp(0);
                     feverLetter.GetComponent<Animation>().Play();
-                    Item.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
-                    itemFalling.FeverOn = true;
+                    //gameObject.transform.localPosition = new Vector3(Random.Range(-520f, 520f), 2550 / 2, 0);
+                    //itemFalling.FeverOn = true;
                     // 초밥 점수 2배로 하는 코드 필요
                     //this.itemScore *= 2;
+                    gameObject.SetActive(false);
+                    myFallingManager.GetComponent<FallingManager>().FeverStart();
                 }
             }
             //점수에 아이템 점수 더함
@@ -220,18 +234,16 @@ public class ItemManager : MonoBehaviour
 
     }
 
-    bool turnF = false;
+    //bool turnF = false;
 
     // Update is called once per frame
 
+
+        /*
     void Update()
     {
         GameObject plate = this.gameObject;
         ItemFalling itemFalling = GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>();
-
-        if (gameObject.CompareTag("turtle"))
-            transform.localPosition = 
-                new Vector3(transform.localPosition.x, transform.localPosition.y - (2140 / DishFalling.fallingSpeed * Time.deltaTime), 0); //떨어지기
 
         if (itemFalling.FeverOn)
         {
@@ -254,5 +266,6 @@ public class ItemManager : MonoBehaviour
         }
 
     }
+    */
 
 }

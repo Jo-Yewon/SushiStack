@@ -31,12 +31,14 @@ public class GreenPlate : MonoBehaviour
         {
             isScoreUpdate = true;
             greenPlateNum++;
+            /*
             if (GameObject.Find("2.ItemPanel").GetComponent<ItemFalling>().FeverOn)
             {
                 ScoreManager.GetComponent<ScoreManager>().ScoreUp(20);
 
             }
             else
+            */
             ScoreManager.GetComponent<ScoreManager>().ScoreUp(10);
         }
     }
@@ -44,7 +46,7 @@ public class GreenPlate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         catmove = Cat.GetComponent<DragCat>();
-        DishFalling dishFalling = gameObject.GetComponent<DishFalling>();
+        //DishFalling dishFalling = gameObject.GetComponent<DishFalling>();
 
         GameOver = Gamemanager.GetComponent<GameScript>();
 
@@ -61,8 +63,9 @@ public class GreenPlate : MonoBehaviour
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
-            
-            dishFalling.speed = 0;
+
+            //dishFalling.speed = 0;
+            gameObject.GetComponent<FallingScript>().enabled = false;
             catmove.FirstYPosition = transform.position.y;
             YPosition = transform.position.y;
             catmove.firstPlate = 1;
@@ -84,8 +87,9 @@ public class GreenPlate : MonoBehaviour
 
             rb.isKinematic = true;
             rb.velocity = new Vector2(0, 0);
-            
-            dishFalling.speed = 0;
+
+            //dishFalling.speed = 0;
+            gameObject.GetComponent<FallingScript>().enabled = false;
 
             if (count == 0)
             {
