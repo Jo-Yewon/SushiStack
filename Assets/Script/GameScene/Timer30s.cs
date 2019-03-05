@@ -38,6 +38,7 @@ public class Timer30s : MonoBehaviour
     private int currentModeNum;
     private SpriteRenderer CatImageComponent;
     private Animation TheifCatAnim;
+    private SpriteState Original, Failed;
 
     void Awake()
     {
@@ -47,6 +48,10 @@ public class Timer30s : MonoBehaviour
             //게임 배경 음악 틀기
             GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
         }catch (Exception e) {        }
+
+        Original = TheifCatObject.GetComponent<Button>().spriteState;
+        Failed = Original;
+        Failed.disabledSprite = (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
     }
 
     void Start()
@@ -145,12 +150,15 @@ public class Timer30s : MonoBehaviour
             ThiefFailedPop.SetActive(true);
             ScoreManager.GetComponent<ScoreManager>().ThiefFailed(); //점수 깎기
 
-            TheifCatObject.GetComponent<Image>().sprite= (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
+            //TheifCatObject.GetComponent<Image>().sprite= (Sprite)Resources.Load("thiefCatRun", typeof(Sprite));
+            TheifCatObject.GetComponent<Button>().spriteState = Failed; //도둑고양이 보따리 이미지로 변경
+            TheifCatObject.GetComponent<Button>().interactable = false; //클릭 안되도록
             TheifCatAnim.Play("ThiefCatRun");
             ThiefCatLaugh.GetComponent<AudioSource>().Play(); //고양이 웃는 소리
 
             yield return new WaitForSeconds(TheifCatAnim["ThiefCatRun"].length);
-            TheifCatObject.GetComponent<Image>().sprite = (Sprite)Resources.Load("0", typeof(Sprite));
+            //TheifCatObject.GetComponent<Image>().sprite = (Sprite)Resources.Load("0", typeof(Sprite));
+            TheifCatObject.GetComponent<Button>().spriteState = Original;
             yield return new WaitForSeconds(0.3f);
             ThiefFailedPop.SetActive(false);
             yield return new WaitForSeconds(0.6f);

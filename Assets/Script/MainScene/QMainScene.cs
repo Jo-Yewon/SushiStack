@@ -19,7 +19,8 @@ public class QMainScene : MonoBehaviour
     public void GameStartButtonClicked()
     {
         buttonClikedSound.Play();
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("LoadingScene");
     }
 
     public void StoreButtonClicked()
