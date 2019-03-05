@@ -18,7 +18,7 @@ public class ItemManager : MonoBehaviour
     {
         GameObject Cat = GameObject.Find("MovingCat");
         catmove = Cat.GetComponent<DragCat>();
-        SushiNum = 0;
+        //SushiNum = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

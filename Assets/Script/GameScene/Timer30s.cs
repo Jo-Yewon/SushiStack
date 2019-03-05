@@ -61,8 +61,11 @@ public class Timer30s : MonoBehaviour
         CatImageComponent = CatObject.GetComponent<SpriteRenderer>();
 
         StartCoroutine("TimeCount");
-        GuestScore = 0; //게임 시작시 static 변수 초기화
+
+        //게임 시작시 static 변수 초기화
+        GuestScore = 0;
         ThiefCatCount = 0;
+        ItemManager.SushiNum = 0;
     }
 
     private void ClearScreen()
@@ -184,8 +187,8 @@ public class Timer30s : MonoBehaviour
             DishFalling.fallingSpeed -= 0.5f;
         }
         */
-        FallingManager.UpSpeed(); // 속도 높이기
         GuestScore++;
+        FallingManager.UpSpeed(); // 속도 높이기
         GuestScoreObject.GetComponent<Text>().text = GuestScore.ToString();
     }
 
