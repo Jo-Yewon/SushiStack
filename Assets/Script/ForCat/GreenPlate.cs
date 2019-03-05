@@ -45,6 +45,12 @@ public class GreenPlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("bottom"))
+        {
+            //Debug.Log("bottom과 충돌");
+            gameObject.SetActive(false);
+        }
+
         catmove = Cat.GetComponent<DragCat>();
         //DishFalling dishFalling = gameObject.GetComponent<DishFalling>();
 

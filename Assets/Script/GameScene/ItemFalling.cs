@@ -16,7 +16,7 @@ public class ItemFalling : MonoBehaviour
         StartCoroutine("TurtleAndGookFall");
     }
 
-    float itemTimer = 0f;
+    //float itemTimer = 0f;
     float feverTimer = 0f;
     public float whichItem = 0f;
     public float temp = 0f;
