@@ -10,6 +10,8 @@ public class RedPlate : MonoBehaviour
     public Rigidbody2D rb;
     public float YPosition;
     public GameObject Cat;
+    public GameObject LuckyCatPanel;
+
 
     private GameObject platecollider;
     private DragCat catmove;
@@ -60,7 +62,8 @@ public class RedPlate : MonoBehaviour
 
             if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
-                GameOver.GameIsOver = true;
+                //GameOver.GameIsOver = true;
+                LuckyCatPanel.SetActive(true);
             }
             else
             {
@@ -83,7 +86,8 @@ public class RedPlate : MonoBehaviour
         {
             if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
-                GameOver.GameIsOver = true;
+                //GameOver.GameIsOver = true;
+                LuckyCatPanel.SetActive(true);
             }
             else
             {

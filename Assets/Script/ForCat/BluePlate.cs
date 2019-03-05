@@ -10,6 +10,7 @@ public class BluePlate : MonoBehaviour
     public Rigidbody2D rb;
     public float YPosition;
     public GameObject Cat;
+    public GameObject LuckyCatPanel;
 
     private GameObject platecollider;
     private DragCat catmove;
@@ -54,7 +55,9 @@ public class BluePlate : MonoBehaviour
 
             if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
-                GameOver.GameIsOver = true;
+                //GameOver.GameIsOver = true;
+                LuckyCatPanel.SetActive(true);
+
             }
             else
             {
@@ -76,7 +79,9 @@ public class BluePlate : MonoBehaviour
         {
             if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
             {
-                GameOver.GameIsOver = true;
+                //GameOver.GameIsOver = true;
+                LuckyCatPanel.SetActive(true);
+
             }
             else
             {

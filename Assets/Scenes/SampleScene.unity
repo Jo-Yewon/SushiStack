@@ -2467,8 +2467,8 @@ RectTransform:
   - {fileID: 1331767292}
   - {fileID: 1086327964}
   - {fileID: 330782015}
-  - {fileID: 679123753}
   - {fileID: 709593087}
+  - {fileID: 679123753}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2583,6 +2583,7 @@ MonoBehaviour:
   feverLetter: {fileID: 66592167}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 926834875}
+  LuckyCatPanel: {fileID: 0}
   itemScore: 0
 --- !u!1 &642785359
 GameObject:
@@ -2890,7 +2891,7 @@ RectTransform:
   - {fileID: 2124868255}
   - {fileID: 1430483505}
   m_Father: {fileID: 524533423}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2979,7 +2980,7 @@ RectTransform:
   - {fileID: 231024121}
   - {fileID: 1671895921}
   m_Father: {fileID: 524533423}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3136,6 +3137,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 15
 --- !u!50 &721787053
 Rigidbody2D:
@@ -5012,6 +5014,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 15
 --- !u!50 &936786714
 Rigidbody2D:
@@ -5267,6 +5270,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 926834875}
+  LuckyCatPanel: {fileID: 0}
   itemScore: 0
 --- !u!114 &953907158
 MonoBehaviour:
@@ -5705,6 +5709,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 25
 --- !u!114 &1018324438
 MonoBehaviour:
@@ -5878,6 +5883,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 35
 --- !u!114 &1034534765
 MonoBehaviour:
@@ -8790,7 +8796,6 @@ MonoBehaviour:
   LuckyCatItemPanel: {fileID: 1086327963}
   OrderPanel: {fileID: 1331767291}
   Score: 0
-  GameIsOver: 0
 --- !u!1 &1451183280
 GameObject:
   m_ObjectHideFlags: 0
@@ -9108,6 +9113,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 25
 --- !u!114 &1502868318
 MonoBehaviour:
@@ -10132,6 +10138,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 35
 --- !u!114 &1666903557
 MonoBehaviour:
@@ -11559,6 +11566,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 15
 --- !u!50 &2016001634
 Rigidbody2D:
@@ -11740,6 +11748,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 344547488}
   myFallingManager: {fileID: 926834875}
+  LuckyCatPanel: {fileID: 0}
   itemScore: 0
 --- !u!114 &2034424128
 MonoBehaviour:
@@ -11934,6 +11943,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 35
 --- !u!114 &2063458788
 MonoBehaviour:
@@ -12235,6 +12245,7 @@ MonoBehaviour:
   feverLetter: {fileID: 0}
   gookLetter: {fileID: 0}
   myFallingManager: {fileID: 0}
+  LuckyCatPanel: {fileID: 1086327963}
   itemScore: 25
 --- !u!114 &2124710057
 MonoBehaviour:
@@ -12512,6 +12523,11 @@ PrefabInstance:
       propertyPath: Cat
       value: 
       objectReference: {fileID: 642785359}
+    - target: {fileID: 5417896931250305312, guid: 041074dd23b9ede42a1c7921e60ace5b,
+        type: 3}
+      propertyPath: LuckyCatPanel
+      value: 
+      objectReference: {fileID: 1086327963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041074dd23b9ede42a1c7921e60ace5b, type: 3}
 --- !u!61 &2095142646556598996
@@ -12683,6 +12699,11 @@ PrefabInstance:
       propertyPath: Cat
       value: 
       objectReference: {fileID: 642785359}
+    - target: {fileID: 7059451811559315392, guid: 4093355b986beff4b90fc37384562a48,
+        type: 3}
+      propertyPath: LuckyCatPanel
+      value: 
+      objectReference: {fileID: 1086327963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4093355b986beff4b90fc37384562a48, type: 3}
 --- !u!222 &2894508381513547455
@@ -12981,6 +13002,11 @@ PrefabInstance:
       propertyPath: Cat
       value: 
       objectReference: {fileID: 642785359}
+    - target: {fileID: 5265671458986982482, guid: 3e0574c2b6fd7fe4ebbc0ac90cbf166b,
+        type: 3}
+      propertyPath: LuckyCatPanel
+      value: 
+      objectReference: {fileID: 1086327963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0574c2b6fd7fe4ebbc0ac90cbf166b, type: 3}
 --- !u!224 &8546405534670426126 stripped

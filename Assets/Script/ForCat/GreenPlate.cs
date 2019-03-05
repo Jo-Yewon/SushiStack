@@ -10,6 +10,8 @@ public class GreenPlate : MonoBehaviour
     public Rigidbody2D rb;
     public float YPosition;
     public GameObject Cat;
+    public GameObject LuckyCatPanel;
+
 
     private GameObject platecollider;
     private DragCat catmove;
@@ -60,7 +62,8 @@ public class GreenPlate : MonoBehaviour
         {
 
             if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123) {
-                GameOver.GameIsOver = true;
+                //GameOver.GameIsOver = true;
+                LuckyCatPanel.SetActive(true);
             }
             else
             {
@@ -84,7 +87,8 @@ public class GreenPlate : MonoBehaviour
         {
             if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
             {
-                GameOver.GameIsOver = true;
+                //GameOver.GameIsOver = true;
+                LuckyCatPanel.SetActive(true);
             }
             else
             {

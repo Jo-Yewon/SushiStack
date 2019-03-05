@@ -9,6 +9,7 @@ public class ItemManager : MonoBehaviour
     public static int SushiNum;
     public GameObject turtleLetter, feverLetter, gookLetter;
     public GameObject myFallingManager;
+    public GameObject LuckyCatPanel;
 
     public int itemScore;
     private GameScript GameOver;
@@ -48,7 +49,8 @@ public class ItemManager : MonoBehaviour
                 //모드체크
                 if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
                 {
-                    GameOver.GameIsOver = true;
+                    //GameOver.GameIsOver = true;
+                    LuckyCatPanel.SetActive(true);
                 }
                 else
                 {
@@ -65,7 +67,9 @@ public class ItemManager : MonoBehaviour
             {
                 if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                 {
-                    GameOver.GameIsOver = true;
+                    //GameOver.GameIsOver = true;
+                    LuckyCatPanel.SetActive(true);
+
                 }
                 else
                 {
@@ -83,7 +87,9 @@ public class ItemManager : MonoBehaviour
             {
                 if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                 {
-                    GameOver.GameIsOver = true;
+                    //GameOver.GameIsOver = true;
+                    LuckyCatPanel.SetActive(true);
+
                 }
                 else
                 {
@@ -148,7 +154,9 @@ public class ItemManager : MonoBehaviour
                     //모드체크
                     if (catmove.Modenumber != 1 && catmove.Modenumber != 12 && catmove.Modenumber != 13 && catmove.Modenumber != 123)
                     {
-                        GameOver.GameIsOver = true;
+                        //GameOver.GameIsOver = true;
+                        LuckyCatPanel.SetActive(true);
+
                     }
                     else
                     {
@@ -165,7 +173,9 @@ public class ItemManager : MonoBehaviour
                 {
                     if (catmove.Modenumber != 2 && catmove.Modenumber != 12 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                     {
-                        GameOver.GameIsOver = true;
+                        //GameOver.GameIsOver = true;
+                        LuckyCatPanel.SetActive(true);
+
                     }
                     else
                     {
@@ -183,7 +193,9 @@ public class ItemManager : MonoBehaviour
                 {
                     if (catmove.Modenumber != 3 && catmove.Modenumber != 13 && catmove.Modenumber != 23 && catmove.Modenumber != 123)
                     {
-                        GameOver.GameIsOver = true;
+                        //GameOver.GameIsOver = true;
+                        LuckyCatPanel.SetActive(true);
+
                     }
                     else
                     {

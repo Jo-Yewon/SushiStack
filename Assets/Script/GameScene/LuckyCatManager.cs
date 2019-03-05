@@ -65,7 +65,7 @@ public class LuckyCatManager : MonoBehaviour
 
         LoadLuckyCatNumTop(); //게임 상단 아이템 개수도 업데이트
 
-        gameManager.GetComponent<GameScript>().GameIsOver = false;
+        //gameManager.GetComponent<GameScript>().GameIsOver = false;
         Time.timeScale = 1;
         GameObject.FindWithTag("SoundManager").GetComponent<BGMScript>().GameBGMPlay();
 

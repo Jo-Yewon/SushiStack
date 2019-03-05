@@ -7,7 +7,7 @@ public class GameScript : MonoBehaviour
     public GameObject LuckyCatItemPanel;
     public GameObject OrderPanel;
     public int Score;
-    public bool GameIsOver = false;
+    //public bool GameIsOver = false;
 
     private GameObject O1, O2, O3, O12, O13, O23, O123;
     private GameObject Cat;
@@ -39,7 +39,7 @@ public class GameScript : MonoBehaviour
         O123 = OrderPanel.transform.GetChild(6).gameObject;
 
         Score = 0;
-        GameIsOver = false;
+        //GameIsOver = false;
     }
 
     // Start is called before the first frame update
@@ -64,12 +64,14 @@ public class GameScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         if (GameIsOver == true) {
             LuckyCatItemPanel.SetActive(true);
         }
     }
+    */
 
     public int getScore()
     {

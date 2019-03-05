@@ -105,7 +105,7 @@ public class Timer30s : MonoBehaviour
         yield return new WaitForSeconds(0.125f);
         FallingManager.IsFall = true; //다시 아이템 복제 실행
         //ItemFallingObject.GetComponent<ItemFalling>().enabled = true; //다시 아이템 복제 실행
-        GameManager.GetComponent<GameScript>().GameIsOver = false;
+        //GameManager.GetComponent<GameScript>().GameIsOver = false;
         GameManager.SetActive(true);
         orderArray[currentModeNum].SetActive(false); //주문 말풍선 감추기
 
