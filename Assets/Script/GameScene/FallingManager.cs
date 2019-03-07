@@ -91,15 +91,15 @@ public class FallingManager : MonoBehaviour
 
     public static void UpSpeed() //timer30s 에서 이 함수 호출하면 속도 빨라짐.
     {
-        /*
+        
         if (FALLING_SPEED >= FALLING_SPEED_MAX)
         {
             FALLING_SPEED -= FALLING_SPEED_DOWN_PER_GUEST;
             SPEED = 2140 / FALLING_SPEED;
         }
-        */
-        FALLING_SPEED -= 0.5f/Timer30s.GuestScore; //발이 내려올때마다 FALLING_SPEED가 0.5/n만큼 감소하도록 수정
-        SPEED = 2140 / FALLING_SPEED;
+        //
+        //FALLING_SPEED -= 0.5f/Timer30s.GuestScore; //발이 내려올때마다 FALLING_SPEED가 0.5/n만큼 감소하도록 수정
+        //SPEED = 2140 / FALLING_SPEED;
     }
 
 
