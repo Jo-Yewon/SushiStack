@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BGMScript : MonoBehaviour
 {
-    private AudioSource startBGM, gameBGM, clickedSound, introBGM;
+    private AudioSource startBGM, gameBGM, clickedSound, introBGM, tutorialBGM;
 
     void Awake()
     {
@@ -13,12 +13,14 @@ public class BGMScript : MonoBehaviour
         gameBGM = gameObject.transform.GetChild(1).gameObject.GetComponent<AudioSource>();
         clickedSound = gameObject.transform.GetChild(2).gameObject.GetComponent<AudioSource>();
         introBGM = gameObject.transform.GetChild(3).gameObject.GetComponent<AudioSource>();
+        tutorialBGM = gameObject.transform.GetChild(4).gameObject.GetComponent<AudioSource>();
     }
 
     public void StartBGMPlay()
     {
         if (gameBGM.isPlaying) gameBGM.Pause();
         if (introBGM.isPlaying) introBGM.Pause();
+        if (tutorialBGM.isPlaying) tutorialBGM.Pause();
         if (!startBGM.isPlaying) startBGM.Play();
     }
 
@@ -26,6 +28,7 @@ public class BGMScript : MonoBehaviour
     {
         if (startBGM.isPlaying) startBGM.Pause();
         if (introBGM.isPlaying) introBGM.Pause();
+        if (tutorialBGM.isPlaying) tutorialBGM.Pause();
         if (!gameBGM.isPlaying) gameBGM.Play();
     }
 
@@ -33,6 +36,8 @@ public class BGMScript : MonoBehaviour
     {
         if (startBGM.isPlaying) startBGM.Pause();
         else if (gameBGM.isPlaying) gameBGM.Pause();
+        else if (tutorialBGM.isPlaying) tutorialBGM.Pause();
+
     }
 
     public void ButtonClickedSoundPlay()
@@ -44,6 +49,15 @@ public class BGMScript : MonoBehaviour
     {
         if (gameBGM.isPlaying) gameBGM.Pause();
         if (startBGM.isPlaying) startBGM.Pause();
+        if (tutorialBGM.isPlaying) tutorialBGM.Pause();
         if (!introBGM.isPlaying) introBGM.Play();
+    }
+
+    public void TutorialBGMPlay()
+    {
+        if (gameBGM.isPlaying) gameBGM.Pause();
+        if (introBGM.isPlaying) introBGM.Pause();
+        if (startBGM.isPlaying) startBGM.Pause();
+        if (!tutorialBGM.isPlaying) tutorialBGM.Play();
     }
 }

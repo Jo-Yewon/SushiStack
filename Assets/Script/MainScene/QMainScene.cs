@@ -52,4 +52,9 @@ public class QMainScene : MonoBehaviour
         buttonClikedSound.Play();
         SceneManager.LoadScene("IntroScene(Re)");
     }
+
+    public void TutorialButtonClicked()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
 }
