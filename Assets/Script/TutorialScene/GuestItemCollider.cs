@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#pragma warning disable 0168
 
 public class GuestItemCollider : MonoBehaviour
 {

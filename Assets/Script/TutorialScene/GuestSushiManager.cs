@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable 0168
+
+
 public class GuestSushiManager : MonoBehaviour
 {
     public GameObject guestItemManagerObj, TutleItemManagerObj, GookItemManagerObj, FeverItemManagerObj;

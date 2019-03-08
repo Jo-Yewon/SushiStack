@@ -63,4 +63,17 @@ public class ButtonManager1 : MonoBehaviour
         PlayerDataLoad.playerdata.AchievementIndex = 6;
         PlayerDataLoad.SaveData();
     }
+
+    public void CoinPlus()
+    {
+        PlayerDataLoad.playerdata.coin += 1000;
+        PlayerDataLoad.SaveData();
+    }
+
+    public void LuckyCatPlus()
+    {
+        PlayerDataLoad.playerdata.item_luckycat_num += 10;
+        PlayerDataLoad.SaveData();
+
+    }
 }

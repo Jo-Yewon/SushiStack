@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+#pragma warning disable 0168
+
 
 public class NamingManager : MonoBehaviour
 {
