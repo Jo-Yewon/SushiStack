@@ -7,7 +7,7 @@ public class FallingManager : MonoBehaviour
     public static float FALLING_SPEED;// 모든 아이템 및 초밥이 떨어지는 속도
     public static float SPEED;
     public readonly static float FALLING_SPEED_MAX = 1f; //아무리 빨리 떨어져도 이 이상은 안갈 범위
-    public readonly static float FALLING_SPEED_DOWN_PER_GUEST = 0.4f; //손님 한명 지날때마다 속도 빨라지는 수치
+    public readonly static float FALLING_SPEED_DOWN_PER_GUEST = 0.6f; //손님 한명 지날때마다 속도 빨라지는 수치
     public static float FALLING_INTERVAL = 1f; //떨어지는 시간 간격
     public static bool IsFall; //외부에서 false로 만들면 새로운 접시, 아이템, 초밥이 떨어지지 않음.
     //public readonly static float ItemDropProb = 0.08f; //매 간격마다 장국이나 거북이가 떨어질 확률.
